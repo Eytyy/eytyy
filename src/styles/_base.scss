@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'fonts/Bitter-Bold';
+  src: url('../fonts/Bitter-Bold.ttf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'SCP';
+  src: url('../fonts/SourceCodePro-ExtraLight.ttf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'SCPR';
+  src: url('../fonts/SourceCodePro-Regular.ttf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SCP';
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  @include bodytext;
+  margin: 0 0 1.5em;
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: blue;
+}

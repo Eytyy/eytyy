@@ -1,0 +1,51 @@
+@import 'vars';
+@import 'placeholders';
+@import 'mixins';
+@import 'base';
+@import 'layout';
+@import 'icons';
+@import 'front';
+@import 'project';
+@import 'state';
+
+.project-link__item,
+.contact-link {
+  line-height: 1;
+  border-bottom: 1px solid;
+}
+
+.external-link:after,
+.external-link:before {
+  content: '';
+  display: block;
+  width: 3px;
+  position: absolute;
+}
+
+.external-link:after {
+  content: '';
+  display: block;
+  border: 1px solid transparent;
+  border-right: 1px solid blue;
+  border-top: 1px solid blue;
+  height: 3px;
+  top: 2px;
+  right: -5px;
+}
+
+.external-link:before {
+  background: blue;
+  height: 1px;
+  right: -3px;
+  top: 5px;
+  transform: rotate(-45deg);
+}
+
+.greetings {
+  @include headline;
+}
+
+.signature {
+  @include bodytext;
+  margin: 0;
+}

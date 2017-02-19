@@ -1,0 +1,22 @@
+.project__title {
+  @include headline;
+  margin-top: 0;
+}
+.project-details {
+  p {
+    display: inline;
+    margin-left: 5px;
+  }
+}
+.c-project {
+  display: inline-block;
+  &--active {
+    font-family: 'SCPR';
+    display: block;
+    margin: 20px 0;
+  }
+}
+
+.project-link {
+  cursor: default;
+}

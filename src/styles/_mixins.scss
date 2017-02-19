@@ -1,0 +1,53 @@
+@mixin headline {
+  @extend %headline;
+  font-size: calc(7.5vh + 7vw);
+  margin-bottom: 30px;
+  @include respond-to(small-landscape) {
+    font-size: calc(6vh + 6vw);
+    margin-bottom: 20px;
+  }
+  @include respond-to(compact-landscape) {
+    font-size: calc(6vh + 6vw);
+    margin-bottom: 20px;
+  }
+  @include respond-to(medium-portrait) {
+    font-size: calc(6.5vh + 6vw);
+    margin-bottom: 40px;
+  }
+  @include respond-to(large) {
+    font-size: calc(5vh + 6vw);
+    margin-bottom: 30px;
+  }
+  @include respond-to(xlarge) {
+    font-size: calc(6vh + 6.5vw);
+    margin-bottom: 40px;
+  }
+
+}
+@mixin bodytext {
+  font-size: calc(1.5vh + 1.2vw);
+  @include respond-to(medium) {
+    font-size: calc(1.25vh + 1.15vw);
+    margin: 0 0 1.25em;
+  }
+  @include respond-to(large) {
+    font-size: calc(1vh + 1vw);
+  }
+  @include respond-to(xlarge) {
+    font-size: calc(1vh + 1vw);
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  // Get the query map for $breakpoints map
+  $bp: map-get($breakpoints, $breakpoint);
+  // If there is no query called $breakpoint in map, throw an error
+  @if not $bp {
+    @error "No value could be retrieved from `#{$breakpoint}`. "
+    + "Please make sure it is defined in `$breakpoints` map.";
+  }
+  // Include the media mixin with $queries
+  @media #{$bp} {
+    @content;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "google": true,
+    "describe": true,
+    "test": true,
+    "it": true,
+    "expect": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"]}],
+    "class-methods-use-this": [2, { "exceptMethods": ["componentDidMount"] }]
+  },
+  "plugins": [
+    "react"
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "Turbo",
+    "nameShort": "Turbo",
+    "url": "/work/turbo",
+    "desc": "<p>Turbo is an independent design studio/space based in Amman, Jordan run by Saeed Abu-Jaber &amp;Mothanna Hussein.</p><p>Turbo provided the designs for the website and asked me to implement them on top of a simple backend. The  website was built on top of <span class=\"stack\">KeystoneJS</span> and the designs were ammended to make them adapt to different screen sizes.</p>",
+    "website": "https://www.turrrbo.com"
+  },
+  {
+    "id": "2",
+    "name": "Welfare Association Map",
+    "nameShort": "Welfare",
+    "url": "/work/welfare",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "welfare-prod.us-west-2.elasticbeanstalk.com"
+  },
+  {
+    "id": "3",
+    "name": "Jawwy",
+    "nameShort": "Jawwy",
+    "url": "/work/jawwy",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https://www.jawwy.sa"
+  },
+  {
+    "id": "4",
+    "name": "KAFD",
+    "nameShort": "KAFD",
+    "url": "work/kafd",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https//www.kafd.com"
+  },
+  {
+    "id": "5",
+    "name": "Royal Hashemite Court",
+    "nameShort": "RHC",
+    "url": "/work/rhc",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https://www.rhc.jo"
+  },
+  {
+    "id": "6",
+    "name": "Yanboot",
+    "nameShort": "Yanboot",
+    "url": "/work/yanboot",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https//www.yanboot.com"
+  },
+  {
+    "id": "7",
+    "name": "Syntax",
+    "nameShort": "Syntax",
+    "url": "/work/syntax",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https://www.syntaxdesign.com"
+  },
+  {
+    "id": "8",
+    "name": "Umniah",
+    "nameShort": "Umniah",
+    "url": "/work/umniah",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https://www.umniah.com"
+  },
+  {
+    "id": "9",
+    "name": "Khammash Architects",
+    "nameShort": "Khammash",
+    "url": "/work/khammash",
+    "desc": "<p>A multi-disciplinary architecture office based in Amman, Jordan. They are involved in numerous projects in Jordan,Oman, Palestine, Egypt, Syria and the UAE, ranging from master planning and urban design to sustainable tourism and destination design.</p<p>The new website was built to showcase their work, research, and art pieces. Website design by Noura Salem.</p>",
+    "website": "https://www.khammash.com"
+  },
+  {
+    "id": "10",
+    "name": "The Solutions Unit",
+    "nameShort": "TSU",
+    "url": "/work/tsu",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "website": "https://www.thesolutionsunit.com"
+  }
+]
