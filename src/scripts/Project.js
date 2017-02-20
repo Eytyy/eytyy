@@ -23,7 +23,9 @@ class Project extends Component {
       active: !this.state.active,
     });
     // call parent component method updateUI and pass the clicked project info object.
-    this.props.updateUI(project);
+    setTimeout(() => {
+      this.props.updateUI(project);
+    }, 100);
   }
   render() {
     return (
