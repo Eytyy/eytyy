@@ -7,8 +7,23 @@ class Project extends Component {
     this.state = {
       active: false,
     };
+    this.onProjectClick = this.onProjectClick.bind(this);
   }
   onProjectClick(event) {
+    const target = event.target.parentNode;
+    const project = {
+      id: this.props.data.id,
+      title: this.props.data.nameShort,
+      element: target,
+      offsetHeight: target.offsetHeight,
+      offset: target.offsetTop,
+    };
+    // update active state; will affect visibility of project description.
+    this.setState({
+      active: !this.state.active,
+    });
+    // call parent component method updateUI and pass the clicked project info object.
+    this.props.updateUI(project);
   }
   render() {
     return (

@@ -11,7 +11,7 @@ describe('Update active projects', () => {
         element: '',
         offset: 0,
         height: 0,
-      }
+      },
     ];
     const project = {
       id: 2,
@@ -22,7 +22,7 @@ describe('Update active projects', () => {
       height: 0,
     };
     const expected = [
-      { 
+      {
         id: 1,
         title: 'turbo',
         state: false,
@@ -37,7 +37,7 @@ describe('Update active projects', () => {
         element: '',
         offset: 0,
         height: 0,
-      }
+      },
     ];
     const actual = updateActiveProjects(projects, project);
     expect(actual).toEqual(expected);
@@ -60,7 +60,7 @@ describe('Update active projects', () => {
         element: '',
         offset: 0,
         height: 0,
-      }
+      },
     ];
     const actual = updateActiveProjects(projects, project);
     expect(actual).toEqual(expected);
@@ -74,7 +74,7 @@ describe('Update active projects', () => {
         element: '',
         offset: 0,
         height: 0,
-      }
+      },
     ];
     const project = {
       id: 1,
@@ -90,7 +90,7 @@ describe('Update active projects', () => {
   });
   it('should remove project from list of active projects', () => {
     const projects = [
-      { 
+      {
         id: 1,
         title: 'turbo',
         state: false,
@@ -105,7 +105,7 @@ describe('Update active projects', () => {
         element: '',
         offset: 0,
         height: 0,
-      }
+      },
     ];
     const project = {
       id: 1,
@@ -128,7 +128,7 @@ describe('Update active projects', () => {
   });
   it('should remove project from list of active projects', () => {
     const projects = [
-      { 
+      {
         id: 1,
         title: 'turbo',
         state: false,
@@ -143,7 +143,7 @@ describe('Update active projects', () => {
         element: '',
         offset: 0,
         height: 0,
-      }
+      },
     ];
     const project = {
       id: 2,
@@ -154,7 +154,7 @@ describe('Update active projects', () => {
       height: 0,
     };
     const actual = updateActiveProjects(projects, project);
-    const expected = [{ 
+    const expected = [{
       id: 1,
       title: 'turbo',
       state: false,
