@@ -49,8 +49,14 @@ class Home extends Component {
     if (!this.scroll) {
       this.scroll = true;
       setTimeout(() => {
-        const activeSection = getProjectOnScrollPosition(this.state.activeProjects, window.scrollY);
-        console.log(activeSection);
+        const scrollPos = window.scrollY
+          + document.querySelector('main').offsetTop
+          + document.querySelector('.work-text').offsetTop;
+        const activeSection = getProjectOnScrollPosition(this.state.activeProjects, scrollPos);
+        // update title
+        this.setState({
+          title: activeSection,
+        });
         this.scroll = false;
       }, 500);
     }
@@ -64,7 +70,7 @@ class Home extends Component {
       const offset = el.offsetTop;
       Object.assign(item, {
         offset,
-        offsetHeight: offset + el.offsetHeight + 40,
+        height: el.offsetHeight + 40,
       });
     });
     // update the state
@@ -72,7 +78,13 @@ class Home extends Component {
       activeProjects,
       title,
     });
-    console.log(activeProjects);
+    // scroll to section
+    console.log(project.title);
+    const scrollpos = project.offset
+      - document.querySelector('main').offsetTop
+      - document.querySelector('.work-text').offsetTop;
+
+    window.scrollTo(0, scrollpos);
   }
   render() {
     return (

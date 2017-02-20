@@ -13,8 +13,11 @@ const Content = (props) => {
 };
 
 const FirstParagraphText = props => (
-  <p>If you are here to check my {<span className="anchor anchor--work">work</span>},
-  here are a few that found their way to the Internet:{ props.projects }</p>
+  <section className="section section--work">
+    <header className="section__header"><h2 className="section__title">work</h2></header>
+    <p className="work-text">If you are here to check my work, here are a few that found their way to the Internet:</p>
+    <ul className="section__list projects-list">{ props.projects }</ul>
+  </section>
 );
 
 const SecondParagraphText = props => (

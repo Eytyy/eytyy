@@ -15,7 +15,7 @@ class Project extends Component {
       id: this.props.data.id,
       title: this.props.data.nameShort,
       element: target,
-      offsetHeight: target.offsetHeight,
+      height: target.offsetHeight,
       offset: target.offsetTop,
     };
     // update active state; will affect visibility of project description.

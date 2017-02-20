@@ -1,3 +1,21 @@
 .anchor {
   font-family: 'SCPR';
 }
+.section {
+  margin: 0 0 1.5em;
+  p, &__list {
+    display: inline;
+  }
+  &__title {
+    font-size: inherit;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+  @include respond-to(compact) {
+    .section__header {
+      display: none;
+    }
+  }
+}

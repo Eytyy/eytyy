@@ -16,7 +16,7 @@ export const getProjectOnScrollPosition = (list, scrollPosition) => {
     return 'friend';
   }
   const condition = project =>
-    (scrollPosition >= project.offset && scrollPosition <= project.offset + project.offsetHeight);
+    (scrollPosition >= project.offset && scrollPosition <= project.offset + project.height);
   const project = list.filter(item => condition(item))[0];
   return project ? project.title : 'friend';
 };

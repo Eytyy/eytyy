@@ -13,7 +13,7 @@ describe('GetActiveScrollPosition', () => {
         state: false,
         element: '',
         offset: 320,
-        offsetHeight: 200,
+        height: 200,
       },
       {
         id: 2,
@@ -21,7 +21,7 @@ describe('GetActiveScrollPosition', () => {
         state: false,
         element: '',
         offset: 520,
-        offsetHeight: 300,
+        height: 300,
       },
     ];
     const scrollPosition = 320;
@@ -37,7 +37,7 @@ describe('GetActiveScrollPosition', () => {
         state: false,
         element: '',
         offset: 320,
-        offsetHeight: 200,
+        height: 200,
       },
       {
         id: 2,
@@ -45,7 +45,7 @@ describe('GetActiveScrollPosition', () => {
         state: false,
         element: '',
         offset: 520,
-        offsetHeight: 300,
+        height: 300,
       },
     ];
     const scrollPosition = 540;
@@ -62,7 +62,7 @@ describe('GetActiveScrollPosition', () => {
         state: false,
         element: '',
         offset: 320,
-        offsetHeight: 200,
+        height: 200,
       },
     ];
     const scrollPosition = 300;
