@@ -2,13 +2,21 @@ export const updateActiveProjects = (list, project) => {
   // Index of passed project
   const projectIdx = list
     .findIndex(item => item.id === project.id);
-
+  let newlist;
   // if project doesn't exist in the list, add it
   if (projectIdx === -1) {
-    return list.concat(project);
+    newlist = list.concat(project);
+    return {
+      projects: newlist,
+      lastIndex: newlist.length - 1,
+    };
   }
   // otherwise remove it
-  return list.slice(0, projectIdx).concat(list.slice(projectIdx + 1, list.length));
+  newlist = list.slice(0, projectIdx).concat(list.slice(projectIdx + 1, list.length));
+  return {
+    projects: newlist,
+    lastIndex: newlist.length === 0 ? -1 : projectIdx,
+  };
 };
 
 export const getProjectOnScrollPosition = (list, scrollPosition) => {

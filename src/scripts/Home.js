@@ -66,6 +66,8 @@ class Home extends Component {
   updateUI(project) {
     const activeProjects = updateActiveProjects(this.state.activeProjects, project);
     const title = activeProjects.length > 0 ? project.title : 'friend';
+    console.log(activeProjects);
+    console.log(title);
     // update projects offsets
     activeProjects.forEach((item) => {
       const el = item.element;

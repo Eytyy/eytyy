@@ -9,7 +9,8 @@
     "describe": true,
     "test": true,
     "it": true,
-    "expect": true
+    "expect": true,
+    "beforeEach": true,
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"]}],
