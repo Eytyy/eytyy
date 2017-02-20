@@ -12,11 +12,17 @@ class Home extends Component {
       projects: [],
       activeProjects: [],
     };
+    this.dom = {
+      $header: null,
+      $content: null,
+    };
     this.scroll = false;
     this.updateUI = this.updateUI.bind(this);
     this.onScroll = this.onScroll.bind(this);
+    this.onResize = this.onResize.bind(this);
   }
   componentDidMount() {
+    // fetch projects and update state
     fetch('../data/projects.json')
       .then(response => (response.json()))
       .then((data) => {
@@ -24,8 +30,21 @@ class Home extends Component {
           projects: data,
         });
       });
+    // cache dom element for reference
+    this.dom.$header = document.querySelector('.main-header');
+    this.dom.$content = document.querySelector('.content');
+    // listen to scroll events
     window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onResize);
+    // initial content padding
+    this.dom.$content.style.paddingTop = `${this.dom.$header.offsetHeight}px`;
   }
+  // adjust content padding depnding on header height on window resize
+  onResize() {
+    const headerHeight = this.dom.$header.offsetHeight;
+    this.dom.$content.style.paddingTop = headerHeight;
+  }
+  // Update page title depending on window scroll position
   onScroll() {
     if (!this.scroll) {
       this.scroll = true;
