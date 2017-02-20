@@ -23,9 +23,10 @@ class Project extends Component {
       active: !this.state.active,
     });
     // call parent component method updateUI and pass the clicked project info object.
+    // use timeout to give the element time to expand it's height before updating the values
     setTimeout(() => {
       this.props.updateUI(project);
-    }, 100);
+    }, 10);
   }
   render() {
     return (

@@ -10,3 +10,13 @@ export const updateActiveProjects = (list, project) => {
   // otherwise remove it
   return list.slice(0, projectIdx).concat(list.slice(projectIdx + 1, list.length));
 };
+
+export const getProjectOnScrollPosition = (list, scrollPosition) => {
+  if (!list) {
+    return 'friend';
+  }
+  const condition = project =>
+    (scrollPosition >= project.offset && scrollPosition <= project.offset + project.offsetHeight);
+  const project = list.filter(item => condition(item))[0];
+  return project ? project.title : 'friend';
+};

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { updateActiveProjects } from './HomeHelpers';
+import { updateActiveProjects, getProjectOnScrollPosition } from './HomeHelpers';
 import Header from './Header';
 import Content from './Content';
 
@@ -12,7 +12,9 @@ class Home extends Component {
       projects: [],
       activeProjects: [],
     };
+    this.scroll = false;
     this.updateUI = this.updateUI.bind(this);
+    this.onScroll = this.onScroll.bind(this);
   }
   componentDidMount() {
     fetch('../data/projects.json')
@@ -22,6 +24,17 @@ class Home extends Component {
           projects: data,
         });
       });
+    window.addEventListener('scroll', this.onScroll);
+  }
+  onScroll() {
+    if (!this.scroll) {
+      this.scroll = true;
+      setTimeout(() => {
+        const activeSection = getProjectOnScrollPosition(this.state.activeProjects, window.scrollY);
+        console.log(activeSection);
+        this.scroll = false;
+      }, 500);
+    }
   }
   updateUI(project) {
     const activeProjects = updateActiveProjects(this.state.activeProjects, project);
@@ -35,10 +48,12 @@ class Home extends Component {
         offsetHeight: offset + el.offsetHeight + 40,
       });
     });
+    // update the state
     this.setState({
       activeProjects,
       title,
     });
+    console.log(activeProjects);
   }
   render() {
     return (
