@@ -24,6 +24,7 @@
 }
 
 body {
+  @include bodytext;
   font-family: 'SCP';
   font-weight: 300;
   margin: 0;
@@ -31,9 +32,6 @@ body {
 }
 p {
   margin: 0 0 1.5em;
-}
-.content {
-  @include bodytext;
 }
 
 a {

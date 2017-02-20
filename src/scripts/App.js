@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
+import Footer from './Footer';
 
-class App extends Component {
-  constructor() {
-    super();
-  }
-  render() {
-    const path = this.props.location.pathname;
-    const segment = path.split('/')[1] || 'root';
-    return (
-      <div className="main-wrapper">
-        <main role="main">
-          {React.cloneElement(this.props.children)}
-        </main>
-      </div>
-    )
-  }
-}
+const App = props => (
+  <div className="main-wrapper">
+    <main role="main">
+      {React.cloneElement(props.children)}
+    </main>
+    <Footer />
+  </div>
+);
+
+App.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export default App;
