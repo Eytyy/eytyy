@@ -29,10 +29,11 @@ body {
   margin: 0;
   padding: 0;
 }
-
 p {
-  @include bodytext;
   margin: 0 0 1.5em;
+}
+.content {
+  @include bodytext;
 }
 
 a {

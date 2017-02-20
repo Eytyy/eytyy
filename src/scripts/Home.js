@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { updateActiveProjects, getProjectOnScrollPosition } from './HomeHelpers';
 import Header from './Header';
 import Content from './Content';
@@ -10,6 +10,8 @@ class Home extends Component {
     this.state = {
       title: 'friend',
       projects: [],
+      email: 'e.tayyem@gmail.com',
+      location: 'https://www.google.jo/maps/place/eyen/@31.9539943,35.9228223,17z/data=!3m1!4b1!4m5!3m4!1s0x151b5f85a31cc537:0x90ec889a5658704!8m2!3d31.9539943!4d35.9228223"',
       activeProjects: [],
     };
     this.dom = {
@@ -42,7 +44,7 @@ class Home extends Component {
   // adjust content padding depnding on header height on window resize
   onResize() {
     const headerHeight = this.dom.$header.offsetHeight;
-    this.dom.$content.style.paddingTop = headerHeight;
+    this.dom.$content.style.paddingTop = `${headerHeight}px`;
   }
   // Update page title depending on window scroll position
   onScroll() {
@@ -79,10 +81,8 @@ class Home extends Component {
       title,
     });
     // scroll to section
-    console.log(project.title);
     const scrollpos = project.offset
-      - document.querySelector('main').offsetTop
-      - document.querySelector('.work-text').offsetTop;
+      - document.querySelector('.main-header').offsetHeight;
 
     window.scrollTo(0, scrollpos);
   }
@@ -90,7 +90,12 @@ class Home extends Component {
     return (
       <div className="inner-wrapper">
         <Header title={this.state.title} />
-        <Content projects={this.state.projects} updateUI={this.updateUI} />
+        <Content
+          projects={this.state.projects}
+          updateUI={this.updateUI}
+          email={this.state.email}
+          location={this.state.location}
+        />
       </div>
     );
   }
