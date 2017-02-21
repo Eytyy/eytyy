@@ -20,6 +20,7 @@ class Home extends Component {
     };
     this.scroll = false;
     this.updateUI = this.updateUI.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
   }
@@ -64,10 +65,8 @@ class Home extends Component {
     }
   }
   updateUI(project) {
-    const activeProjects = updateActiveProjects(this.state.activeProjects, project);
-    const title = activeProjects.length > 0 ? project.title : 'friend';
-    console.log(activeProjects);
-    console.log(title);
+    const { projects: activeProjects } = updateActiveProjects(this.state.activeProjects, project);
+    const { lastIndex } = updateActiveProjects(this.state.activeProjects, project);
     // update projects offsets
     activeProjects.forEach((item) => {
       const el = item.element;
@@ -80,13 +79,17 @@ class Home extends Component {
     // update the state
     this.setState({
       activeProjects,
+    });
+    this.updateTitle(lastIndex);
+    // scroll to section
+    const scrollpos = lastIndex === -1 ? 0 : activeProjects[lastIndex].offset - document.querySelector('.main-header').offsetHeight;
+    window.scrollTo(0, scrollpos);
+  }
+  updateTitle(lastIndex) {
+    const title = lastIndex === -1 ? 'friend' : this.state.activeProjects[lastIndex].title;
+    this.setState({
       title,
     });
-    // scroll to section
-    const scrollpos = project.offset
-      - document.querySelector('.main-header').offsetHeight;
-
-    window.scrollTo(0, scrollpos);
   }
   render() {
     return (

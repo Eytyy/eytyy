@@ -15,7 +15,7 @@ export const updateActiveProjects = (list, project) => {
   newlist = list.slice(0, projectIdx).concat(list.slice(projectIdx + 1, list.length));
   return {
     projects: newlist,
-    lastIndex: newlist.length === 0 ? -1 : projectIdx,
+    lastIndex: newlist.length === 0 ? -1 : projectIdx - 1,
   };
 };
 
