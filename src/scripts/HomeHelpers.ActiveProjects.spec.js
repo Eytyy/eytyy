@@ -179,5 +179,3 @@ describe('Update active projects', () => {
     });
   });
 });
-
-

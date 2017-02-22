@@ -52,21 +52,20 @@ class Home extends Component {
     if (!this.scroll) {
       this.scroll = true;
       setTimeout(() => {
-        const scrollPos = window.scrollY
-          + document.querySelector('main').offsetTop
-          + document.querySelector('.work-text').offsetTop;
-        const activeSection = getProjectOnScrollPosition(this.state.activeProjects, scrollPos);
-        // update title
-        this.setState({
-          title: activeSection,
-        });
+        const activeSection = getProjectOnScrollPosition(this.state.activeProjects);
+        // only update title if active section has value
+        // otherwise we'll keep the title as is.
+        if (activeSection) {
+          this.setState({
+            title: activeSection,
+          });
+        }
         this.scroll = false;
       }, 500);
     }
   }
   updateUI(project) {
-    const { projects: activeProjects } = updateActiveProjects(this.state.activeProjects, project);
-    const { lastIndex } = updateActiveProjects(this.state.activeProjects, project);
+    const { projects: activeProjects, lastIndex } = updateActiveProjects(this.state.activeProjects, project);
     // update projects offsets
     activeProjects.forEach((item) => {
       const el = item.element;
@@ -87,6 +86,7 @@ class Home extends Component {
   }
   updateTitle(lastIndex) {
     const title = lastIndex === -1 ? 'friend' : this.state.activeProjects[lastIndex].title;
+    if (title) {}
     this.setState({
       title,
     });

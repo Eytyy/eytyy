@@ -19,12 +19,23 @@ export const updateActiveProjects = (list, project) => {
   };
 };
 
-export const getProjectOnScrollPosition = (list, scrollPosition) => {
+export const getProjectOnScrollPosition = (list) => {
   if (!list) {
     return 'friend';
   }
+  const mainOffsetTop = document.querySelector('main').offsetTop;
+  const workTextOffsetTop = document.querySelector('.work-text');
+  const scrollPosition = window.scrollY + mainOffsetTop + workTextOffsetTop.offsetTop;
+  const isItnearTop = window.scrollY < workTextOffsetTop.offsetHeight;
+
   const condition = project =>
     (scrollPosition >= project.offset && scrollPosition <= project.offset + project.height);
+
   const project = list.filter(item => condition(item))[0];
-  return project ? project.title : 'friend';
+  if (project) {
+    return project.title;
+  } else if (isItnearTop) {
+    return 'friend';
+  }
+  return undefined;
 };
