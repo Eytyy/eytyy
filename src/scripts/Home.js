@@ -86,7 +86,6 @@ class Home extends Component {
   }
   updateTitle(lastIndex) {
     const title = lastIndex === -1 ? 'friend' : this.state.activeProjects[lastIndex].title;
-    if (title) {}
     this.setState({
       title,
     });
