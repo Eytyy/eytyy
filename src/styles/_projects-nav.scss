@@ -10,14 +10,15 @@
 .projects-nav {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: fixed;
   transform: translateX(calc(-100% - 40px));
 }
 .project-nav__link {
   font-size: 0;
   position: relative;
-  width: 12px;
-  height: 12px;
+  width: 6px;
+  height: 6px;
   margin-bottom: 15px;
   border-radius: 100%;
   background-color: blue;
@@ -28,6 +29,7 @@
     }
   }
   &.js-active {
+    width: 12px;
     height: 2px;
     border-radius: 0;
     &:after {
