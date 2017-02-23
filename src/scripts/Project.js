@@ -40,7 +40,7 @@ class Project extends Component {
           className="project-link"
         >
           { this.props.data.name }
-        </Link><ProjectDescription isVisible={this.state.active} body={this.props.data.desc} />,
+        </Link><ProjectDescription isVisible={this.state.active} body={this.props.data.desc} />
       </span>
     );
   }
