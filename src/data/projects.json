@@ -5,7 +5,10 @@
     "nameShort": "Turbo",
     "url": "/work/turbo",
     "desc": "<p>Turbo is an independent design studio/space based in Amman, Jordan run by Saeed Abu-Jaber &amp;Mothanna Hussein.</p><p>Turbo provided the designs for the website and asked me to implement them on top of a simple backend. The  website was built on top of <span class=\"stack\">KeystoneJS</span> and the designs were ammended to make them adapt to different screen sizes.</p>",
-    "website": "https://www.turrrbo.com"
+    "website": "https://www.turrrbo.com",
+    "collaborators": [
+      {"name": "Turbo", "link": "https://www.turrrbo.com"}
+    ]
   },
   {
     "id": "2",
@@ -13,7 +16,10 @@
     "nameShort": "Welfare",
     "url": "/work/welfare",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "welfare-prod.us-west-2.elasticbeanstalk.com"
+    "website": "welfare-prod.us-west-2.elasticbeanstalk.com",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ]
   },
   {
     "id": "3",
@@ -21,7 +27,11 @@
     "nameShort": "Jawwy",
     "url": "/work/jawwy",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.jawwy.sa"
+    "website": "https://www.jawwy.sa",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
+      {"name": "Frog", "link": "https://www.frogdesign.com"}
+    ]
   },
   {
     "id": "4",
@@ -29,7 +39,10 @@
     "nameShort": "KAFD",
     "url": "work/kafd",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https//www.kafd.com"
+    "website": "https//www.kafd.com",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ]
   },
   {
     "id": "5",
@@ -37,7 +50,11 @@
     "nameShort": "RHC",
     "url": "/work/rhc",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.rhc.jo"
+    "website": "https://www.rhc.jo",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
+      {"name": "Spring", "link": "https://www.hellospring.net"}
+    ]
   },
   {
     "id": "6",
@@ -45,7 +62,10 @@
     "nameShort": "Yanboot",
     "url": "/work/yanboot",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https//www.yanboot.com"
+    "website": "https//www.yanboot.com",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ]
   },
   {
     "id": "7",
@@ -53,7 +73,10 @@
     "nameShort": "Syntax",
     "url": "/work/syntax",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.syntaxdesign.com"
+    "website": "https://www.syntaxdesign.com",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ]
   },
   {
     "id": "8",
@@ -61,7 +84,10 @@
     "nameShort": "Umniah",
     "url": "/work/umniah",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.umniah.com"
+    "website": "https://www.umniah.com",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ]
   },
   {
     "id": "9",
@@ -69,7 +95,10 @@
     "nameShort": "Khammash",
     "url": "/work/khammash",
     "desc": "<p>A multi-disciplinary architecture office based in Amman, Jordan. They are involved in numerous projects in Jordan,Oman, Palestine, Egypt, Syria and the UAE, ranging from master planning and urban design to sustainable tourism and destination design.</p<p>The new website was built to showcase their work, research, and art pieces. Website design by Noura Salem.</p>",
-    "website": "https://www.khammash.com"
+    "website": "https://www.khammash.com",
+    "collaborators": [
+      {"name": "Noura Salem", "link": "https://www.syntaxdesign.com"}
+    ]
   },
   {
     "id": "10",
@@ -77,6 +106,9 @@
     "nameShort": "TSU",
     "url": "/work/tsu",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.thesolutionsunit.com"
+    "website": "https://www.thesolutionsunit.com",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ]
   }
 ]

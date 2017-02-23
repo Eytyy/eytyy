@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
+import Eye from './icons/Eye';
 
 class Project extends Component {
   constructor() {
@@ -40,7 +41,16 @@ class Project extends Component {
           className="project-link"
         >
           { this.props.data.name }
-        </Link><ProjectDescription isVisible={this.state.active} body={this.props.data.desc} />
+        </Link>
+        <ProjectDetails isVisible={this.state.active}>
+          <ProjectDescription body={this.props.data.desc} />
+          <div className="project-links">
+            <a className="project-links__item project-links__item--website" alt={`visit ${this.props.data.name}`} rel="noopener noreferrer" target="_blank" href={this.props.data.website}>
+              <Eye />
+            </a>
+          </div>
+          <div className="project-collaborators"></div>
+        </ProjectDetails>
       </span>
     );
   }
@@ -63,20 +73,32 @@ Project.defaultProps = {
   updateUI: PropTypes.func,
 };
 
+Project.defaultProps = {
+  isVisible: false,
+};
+
+const ProjectDetails = props => (
+  props.isVisible ? <div className="project-details">{props.children}</div> : null
+);
+
+ProjectDetails.propTypes = {
+  isVisible: PropTypes.bool,
+};
+
+ProjectDetails.defaultProps = {
+  isVisible: false,
+};
+
 const ProjectDescription = (props) => {
   const FormattedHtml = () => ({ __html: props.body });
-
-  return props.isVisible ?
-    <span className="project-details" dangerouslySetInnerHTML={FormattedHtml()} /> :
-    null;
+  return <div className="project-description" dangerouslySetInnerHTML={FormattedHtml()} />;
 };
 
 ProjectDescription.propTypes = {
-  isVisible: PropTypes.bool,
   body: PropTypes.string,
 };
+
 ProjectDescription.defaultProps = {
-  isVisible: false,
   body: '',
 };
 

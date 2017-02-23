@@ -3,9 +3,12 @@
   margin-top: 0;
 }
 .project-details {
+  display: inline;
+  .project-description {
+    display: inline;
+  }
   p {
     display: inline;
-    margin-left: 5px;
   }
 }
 .c-project {
@@ -26,6 +29,24 @@
   }
 }
 
+.project-links {
+  margin-top: 5px;
+}
+
 .project-link {
-  cursor: default;
+  cursor: pointer;
+}
+
+#eye-icon__text {
+  fill: blue;
+}
+.project-links__item {
+  display: flex;
+  align-items: center;
+}
+.project-links__item--website:hover:after {
+  content: 'visit website';
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 10px;
 }
