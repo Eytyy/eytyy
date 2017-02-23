@@ -21,6 +21,8 @@ class Home extends Component {
       $nav: null,
     };
     this.scroll = false;
+    this.updateDOM = this.updateDOM.bind(this);
+    this.registerEvents = this.registerEvents.bind(this);
     this.updateUI = this.updateUI.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateProjectOnFocusProp = this.updateProjectOnFocusProp.bind(this);
@@ -35,24 +37,15 @@ class Home extends Component {
         this.setState({
           projects: data,
         });
+      }).then(() => {
+        this.updateDOM();
+        this.registerEvents();
       });
-    // cache dom element for reference
-    this.dom.$main = document.querySelector('main');
-    this.dom.$header = document.querySelector('.main-header');
-    this.dom.$content = document.querySelector('.content');
-    this.dom.$nav = document.querySelector('.projects-nav');
-    // listen to scroll events
-    window.addEventListener('scroll', this.onScroll);
-    window.addEventListener('resize', this.onResize);
-    // initial styles
-    this.dom.$content.style.paddingTop = `${this.dom.$header.offsetHeight}px`;
-    this.dom.$nav.style.top = `${this.dom.$header.offsetHeight + 50}px`;
   }
   // adjust content padding depnding on header height on window resize
   onResize() {
     const headerHeight = this.dom.$header.offsetHeight;
     this.dom.$content.style.paddingTop = `${headerHeight}px`;
-    this.dom.$nav.style.top = `${this.dom.$header.offsetHeight + this.dom.$main.offsetTop}px`;
   }
   // Update page title depending on window scroll position
   onScroll() {
@@ -77,6 +70,20 @@ class Home extends Component {
         this.scroll = false;
       }, 500);
     }
+  }
+  registerEvents() {
+    // listen to scroll events
+    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onResize);
+  }
+  updateDOM() {
+    // cache dom element for reference
+    this.dom.$main = document.querySelector('main');
+    this.dom.$header = document.querySelector('.main-header');
+    this.dom.$content = document.querySelector('.content');
+    this.dom.$nav = document.querySelector('.projects-nav');
+    // initial styles
+    this.dom.$content.style.paddingTop = `${this.dom.$header.offsetHeight}px`;
   }
   updateProjectOnFocusProp(project) {
     if (!project) {
