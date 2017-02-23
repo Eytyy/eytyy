@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { updateActiveProjects, getProjectOnScrollPosition } from './HomeHelpers';
 import Header from './Header';
 import Content from './Content';
-
+import ProjectsNav from './ProjectsNav';
 
 class Home extends Component {
   constructor() {
@@ -17,10 +17,13 @@ class Home extends Component {
     this.dom = {
       $header: null,
       $content: null,
+      $main: null,
+      $nav: null,
     };
     this.scroll = false;
     this.updateUI = this.updateUI.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
+    this.updateProjectOnFocusProp = this.updateProjectOnFocusProp.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
   }
@@ -34,25 +37,35 @@ class Home extends Component {
         });
       });
     // cache dom element for reference
+    this.dom.$main = document.querySelector('main');
     this.dom.$header = document.querySelector('.main-header');
     this.dom.$content = document.querySelector('.content');
+    this.dom.$nav = document.querySelector('.projects-nav');
     // listen to scroll events
     window.addEventListener('scroll', this.onScroll);
     window.addEventListener('resize', this.onResize);
-    // initial content padding
+    // initial styles
     this.dom.$content.style.paddingTop = `${this.dom.$header.offsetHeight}px`;
+    this.dom.$nav.style.top = `${this.dom.$header.offsetHeight + 50}px`;
   }
   // adjust content padding depnding on header height on window resize
   onResize() {
     const headerHeight = this.dom.$header.offsetHeight;
     this.dom.$content.style.paddingTop = `${headerHeight}px`;
+    this.dom.$nav.style.top = `${this.dom.$header.offsetHeight + this.dom.$main.offsetTop}px`;
   }
   // Update page title depending on window scroll position
   onScroll() {
     if (!this.scroll) {
       this.scroll = true;
       setTimeout(() => {
-        const activeSection = getProjectOnScrollPosition(this.state.activeProjects);
+        const positions = {
+          scrollPosition: window.scrollY,
+          workTextOffsetTop: document.querySelector('.work-text').offsetTop,
+          workTextOffsetHeight: document.querySelector('.work-text').offsetHeight,
+          mainOffsetTop: document.querySelector('main').offsetTop,
+        };
+        const activeSection = getProjectOnScrollPosition(this.state.activeProjects, positions);
         // only update title if active section has value
         // otherwise we'll keep the title as is.
         if (activeSection) {
@@ -60,9 +73,36 @@ class Home extends Component {
             title: activeSection,
           });
         }
+        this.updateProjectOnFocusProp(activeSection);
         this.scroll = false;
       }, 500);
     }
+  }
+  updateProjectOnFocusProp(project) {
+    if (!project) {
+      return;
+    }
+    const list = this.state.activeProjects;
+    let updatedActiveProjects;
+
+    if (project === 'friend') {
+      updatedActiveProjects = list.map(item => (
+        Object.assign(item, { onFocus: false })),
+      );
+    } else {
+      // index of project we need to update its' onFocus property
+      const title = project.toString();
+      // Set project that matches the index onFocus property to true
+      // and rest to false
+      updatedActiveProjects = list.map(item => (
+        item.title === title ?
+        Object.assign(item, { onFocus: true }) :
+        Object.assign(item, { onFocus: false })),
+      );
+    }
+    this.setState({
+      activeProjects: updatedActiveProjects,
+    });
   }
   updateUI(project) {
     const { projects: activeProjects, lastIndex } = updateActiveProjects(this.state.activeProjects, project);
@@ -93,6 +133,7 @@ class Home extends Component {
   render() {
     return (
       <div className="inner-wrapper">
+        <ProjectsNav projects={this.state.activeProjects} />
         <Header title={this.state.title} />
         <Content
           projects={this.state.projects}

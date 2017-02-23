@@ -19,23 +19,26 @@ export const updateActiveProjects = (list, project) => {
   };
 };
 
-export const getProjectOnScrollPosition = (list) => {
-  if (!list) {
+export const getProjectOnScrollPosition = (list, positions) => {
+  const isItnearTop = positions.scrollPosition < positions.workTextOffsetHeight;
+
+  if (!list || isItnearTop) {
     return 'friend';
   }
-  const mainOffsetTop = document.querySelector('main').offsetTop;
-  const workTextOffsetTop = document.querySelector('.work-text');
-  const scrollPosition = window.scrollY + mainOffsetTop + workTextOffsetTop.offsetTop;
-  const isItnearTop = window.scrollY < workTextOffsetTop.offsetHeight;
+
+  const finalPosition = positions.scrollPosition + positions.mainOffsetTop
+  + positions.workTextOffsetTop;
 
   const condition = project =>
-    (scrollPosition >= project.offset && scrollPosition <= project.offset + project.height);
+    (finalPosition >= project.offset && finalPosition <= project.offset + project.height);
 
   const project = list.filter(item => condition(item))[0];
   if (project) {
     return project.title;
-  } else if (isItnearTop) {
-    return 'friend';
   }
   return undefined;
 };
+
+const compare = (a, b) => (parseInt(a.id, 10) > parseInt(b.id, 10) ? 1 : -1);
+
+export const SortProjectsById = list => list.sort(compare);
