@@ -1,0 +1,8 @@
+.greetings {
+  br {
+    display: none;
+    @include respond-to(compact) {
+      display: block;
+    }
+  }
+}

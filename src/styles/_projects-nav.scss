@@ -1,6 +1,5 @@
 %showLabel {
   content: attr(data-name);
-  font-size: 11px;
   display: block;
   position: absolute;
   left: 0;
@@ -14,6 +13,17 @@
   width: 12px;
   position: fixed;
   transform: translate(calc(-100% - 40px), 1.2em);
+  @include respond-to(small-landscape) {
+  }
+  @include respond-to(compact-landscape) {
+  }
+  @include respond-to(medium-portrait) {
+  }
+  @include respond-to(large) {
+  }
+  @include respond-to(xlarge) {
+    top: 4vh;
+  }
 }
 .project-nav__link {
   font-size: 0;
@@ -35,6 +45,26 @@
     border-radius: 0;
     &:after {
       @extend %showLabel;
+      font-size: 11px;
+    }
+  }
+  @include respond-to(large) {
+    width: 10px;
+    height: 10px;
+     &.js-active {
+      &:after {
+        font-size: 14px;
+      }
+    }
+  }
+  @include respond-to(xlarge) {
+    width: 15px;
+    height: 15px;
+     &.js-active {
+      width: 15px;
+      &:after {
+        font-size: 16px;
+      }
     }
   }
 }
