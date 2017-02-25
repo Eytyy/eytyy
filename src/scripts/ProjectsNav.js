@@ -34,11 +34,17 @@ class ProjectsNav extends Component {
     return (
       <aside className="projects-nav">
         {projects.length > 0 ?
-          <Link
-            className="project-nav__item project-nav__item--icon close-projects"
-            onClick={this.closeAllProjects}
-            data-name="close projects"
-          ><CloseIcon /></Link> : null}
+          <div className="top-links">
+            <Link
+              className="project-nav__item project-nav__item--type gohome"
+              onClick={this.onProjectclick}
+            >H</Link>
+            <Link
+              className="project-nav__item project-nav__item--icon close-projects"
+              onClick={this.closeAllProjects}
+              data-name="close projects"
+            ><CloseIcon /></Link>
+          </div> : null}
         {listOfProjects}
       </aside>
     );
