@@ -36,10 +36,12 @@
   font-size: 0.75em;
 }
 
-
 .project-link {
   cursor: pointer;
   font-family: "SCPR";
+  .c-project--active & {
+    color: #000;
+  } 
 }
 
 #eye-icon__text {

@@ -32,6 +32,11 @@
   }
 }
 
+main {
+  position: relative;
+  z-index: 2;
+}
+
 .main-header {
   position: fixed;
   z-index: 2;
@@ -57,18 +62,12 @@
   &__links__item {
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 20px;
   }
   @include respond-to(large) {
     &__links__item {
-      margin-left: 20px;
+      margin-left: 30px;
     }
   }
 }
-
-main {
-  position: relative;
-  z-index: 2;
-}
-
 

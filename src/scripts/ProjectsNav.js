@@ -10,8 +10,8 @@ class ProjectsNav extends Component {
     this.closeAllProjects = this.closeAllProjects.bind(this);
     this.onProjectclick = this.onProjectclick.bind(this);
   }
-  onProjectclick() {
-    console.log(this);
+  onProjectclick(event) {
+    this.props.goToSection(event.target.dataset.target);
   }
   closeAllProjects() {
     this.props.closeProjects();
@@ -26,6 +26,7 @@ class ProjectsNav extends Component {
         onClick={this.onProjectclick}
         key={project.id}
         data-name={project.title}
+        data-target={project.id}
       >
         {project.title}
       </Link>,
@@ -47,6 +48,7 @@ class ProjectsNav extends Component {
 ProjectsNav.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.object),
   closeProjects: PropTypes.func.isRequired,
+  goToSection: PropTypes.func.isRequired,
 };
 
 ProjectsNav.defaultProps = {

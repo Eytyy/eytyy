@@ -28,6 +28,7 @@ class Home extends Component {
     this.updateUI = this.updateUI.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateProjectOnFocusProp = this.updateProjectOnFocusProp.bind(this);
+    this.goToSection = this.goToSection.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
   }
@@ -73,6 +74,10 @@ class Home extends Component {
       }, 500);
     }
   }
+  goToSection(target) {
+    const position = this.state.activeProjects.find(project => project.id === target).offset;
+    window.scrollTo(0, position - document.querySelector('.main-header').offsetHeight);
+  }
   registerEvents() {
     // listen to scroll events
     window.addEventListener('scroll', this.onScroll);
@@ -98,6 +103,7 @@ class Home extends Component {
       projects: list,
       activeProjects: [],
     });
+    window.scrollTo(0, 0);
   }
   updateProjectOnFocusProp(project) {
     if (!project) {
@@ -175,7 +181,11 @@ class Home extends Component {
   render() {
     return (
       <div className="inner-wrapper">
-        <ProjectsNav projects={this.state.activeProjects} closeProjects={this.closeProjects} />
+        <ProjectsNav
+          projects={this.state.activeProjects}
+          closeProjects={this.closeProjects}
+          goToSection={this.goToSection}
+        />
         <Header title={this.state.title} />
         <Content
           projects={this.state.projects}
