@@ -23,6 +23,7 @@ class Home extends Component {
     this.scroll = false;
     this.updateDOM = this.updateDOM.bind(this);
     this.registerEvents = this.registerEvents.bind(this);
+    this.closeProjects = this.closeProjects.bind(this);
     this.updateProject = this.updateProject.bind(this);
     this.updateUI = this.updateUI.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
@@ -87,7 +88,14 @@ class Home extends Component {
     this.dom.$content.style.paddingTop = `${this.dom.$header.offsetHeight}px`;
   }
   closeProjects() {
+    const list = this.state.projects.map((item) => {
+      const obj = {
+        active: false,
+      };
+      return Object.assign(item, obj);
+    });
     this.setState({
+      projects: list,
       activeProjects: [],
     });
   }
@@ -119,7 +127,6 @@ class Home extends Component {
   }
   updateProject(project) {
     return new Promise((resolve) => {
-      console.log(project);
       setTimeout(() => {
         // get then index of project that we need to update from the projects list
         const index = this.state.projects.findIndex(item => item.id === project.id);
@@ -168,7 +175,7 @@ class Home extends Component {
   render() {
     return (
       <div className="inner-wrapper">
-        <ProjectsNav projects={this.state.activeProjects} />
+        <ProjectsNav projects={this.state.activeProjects} closeProjects={this.closeProjects} />
         <Header title={this.state.title} />
         <Content
           projects={this.state.projects}
