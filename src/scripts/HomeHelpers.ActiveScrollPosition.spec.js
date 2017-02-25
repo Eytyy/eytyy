@@ -88,7 +88,7 @@ describe('GetActiveScrollPosition', () => {
       workTextOffsetTop: 372,
     };
     const scrollPosition = 300;
-    const expected = 'friend';
+    const expected = 'Hello';
     const actual = getProjectOnScrollPosition(projects, positions);
     expect(actual).toEqual(expected);
   });

@@ -15,16 +15,18 @@
   display: inline-block;
   &:after {
     content: ',';
+    margin-right: 15px;
   }
   &:last-child:after {
     content: '.';
   }
   &--active {
     display: block;
-    margin: 40px 0;
+    margin: 20px 0 30px;
     &:last-child:after,
     &:after {
       content: '';
+      margin-right: 0;
     }
   }
 }
@@ -55,11 +57,6 @@
   content: 'visit website';
   display: inline-block;
   margin-left: 5px;
-}
-
-.project-collaborators {
-  display: inline;
-  margin-right: 20px;
 }
 
 .collaborator {

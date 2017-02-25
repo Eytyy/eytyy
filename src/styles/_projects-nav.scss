@@ -1,10 +1,14 @@
 %showLabel {
   content: attr(data-name);
+  text-indent: 0;
   display: block;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translate(calc(-100% - 10px), -50%);
+}
+.close-projects {
+  display: block;
 }
 .projects-nav {
   display: flex;
@@ -13,27 +17,19 @@
   width: 12px;
   position: fixed;
   transform: translate(calc(-100% - 40px), 1.2em);
-  @include respond-to(small-landscape) {
-  }
-  @include respond-to(compact-landscape) {
-  }
-  @include respond-to(medium-portrait) {
-  }
-  @include respond-to(large) {
-  }
-  @include respond-to(xlarge) {
-    top: 4vh;
-  }
 }
-.project-nav__link {
-  font-size: 0;
+.project-nav__item {
+  font-size: 12px;
   position: relative;
   width: 12px;
   height: 12px;
   margin-bottom: 15px;
-  border-radius: 100%;
-  background-color: blue;
   transition: all 0.1s linear;
+  &--link {
+    background-color: blue;
+    border-radius: 100%;
+    text-indent: -999px;
+  }
   &:hover:after {
     @extend %showLabel;
     font-size: 11px;
@@ -42,10 +38,6 @@
     width: 12px;
     height: 2px;
     border-radius: 0;
-    &:after {
-      // @extend %showLabel;
-      // font-size: 11px;
-    }
   }
   @include respond-to(large) {
     width: 10px;

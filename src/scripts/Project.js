@@ -5,9 +5,6 @@ import Eye from './icons/Eye';
 class Project extends Component {
   constructor() {
     super();
-    this.state = {
-      active: false,
-    };
     this.onProjectClick = this.onProjectClick.bind(this);
   }
   onProjectClick(event) {
@@ -20,19 +17,16 @@ class Project extends Component {
       offset: target.offsetTop,
     };
     // update active state; will affect visibility of project description.
-    this.setState({
-      active: !this.state.active,
-    });
+
     // call parent component method updateUI and pass the clicked project info object.
     // use timeout to give the element time to expand it's height before updating the values
-    setTimeout(() => {
-      this.props.updateUI(project);
-    }, 10);
+    this.props.updateUI(project);
   }
   render() {
+    const isActive = (this.props.data.active && this.props.data.active) || false;
     return (
       <span
-        className={this.state.active ?
+        className={isActive ?
         `c-project c-project--active c-project--${this.props.data.nameShort.toLowerCase()}` :
         `c-project c-project--${this.props.data.nameShort.toLowerCase()}`}
       >
@@ -42,7 +36,7 @@ class Project extends Component {
         >
           { this.props.data.name }
         </Link>
-        <ProjectDetails isVisible={this.state.active}>
+        <ProjectDetails isVisible={this.props.data.active}>
           <ProjectDescription body={this.props.data.desc} />
           <div className="project-bottom">
             <Collaborators collaborators={this.props.data.collaborators} />
@@ -67,6 +61,7 @@ Project.propTypes = {
     url: PropTypes.string,
     website: PropTypes.string,
     collaborators: PropTypes.arrayOf(PropTypes.object),
+    active: false,
   }),
   updateUI: PropTypes.func,
 };
@@ -74,6 +69,7 @@ Project.propTypes = {
 Project.defaultProps = {
   data: {},
   updateUI: PropTypes.func,
+  active: false,
 };
 
 Project.defaultProps = {

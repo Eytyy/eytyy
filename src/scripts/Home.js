@@ -23,6 +23,7 @@ class Home extends Component {
     this.scroll = false;
     this.updateDOM = this.updateDOM.bind(this);
     this.registerEvents = this.registerEvents.bind(this);
+    this.updateProject = this.updateProject.bind(this);
     this.updateUI = this.updateUI.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateProjectOnFocusProp = this.updateProjectOnFocusProp.bind(this);
@@ -85,6 +86,11 @@ class Home extends Component {
     // initial styles
     this.dom.$content.style.paddingTop = `${this.dom.$header.offsetHeight}px`;
   }
+  closeProjects() {
+    this.setState({
+      activeProjects: [],
+    });
+  }
   updateProjectOnFocusProp(project) {
     if (!project) {
       return;
@@ -111,25 +117,47 @@ class Home extends Component {
       activeProjects: updatedActiveProjects,
     });
   }
+  updateProject(project) {
+    return new Promise((resolve) => {
+      console.log(project);
+      setTimeout(() => {
+        // get then index of project that we need to update from the projects list
+        const index = this.state.projects.findIndex(item => item.id === project.id);
+        // update the project active state
+        const newlist = this.state.projects.slice();
+        newlist[index].active = newlist[index].active ? !newlist[index].active : true;
+        resolve(newlist);
+      }, 10);
+    });
+  }
   updateUI(project) {
-    const { projects: activeProjects, lastIndex } = updateActiveProjects(this.state.activeProjects, project);
-    // update projects offsets
-    activeProjects.forEach((item) => {
-      const el = item.element;
-      const offset = el.offsetTop;
-      Object.assign(item, {
-        offset,
-        height: el.offsetHeight + 40,
+    // update projects
+    this.updateProject(project).then((projects) => {
+      this.setState({
+        projects,
       });
+    }).then(() => {
+      // Then update the list of active projects
+      const { projects: activeProjects, lastIndex } =
+      updateActiveProjects(this.state.activeProjects, project);
+      // update projects offsets
+      activeProjects.forEach((item) => {
+        const el = item.element;
+        const offset = el.offsetTop;
+        Object.assign(item, {
+          offset,
+          height: el.offsetHeight + 40,
+        });
+      });
+      // update the state
+      this.setState({
+        activeProjects,
+      });
+      this.updateTitle(lastIndex);
+      // scroll to section
+      const scrollpos = lastIndex === -1 ? 0 : activeProjects[lastIndex].offset - document.querySelector('.main-header').offsetHeight;
+      window.scrollTo(0, scrollpos);
     });
-    // update the state
-    this.setState({
-      activeProjects,
-    });
-    this.updateTitle(lastIndex);
-    // scroll to section
-    const scrollpos = lastIndex === -1 ? 0 : activeProjects[lastIndex].offset - document.querySelector('.main-header').offsetHeight;
-    window.scrollTo(0, scrollpos);
   }
   updateTitle(lastIndex) {
     const title = lastIndex === -1 ? 'Hello' : this.state.activeProjects[lastIndex].title;
