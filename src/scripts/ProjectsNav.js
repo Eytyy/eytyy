@@ -36,9 +36,9 @@ class ProjectsNav extends Component {
         {projects.length > 0 ?
           <div className="top-links">
             <Link
-              className="project-nav__item project-nav__item--type gohome"
+              className="project-nav__item project-nav__item--link gohome"
               onClick={this.onProjectclick}
-            >H</Link>
+            />
             <Link
               className="project-nav__item project-nav__item--icon close-projects"
               onClick={this.closeAllProjects}

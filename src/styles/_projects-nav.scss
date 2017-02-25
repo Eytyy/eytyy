@@ -40,15 +40,7 @@
     border-radius: 0;
   }
   @include respond-to(large) {
-    width: 10px;
-    height: 10px;
-     &.js-active {
-      &:after {
-        font-size: 14px;
-      }
-    }
-  }
-  @include respond-to(xlarge) {
+    font-size: 15px;
     width: 15px;
     height: 15px;
      &.js-active {
@@ -66,9 +58,8 @@ projects-nav-btn {
   width: auto;
   height: auto;
 }
-.project-nav__item--type {
-  width: auto;
-  height: auto;
-  font-size: 16px;
-  font-family: 'Bitter-Bold';
+
+.gohome {
+  border-radius: 0;
+  margin-bottom: 10px;
 }

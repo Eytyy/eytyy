@@ -1,6 +1,7 @@
 .project__title {
   margin-top: 0;
 }
+
 .project-details {
   display: inline;
   .project-description {
@@ -11,6 +12,7 @@
     display: inline;
   }
 }
+
 .c-project {
   display: inline-block;
   &:after {
@@ -37,8 +39,7 @@
 }
 
 .project-link {
-  cursor: pointer;
-  font-family: "SCPR";
+  @extend %link;
   .c-project--active & {
     color: #000;
   } 
@@ -47,6 +48,7 @@
 #eye-icon__text {
   fill: blue;
 }
+
 .project-links__item {
   display: flex;
   align-items: center;
@@ -55,6 +57,7 @@
     top: 1px;
   }
 }
+
 .project-links__item--website:after {
   content: 'visit website';
   display: inline-block;
