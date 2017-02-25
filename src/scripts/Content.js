@@ -28,8 +28,7 @@ Content.defaultProps = {
 
 const FirstParagraphText = props => (
   <div className="section section--work">
-    <p className="work-text">If you are here to check my work, here are a few that found
-      {' '}their way to the Internet:</p>
+    <p className="work-text">Let’s cut through the buzzword jargon bullshit. Here is my work: </p>
     <ul className="section__list projects-list">{ props.projects }</ul>
   </div>
 );
@@ -44,12 +43,13 @@ FirstParagraphText.defaultProps = {
 
 const SecondParagraphText = props => (
   <div className="section section--contact">
-    <p>If you’d like to <span className="anchor anchor--contact">catch up</span>,
-  drop me an {<a className="contact-link" href={`mailto:${props.email}`}>email</a>}{' '}
-   or pass by the {<a className="contact-link" href={props.location}>office</a>}{' '}
-   and have a cup of coffee from Abu Ibrahim (the street coffee shop next door).
-   Unless, of course, {"you're"} visiting with a pocket full of $$$, then a sexy
-  Nespresso machine is waiting for you.</p>
+    <p>Here’s how you can find me:<br />
+      Virtually on my{' '}
+      {<a className="contact-link" href={`mailto:${props.email}`}>Email</a>}.
+      Please don’t spam.<br />
+      IRL at {<a className="contact-link" href={props.location}>Eyen</a>}.{' '}
+      Also, don’t spam.
+    </p>
   </div>);
 
 SecondParagraphText.propTypes = {

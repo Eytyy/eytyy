@@ -43,10 +43,6 @@
   transform: rotate(-45deg);
 }
 
-.greetings {
-  @include headline;
-}
-
 .signature {
   @include bodytext;
   margin: 0;

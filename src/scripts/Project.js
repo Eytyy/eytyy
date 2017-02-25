@@ -44,12 +44,14 @@ class Project extends Component {
         </Link>
         <ProjectDetails isVisible={this.state.active}>
           <ProjectDescription body={this.props.data.desc} />
-          <div className="project-links">
-            <a className="project-links__item project-links__item--website" alt={`visit ${this.props.data.name}`} rel="noopener noreferrer" target="_blank" href={this.props.data.website}>
-              <Eye />
-            </a>
+          <div className="project-bottom">
+            <Collaborators collaborators={this.props.data.collaborators} />
+            <div className="project-links">
+              <a className="project-links__item project-links__item--website" alt={`visit ${this.props.data.name}`} rel="noopener noreferrer" target="_blank" href={this.props.data.website}>
+                <Eye />
+              </a>
+            </div>
           </div>
-          <div className="project-collaborators"></div>
         </ProjectDetails>
       </span>
     );
@@ -64,6 +66,7 @@ Project.propTypes = {
     desc: PropTypes.string,
     url: PropTypes.string,
     website: PropTypes.string,
+    collaborators: PropTypes.arrayOf(PropTypes.object),
   }),
   updateUI: PropTypes.func,
 };
@@ -75,6 +78,23 @@ Project.defaultProps = {
 
 Project.defaultProps = {
   isVisible: false,
+};
+
+const uniqueKey = name => `${Math.ceil(Math.random() * 100)}-${name}`;
+
+const Collaborators = (props) => {
+  const list = props.collaborators ? props.collaborators.map(item => (
+    <a className="collaborator" key={uniqueKey(item.name)} href={item.link}>{item.name}</a>
+  )) : null;
+  return <div className="project-collaborators"><span>Collaborators: </span>{list}</div>;
+};
+
+Collaborators.propTypes = {
+  collaborators: PropTypes.arrayOf(PropTypes.object),
+};
+
+Collaborators.defaultProps = {
+  collaborators: [],
 };
 
 const ProjectDetails = props => (

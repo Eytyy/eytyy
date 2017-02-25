@@ -1,28 +1,3 @@
-@mixin headline {
-  @extend %headline;
-  font-size: calc(7.5vh + 7vw);
-  margin-bottom: 30px;
-  @include respond-to(small-landscape) {
-    font-size: calc(6vh + 6vw);
-    margin-bottom: 20px;
-  }
-  @include respond-to(compact-landscape) {
-    font-size: calc(6vh + 6vw);
-    margin-bottom: 20px;
-  }
-  @include respond-to(medium-portrait) {
-    font-size: calc(6.5vh + 6vw);
-    margin-bottom: 40px;
-  }
-  @include respond-to(large) {
-    font-size: calc(6.5vh + 6vw);
-    margin-bottom: 40px;
-  }
-  @include respond-to(xlarge) {
-    font-size: calc(18vh);
-    margin-bottom: 40px;
-  }
-}
 @mixin bodytext {
   font-size: calc(1.5vh + 1.2vw);
   @include respond-to(medium) {

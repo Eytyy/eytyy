@@ -23,7 +23,7 @@ export const getProjectOnScrollPosition = (list, positions) => {
   const isItnearTop = positions.scrollPosition < positions.workTextOffsetHeight;
 
   if (!list || isItnearTop) {
-    return 'friend';
+    return 'Hello';
   }
 
   const finalPosition = positions.scrollPosition + positions.mainOffsetTop

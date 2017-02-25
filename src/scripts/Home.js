@@ -8,7 +8,7 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      title: 'friend',
+      title: 'Hello',
       projects: [],
       email: 'e.tayyem@gmail.com',
       location: 'https://www.google.jo/maps/place/eyen/@31.9539943,35.9228223,17z/data=!3m1!4b1!4m5!3m4!1s0x151b5f85a31cc537:0x90ec889a5658704!8m2!3d31.9539943!4d35.9228223"',
@@ -92,7 +92,7 @@ class Home extends Component {
     const list = this.state.activeProjects;
     let updatedActiveProjects;
 
-    if (project === 'friend') {
+    if (project === 'Hello') {
       updatedActiveProjects = list.map(item => (
         Object.assign(item, { onFocus: false })),
       );
@@ -132,7 +132,7 @@ class Home extends Component {
     window.scrollTo(0, scrollpos);
   }
   updateTitle(lastIndex) {
-    const title = lastIndex === -1 ? 'friend' : this.state.activeProjects[lastIndex].title;
+    const title = lastIndex === -1 ? 'Hello' : this.state.activeProjects[lastIndex].title;
     this.setState({
       title,
     });

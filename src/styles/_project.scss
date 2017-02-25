@@ -1,11 +1,11 @@
 .project__title {
-  @include headline;
   margin-top: 0;
 }
 .project-details {
   display: inline;
   .project-description {
     display: inline;
+    margin-left: 5px;
   }
   p {
     display: inline;
@@ -20,21 +20,24 @@
     content: '.';
   }
   &--active {
-    font-family: 'SCPR';
     display: block;
-    margin: 20px 0;
+    margin: 40px 0;
+    &:last-child:after,
     &:after {
       content: '';
     }
   }
 }
 
-.project-links {
-  margin-top: 5px;
+.project-bottom {
+  margin-top: 10px;
+  font-size: 0.75em;
 }
+
 
 .project-link {
   cursor: pointer;
+  font-family: "SCPR";
 }
 
 #eye-icon__text {
@@ -43,10 +46,28 @@
 .project-links__item {
   display: flex;
   align-items: center;
+  margin-right: 5px;
+  .icon {
+    top: 1px;
+  }
 }
-.project-links__item--website:hover:after {
+.project-links__item--website:after {
   content: 'visit website';
   display: inline-block;
   margin-left: 5px;
-  font-size: 10px;
+}
+
+.project-collaborators {
+  display: inline;
+  margin-right: 20px;
+}
+
+.collaborator {
+  margin-right: 5px;
+  &:after {
+    content: ',';
+  }
+  &:last-child:after{
+   content: '.'; 
+  }
 }

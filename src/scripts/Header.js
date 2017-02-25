@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const Header = props => (
   <header className="main-header">
-    <p className="greetings">Hello <br />{props.title},</p>
+    <p className="greetings">{props.title}</p>
   </header>);
 
 Header.propTypes = {
@@ -10,7 +10,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  title: 'Friend',
+  title: 'Hello',
 };
 
 export default Header;
