@@ -9,7 +9,8 @@
     "collaborators": [
       {"name": "Turbo", "link": "https://www.turrrbo.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "year": "2016",
+    "images": []
   },
   {
     "id": "2",
@@ -21,7 +22,8 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "year": "2016",
+    "images": []
   },
   {
     "id": "3",
@@ -34,7 +36,8 @@
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
       {"name": "Frog", "link": "https://www.frogdesign.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "year": "2016",
+    "images": []
   },
   {
     "id": "4",
@@ -46,10 +49,23 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "year": "2016",
+    "images": []
   },
   {
     "id": "5",
+    "name": "Al-Sharq Forum",
+    "nameShort": "Al-Sharq",
+    "url": "/work/sharq",
+    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "collaborators": [
+      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+    ],
+    "year": "2015",
+    "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"]
+  },
+  {
+    "id": "6",
     "name": "Royal Hashemite Court",
     "nameShort": "RHC",
     "url": "/work/rhc",
@@ -59,10 +75,11 @@
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
       {"name": "Spring", "link": "https://www.hellospring.net"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "year": "2014",
+    "images": []
   },
   {
-    "id": "6",
+    "id": "7",
     "name": "Qatar Social",
     "nameShort": "Qatar Social",
     "url": "/work/qatar-social",
@@ -71,10 +88,11 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "images": [],
+    "year": "2014"
   },
   {
-    "id": "7",
+    "id": "8",
     "name": "Tiraz",
     "nameShort": "Tiraz",
     "url": "/work/tiraz",
@@ -83,10 +101,11 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
+    "images": [],
+    "year": "2014"
   },
   {
-    "id": "8",
+    "id": "9",
     "name": "Umniah",
     "nameShort": "Umniah",
     "url": "/work/umniah",
@@ -95,18 +114,7 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
     ],
-    "images": ["1", "2", "3", "4", "5"]
-  },
-  {
-    "id": "9",
-    "name": "Khammash Architects",
-    "nameShort": "Khammash",
-    "url": "/work/khammash",
-    "desc": "<p>A multi-disciplinary architecture office based in Amman, Jordan. They are involved in numerous projects in Jordan,Oman, Palestine, Egypt, Syria and the UAE, ranging from master planning and urban design to sustainable tourism and destination design.</p<p>The new website was built to showcase their work, research, and art pieces. Website design by Noura Salem.</p>",
-    "website": "https://www.khammash.com",
-    "collaborators": [
-      {"name": "Noura Salem", "link": "https://www.syntaxdesign.com"}
-    ],
-    "images": ["1", "2", "3", "4", "5"]
+    "images": [],
+    "year": "2013"
   }
 ]

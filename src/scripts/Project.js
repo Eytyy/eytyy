@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import Eye from './icons/Eye';
+import ProjectImages from './ProjectImages';
 
 class Project extends Component {
   constructor() {
@@ -39,14 +40,19 @@ class Project extends Component {
         <ProjectDetails isVisible={this.props.data.active}>
           <ProjectDescription body={this.props.data.desc} />
           <div className="project-bottom">
-            <Collaborators collaborators={this.props.data.collaborators} />
-            <div className="project-links">
-              <a className="project-links__item project-links__item--website" alt={`visit ${this.props.data.name}`} rel="noopener noreferrer" target="_blank" href={this.props.data.website}>
-                <Eye />
-              </a>
+            <ProjectImages images={this.props.data.images} />
+            <div className="project-bottom__section">
+              <div className="project__year">
+                <span className="label">Year:</span> {this.props.data.year}
+              </div>
+              <Collaborators collaborators={this.props.data.collaborators} />
+              <div className="project-links">
+                <a className="project-links__item project-links__item--website" alt={`visit ${this.props.data.name}`} rel="noopener noreferrer" target="_blank" href={this.props.data.website}>
+                  <Eye />
+                </a>
+              </div>
             </div>
           </div>
-          <ProjectImages images={this.props.data.images} />
         </ProjectDetails>
       </span>
     );
@@ -63,6 +69,7 @@ Project.propTypes = {
     website: PropTypes.string,
     collaborators: PropTypes.arrayOf(PropTypes.object),
     images: PropTypes.arrayOf(PropTypes.string),
+    year: PropTypes.string,
     active: false,
   }),
   updateUI: PropTypes.func,
@@ -118,11 +125,6 @@ ProjectDescription.propTypes = {
 
 ProjectDescription.defaultProps = {
   body: '',
-};
-
-const ProjectImages = (props) => {
-  const images = props.images.map(item => <img alt={item} key={item} src={item} />);
-  return <div className="c-project__images">{images}</div>;
 };
 
 export default Project;
