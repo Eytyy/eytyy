@@ -43,11 +43,8 @@
     font-size: 15px;
     width: 15px;
     height: 15px;
-     &.js-active {
-      width: 15px;
-      &:after {
-        font-size: 16px;
-      }
+    &:after {
+      font-size: 16px;
     }
   }
 }

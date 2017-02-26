@@ -75,8 +75,12 @@ class Home extends Component {
     }
   }
   goToSection(target) {
-    const position = this.state.activeProjects.find(project => project.id === target).offset;
-    window.scrollTo(0, position - document.querySelector('.main-header').offsetHeight);
+    const headerHeight = document.querySelector('.main-header').offsetHeight;
+    const position = target === 'home' ?
+    0 :
+    this.state.activeProjects.find(project => project.id === target).offset - headerHeight;
+
+    window.scrollTo(0, position);
   }
   registerEvents() {
     // listen to scroll events

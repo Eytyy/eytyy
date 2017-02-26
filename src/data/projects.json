@@ -8,18 +8,20 @@
     "website": "https://www.turrrbo.com",
     "collaborators": [
       {"name": "Turbo", "link": "https://www.turrrbo.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "2",
-    "name": "Welfare Association Map",
+    "name": "Welfare",
     "nameShort": "Welfare",
     "url": "/work/welfare",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "website": "welfare-prod.us-west-2.elasticbeanstalk.com",
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "3",
@@ -31,7 +33,8 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
       {"name": "Frog", "link": "https://www.frogdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "4",
@@ -42,7 +45,8 @@
     "website": "https//www.kafd.com",
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "5",
@@ -54,40 +58,44 @@
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
       {"name": "Spring", "link": "https://www.hellospring.net"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "6",
-    "name": "Yanboot",
-    "nameShort": "Yanboot",
-    "url": "/work/yanboot",
+    "name": "Qatar Social",
+    "nameShort": "Qatar Social",
+    "url": "/work/qatar-social",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "website": "https//www.yanboot.com",
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "7",
-    "name": "Syntax",
-    "nameShort": "Syntax",
-    "url": "/work/syntax",
+    "name": "Tiraz",
+    "nameShort": "Tiraz",
+    "url": "/work/tiraz",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "website": "https://www.syntaxdesign.com",
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "8",
     "name": "Umniah",
     "nameShort": "Umniah",
     "url": "/work/umniah",
-    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
+    "desc": "<p>Umniah HR, Umniah Main Website, Umniah Mobile website ... Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "website": "https://www.umniah.com",
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   },
   {
     "id": "9",
@@ -98,17 +106,7 @@
     "website": "https://www.khammash.com",
     "collaborators": [
       {"name": "Noura Salem", "link": "https://www.syntaxdesign.com"}
-    ]
-  },
-  {
-    "id": "10",
-    "name": "The Solutions Unit",
-    "nameShort": "TSU",
-    "url": "/work/tsu",
-    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.thesolutionsunit.com",
-    "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
-    ]
+    ],
+    "images": ["1", "2", "3", "4", "5"]
   }
 ]

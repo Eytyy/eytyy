@@ -9,9 +9,13 @@ class ProjectsNav extends Component {
     super();
     this.closeAllProjects = this.closeAllProjects.bind(this);
     this.onProjectclick = this.onProjectclick.bind(this);
+    this.onHomeClick = this.onHomeClick.bind(this);
   }
   onProjectclick(event) {
     this.props.goToSection(event.target.dataset.target);
+  }
+  onHomeClick() {
+    this.props.goToSection('home');
   }
   closeAllProjects() {
     this.props.closeProjects();
@@ -37,7 +41,8 @@ class ProjectsNav extends Component {
           <div className="top-links">
             <Link
               className="project-nav__item project-nav__item--link gohome"
-              onClick={this.onProjectclick}
+              data-name="Hello"
+              onClick={this.onHomeClick}
             />
             <Link
               className="project-nav__item project-nav__item--icon close-projects"

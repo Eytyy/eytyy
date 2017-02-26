@@ -46,6 +46,7 @@ class Project extends Component {
               </a>
             </div>
           </div>
+          <ProjectImages images={this.props.data.images} />
         </ProjectDetails>
       </span>
     );
@@ -61,6 +62,7 @@ Project.propTypes = {
     url: PropTypes.string,
     website: PropTypes.string,
     collaborators: PropTypes.arrayOf(PropTypes.object),
+    images: PropTypes.arrayOf(PropTypes.string),
     active: false,
   }),
   updateUI: PropTypes.func,
@@ -116,6 +118,11 @@ ProjectDescription.propTypes = {
 
 ProjectDescription.defaultProps = {
   body: '',
+};
+
+const ProjectImages = (props) => {
+  const images = props.images.map(item => <img alt={item} key={item} src={item} />);
+  return <div className="c-project__images">{images}</div>;
 };
 
 export default Project;
