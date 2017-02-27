@@ -56,15 +56,13 @@ class ProjectImages extends Component {
           <i className="icon icon__player icon__player--play"><span className="glyph" /></i>
         </button>);
 
-      return (<div className="project-bottom__section">
-        <div className={this.state.playing ? 'c-project__images c-project__images--playing' : 'c-project__images'}>
-          <div
-            className="c-project__images__giffy"
-            ref={(img) => { this.image = img; }}
-            style={divStyle}
-          />
-          {button}
-        </div>
+      return (<div className={this.state.playing ? 'c-project__images c-project__images--playing' : 'c-project__images'}>
+        <div
+          className="c-project__images__giffy"
+          ref={(img) => { this.image = img; }}
+          style={divStyle}
+        />
+        {button}
       </div>);
     }
     return null;

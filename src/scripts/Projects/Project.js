@@ -33,21 +33,27 @@ class Project extends Component {
       >
         <Link
           onClick={this.onProjectClick}
-          className="project-link"
+          className="c-project__link"
         >
           { this.props.data.name }
         </Link>
         <ProjectDetails isVisible={this.props.data.active}>
           <ProjectDescription body={this.props.data.desc} />
-          <div className="project-bottom">
+          <div className="c-project__bottom">
             <ProjectImages videoEvent={this.props.videoEvent} images={this.props.data.images} />
-            <div className="project-bottom__section">
-              <div className="project__year">
+            <div className="c-project__details">
+              <div className="c-project__details__item c-project__year">
                 <span className="label">Year:</span> {this.props.data.year}
               </div>
               <Collaborators collaborators={this.props.data.collaborators} />
-              <div className="project-links">
-                <a className="project-links__item project-links__item--website" alt={`visit ${this.props.data.name}`} rel="noopener noreferrer" target="_blank" href={this.props.data.website}>
+              <div className="c-project__details__item c-project__links">
+                <a
+                  className="c-project__links__item"
+                  alt={`visit ${this.props.data.name}`}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={this.props.data.website}
+                >
                   <Eye />
                 </a>
               </div>
@@ -90,9 +96,12 @@ const uniqueKey = name => `${Math.ceil(Math.random() * 100)}-${name}`;
 
 const Collaborators = (props) => {
   const list = props.collaborators ? props.collaborators.map(item => (
-    <a className="collaborator" key={uniqueKey(item.name)} href={item.link}>{item.name}</a>
+    <a
+      className="c-project__collaborators__item"
+      key={uniqueKey(item.name)} href={item.link}
+    >{item.name}</a>
   )) : null;
-  return <div className="project-collaborators"><span>Collaborators: </span>{list}</div>;
+  return <div className="c-project__details__item c-project__collaborators"><span>Collaborators: </span>{list}</div>;
 };
 
 Collaborators.propTypes = {
@@ -104,7 +113,7 @@ Collaborators.defaultProps = {
 };
 
 const ProjectDetails = props => (
-  props.isVisible ? <div className="project-details">{props.children}</div> : null
+  props.isVisible ? <div className="c-project__content">{props.children}</div> : null
 );
 
 ProjectDetails.propTypes = {
@@ -117,7 +126,7 @@ ProjectDetails.defaultProps = {
 
 const ProjectDescription = (props) => {
   const FormattedHtml = () => ({ __html: props.body });
-  return <div className="project-description" dangerouslySetInnerHTML={FormattedHtml()} />;
+  return <div className="c-project__description" dangerouslySetInnerHTML={FormattedHtml()} />;
 };
 
 ProjectDescription.propTypes = {
