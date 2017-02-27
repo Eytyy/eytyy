@@ -9,7 +9,7 @@ describe('Update active projects', () => {
       projects = [
         {
           id: 1,
-          title: 'turbo',
+          name: 'turbo',
           state: false,
           element: '',
           offset: 0,
@@ -18,7 +18,7 @@ describe('Update active projects', () => {
       ];
       project = {
         id: 2,
-        title: 'welfare',
+        name: 'welfare',
         state: false,
         element: '',
         offset: 0,
@@ -29,7 +29,7 @@ describe('Update active projects', () => {
       const expected = [
         {
           id: 1,
-          title: 'turbo',
+          name: 'turbo',
           state: false,
           element: '',
           offset: 0,
@@ -37,7 +37,7 @@ describe('Update active projects', () => {
         },
         {
           id: 2,
-          title: 'welfare',
+          name: 'welfare',
           state: false,
           element: '',
           offset: 0,
@@ -60,7 +60,7 @@ describe('Update active projects', () => {
       projects = [];
       project = {
         id: 2,
-        title: 'welfare',
+        name: 'welfare',
         state: false,
         element: '',
         offset: 0,
@@ -71,7 +71,7 @@ describe('Update active projects', () => {
       const expected = [
         {
           id: 2,
-          title: 'welfare',
+          name: 'welfare',
           state: false,
           element: '',
           offset: 0,
@@ -94,7 +94,7 @@ describe('Update active projects', () => {
       projects = [
         {
           id: 1,
-          title: 'turbo',
+          name: 'turbo',
           state: false,
           element: '',
           offset: 0,
@@ -103,7 +103,7 @@ describe('Update active projects', () => {
       ];
       project = {
         id: 1,
-        title: 'turbo',
+        name: 'turbo',
         state: false,
         element: '',
         offset: 0,
@@ -127,7 +127,7 @@ describe('Update active projects', () => {
       projects = [
         {
           id: 1,
-          title: 'turbo',
+          name: 'turbo',
           state: false,
           element: '',
           offset: 0,
@@ -135,7 +135,7 @@ describe('Update active projects', () => {
         },
         {
           id: 2,
-          title: 'welfare',
+          name: 'welfare',
           state: false,
           element: '',
           offset: 0,
@@ -146,7 +146,7 @@ describe('Update active projects', () => {
     it('should remove project from list of active projects, and return project with id 2', () => {
       const project = {
         id: 1,
-        title: 'turbo',
+        name: 'turbo',
         state: false,
         element: '',
         offset: 0,
@@ -163,7 +163,7 @@ describe('Update active projects', () => {
     it('should remove project from list of active projects, and return project with id 1', () => {
       const project = {
         id: 2,
-        title: 'welfare',
+        name: 'welfare',
         state: false,
         element: '',
         offset: 0,

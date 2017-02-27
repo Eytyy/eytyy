@@ -29,10 +29,10 @@ class ProjectsNav extends Component {
         'project-nav__item project-nav__item--link'}
         onClick={this.onProjectclick}
         key={project.id}
-        data-name={project.title}
+        data-name={project.name}
         data-target={project.id}
       >
-        {project.title}
+        {project.name}
       </Link>,
     );
     return (

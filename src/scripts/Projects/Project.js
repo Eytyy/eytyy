@@ -12,7 +12,7 @@ class Project extends Component {
     const target = event.target.parentNode;
     const project = {
       id: this.props.data.id,
-      title: this.props.data.nameShort,
+      name: this.props.data.nameShort,
       element: target,
       height: target.offsetHeight,
       offset: target.offsetTop,
@@ -25,11 +25,13 @@ class Project extends Component {
   }
   render() {
     const isActive = (this.props.data.active && this.props.data.active) || false;
+    const onFocus = (this.props.data.onFocus && this.props.data.onFocus) || false;
+    const activeClass = isActive ? 'c-project--active' : '';
+    const focusClass = onFocus ? 'c-project--inFocus' : '';
+
     return (
       <span
-        className={isActive ?
-        `c-project c-project--active c-project--${this.props.data.nameShort.toLowerCase()}` :
-        `c-project c-project--${this.props.data.nameShort.toLowerCase()}`}
+        className={`c-project ${activeClass} ${focusClass}`}
       >
         <Link
           onClick={this.onProjectClick}
@@ -77,6 +79,7 @@ Project.propTypes = {
     images: PropTypes.arrayOf(PropTypes.string),
     year: PropTypes.string,
     active: false,
+    onFocus: false,
   }),
   updateUI: PropTypes.func,
   videoEvent: PropTypes.func.isRequired,
@@ -101,7 +104,10 @@ const Collaborators = (props) => {
       key={uniqueKey(item.name)} href={item.link}
     >{item.name}</a>
   )) : null;
-  return <div className="c-project__details__item c-project__collaborators"><span>Collaborators: </span>{list}</div>;
+  return (
+    <div className="c-project__details__item c-project__collaborators">
+      <span>Collaborators: </span>{list}
+    </div>);
 };
 
 Collaborators.propTypes = {

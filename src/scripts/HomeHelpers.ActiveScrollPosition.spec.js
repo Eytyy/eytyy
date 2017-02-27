@@ -15,7 +15,7 @@ describe('GetActiveScrollPosition', () => {
     const projects = [
       {
         id: 1,
-        title: 'turbo',
+        name: 'turbo',
         state: false,
         element: '',
         offset: 512,
@@ -23,7 +23,7 @@ describe('GetActiveScrollPosition', () => {
       },
       {
         id: 2,
-        title: 'welfare',
+        name: 'welfare',
         state: false,
         element: '',
         offset: 932,
@@ -44,7 +44,7 @@ describe('GetActiveScrollPosition', () => {
     const projects = [
       {
         id: 1,
-        title: 'turbo',
+        name: 'turbo',
         state: false,
         element: '',
         offset: 512,
@@ -52,7 +52,7 @@ describe('GetActiveScrollPosition', () => {
       },
       {
         id: 2,
-        title: 'welfare',
+        name: 'welfare',
         state: false,
         element: '',
         offset: 932,
@@ -74,7 +74,7 @@ describe('GetActiveScrollPosition', () => {
     const projects = [
       {
         id: 1,
-        title: 'turbo',
+        name: 'turbo',
         state: false,
         element: '',
         offset: 320,

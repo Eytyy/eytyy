@@ -34,7 +34,7 @@ export const getProjectOnScrollPosition = (list, positions) => {
 
   const project = list.filter(item => condition(item))[0];
   if (project) {
-    return project.title;
+    return project.name;
   }
   return undefined;
 };

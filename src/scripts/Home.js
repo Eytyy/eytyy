@@ -116,26 +116,40 @@ class Home extends Component {
     if (!project) {
       return;
     }
-    const list = this.state.activeProjects;
+    const activeprojects = this.state.activeProjects;
+    const projects = this.state.projects;
+
     let updatedActiveProjects;
+    let updatedProjects;
+
+    function setFocusFalse(item) {
+      return Object.assign(item, { onFocus: false });
+    }
+
+    function setFocus(item, title) {
+      return item.nameShort === title ?
+        Object.assign(item, { onFocus: true }) :
+        Object.assign(item, { onFocus: false });
+    }
 
     if (project === 'Hello') {
-      updatedActiveProjects = list.map(item => (
-        Object.assign(item, { onFocus: false })),
-      );
+      updatedActiveProjects = activeprojects.map(setFocusFalse);
+      updatedProjects = projects.map(setFocusFalse);
     } else {
       // index of project we need to update its' onFocus property
       const title = project.toString();
       // Set project that matches the index onFocus property to true
       // and rest to false
-      updatedActiveProjects = list.map(item => (
-        item.title === title ?
-        Object.assign(item, { onFocus: true }) :
-        Object.assign(item, { onFocus: false })),
-      );
+      updatedActiveProjects = activeprojects.map(item => (
+        setFocus(item, title)
+      ));
+      updatedProjects = projects.map(item => (
+        setFocus(item, title)
+      ));
     }
     this.setState({
       activeProjects: updatedActiveProjects,
+      projects: updatedProjects,
     });
   }
   updateProject(project) {
@@ -180,7 +194,7 @@ class Home extends Component {
     });
   }
   updateTitle(lastIndex) {
-    const title = lastIndex === -1 ? 'Hello' : this.state.activeProjects[lastIndex].title;
+    const title = lastIndex === -1 ? 'Hello' : this.state.activeProjects[lastIndex].name;
     this.setState({
       title,
     });

@@ -5,7 +5,7 @@
   display: block;
   position: relative;
   font-size: calc(8.5vh + 8vw);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   @include respond-to(small-landscape) {
     font-size: calc(6vh + 6vw);
   }
@@ -14,15 +14,12 @@
   }
   @include respond-to(medium-portrait) {
     font-size: calc(6.5vh + 6vw);
-    margin-bottom: 40px;
   }
   @include respond-to(large) {
     font-size: calc(6.5vh + 6vw);
-    margin-bottom: 40px;
   }
   @include respond-to(xlarge) {
     font-size: calc(18vh);
-    margin-bottom: 40px;
   }
 }
 .greetings {

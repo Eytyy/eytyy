@@ -25,9 +25,23 @@
 .c-project__link {
   @extend %link;
   display: inline;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: calc(100% + 3px);
+    right: 0;
+    transition: width 0.1s linear;
+  }
   .c-project--active & {
-    color: #000;
-    background: #000;
+    color: rgb(85, 26, 139);
+  }
+  .c-project--inFocus & {
+    &:after {
+      width: 100%;
+      background: #000;
+    }
   } 
 }
 
@@ -59,8 +73,7 @@
     height: 100%;
     background-size: contain;
     background-position: center top;
-  }
-  &--playing {
+    background-repeat: no-repeat;
   }
 }
 
@@ -80,12 +93,12 @@
   .glyph {
     display: none;
   }
-  mix-blend-mode: saturation;
+  mix-blend-mode: difference;
   &--play:hover {
     mix-blend-mode: unset;
   }
   &--pause {
-    mix-blend-mode: saturation;
+    mix-blend-mode: difference;
   }
   &:hover {
     .glyph {
