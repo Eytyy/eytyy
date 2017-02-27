@@ -41,7 +41,7 @@
   },
   {
     "id": "4",
-    "name": "KAFD",
+    "name": "King Abdullah II Fund For Development",
     "nameShort": "KAFD",
     "url": "work/kafd",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
@@ -66,7 +66,7 @@
   },
   {
     "id": "6",
-    "name": "Royal Hashemite Court",
+    "name": "The Royal Hashemite Court",
     "nameShort": "RHC",
     "url": "/work/rhc",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
@@ -80,11 +80,11 @@
   },
   {
     "id": "7",
-    "name": "Qatar Social",
-    "nameShort": "Qatar Social",
+    "name": "Qatar Social Work",
+    "nameShort": "QSW",
     "url": "/work/qatar-social",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https//www.yanboot.com",
+    "website": "https://www.qatarsocial.com",
     "collaborators": [
       {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
     ],

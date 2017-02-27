@@ -35,7 +35,7 @@ module.exports = env => {
  					})
  				},
 				{
-          test: /\.(png|jpg|woff|woff2|eot|ttf|otf|svg)(\?.*$|$)/,
+          test: /\.(gif|png|jpg|woff|woff2|eot|ttf|otf|svg)(\?.*$|$)/,
           exclude: /node_modules/,
           loader: 'url-loader?importLoaders=1&limit=100000',
         }
