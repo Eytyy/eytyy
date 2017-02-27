@@ -8,6 +8,7 @@ const Content = (props) => {
       key={project.id}
       project={project}
       updateUI={props.updateUI}
+      inTransition={props.projectInTransition}
     />));
   return (
     <div className="content">
@@ -22,6 +23,7 @@ Content.propTypes = {
   email: PropTypes.string,
   location: PropTypes.string,
   updateUI: PropTypes.func,
+  projectInTransition: PropTypes.bool.isRequired,
 };
 
 Content.defaultProps = {

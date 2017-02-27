@@ -13,6 +13,7 @@ class Home extends Component {
       email: 'e.tayyem@gmail.com',
       location: 'https://www.google.jo/maps/place/eyen/@31.9539943,35.9228223,17z/data=!3m1!4b1!4m5!3m4!1s0x151b5f85a31cc537:0x90ec889a5658704!8m2!3d31.9539943!4d35.9228223"',
       activeProjects: [],
+      projectInTransition: false,
     };
     this.videoIsPlaying = false;
     this.dom = {
@@ -169,6 +170,7 @@ class Home extends Component {
     this.updateProject(project).then((projects) => {
       this.setState({
         projects,
+        projectInTransition: true,
       });
     }).then(() => {
       // Then update the list of active projects
@@ -186,6 +188,7 @@ class Home extends Component {
       // update the state
       this.setState({
         activeProjects,
+        projectInTransition: false,
       });
       this.updateTitle(lastIndex);
       // scroll to section
@@ -220,6 +223,7 @@ class Home extends Component {
           videoEvent={this.onVideoPlaybackEvent}
           projects={this.state.projects}
           updateUI={this.updateUI}
+          projectInTransition={this.state.projectInTransition}
           email={this.state.email}
           location={this.state.location}
         />

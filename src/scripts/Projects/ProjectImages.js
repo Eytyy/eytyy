@@ -11,11 +11,17 @@ class ProjectImages extends Component {
     };
     this.timer = null;
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.inTransition) {
+      this.stopPlaying();
+    }
+  }
   shouldComponentUpdate(nextProps, nextState) {
     return nextState.playing !== this.state.playing;
   }
   componentWillUnmount() {
     this.stopPlaying();
+    window.removeEventListener('scroll', this.onScroll);
   }
   stopPlaying() {
     clearInterval(this.timer);
@@ -25,6 +31,9 @@ class ProjectImages extends Component {
     this.props.videoEvent(false);
   }
   playImages() {
+    const scrollPosition = this.image.parentNode.parentNode.parentNode.offsetTop +
+      document.querySelector('.main-header').offsetTop;
+    window.scrollTo(0, scrollPosition);
     const images = this.props.images;
     let count = 0;
     this.timer = setInterval(() => {

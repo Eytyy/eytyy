@@ -26,22 +26,12 @@
   @extend %link;
   display: inline;
   position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: calc(100% + 3px);
-    right: 0;
-  }
   .c-project--active & {
     color: rgb(85, 26, 139);
   }
   .c-project--inFocus & {
-    &:after {
-      width: 100%;
-      background: #000;
-      transition: width 0.1s linear;
-    }
+    color: #000;
+    background: #000;
   } 
 }
 

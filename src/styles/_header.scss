@@ -4,8 +4,11 @@
   line-height: 1;
   display: block;
   position: relative;
-  font-size: calc(8.5vh + 8vw);
-  margin-bottom: 40px;
+  font-size: calc(6.5vh + 6vw);
+  margin-bottom: 20px;
+  @include respond-to(medium) {
+    margin-bottom: 40px;
+  }
   @include respond-to(small-landscape) {
     font-size: calc(6vh + 6vw);
   }

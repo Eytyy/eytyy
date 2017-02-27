@@ -5,6 +5,7 @@ const Projects = props => <Project
   videoEvent={props.videoEvent}
   data={props.project}
   updateUI={props.updateUI}
+  inTransition={props.inTransition}
 />;
 
 Projects.propTypes = {
@@ -17,6 +18,7 @@ Projects.propTypes = {
   }),
   updateUI: PropTypes.func.isRequired,
   videoEvent: PropTypes.func.isRequired,
+  inTransition: PropTypes.bool.isRequired,
 };
 
 Projects.defaultProps = {

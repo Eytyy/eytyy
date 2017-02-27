@@ -28,7 +28,6 @@ class Project extends Component {
     const onFocus = (this.props.data.onFocus && this.props.data.onFocus) || false;
     const activeClass = isActive ? 'c-project--active' : '';
     const focusClass = onFocus ? 'c-project--inFocus' : '';
-
     return (
       <span
         className={`c-project ${activeClass} ${focusClass}`}
@@ -42,7 +41,11 @@ class Project extends Component {
         <ProjectDetails isVisible={this.props.data.active}>
           <ProjectDescription body={this.props.data.desc} />
           <div className="c-project__bottom">
-            <ProjectImages videoEvent={this.props.videoEvent} images={this.props.data.images} />
+            <ProjectImages
+              videoEvent={this.props.videoEvent}
+              images={this.props.data.images}
+              inTransition={this.props.inTransition}
+            />
             <div className="c-project__details">
               <div className="c-project__details__item c-project__year">
                 <span className="label">Year:</span> {this.props.data.year}
@@ -83,6 +86,7 @@ Project.propTypes = {
   }),
   updateUI: PropTypes.func,
   videoEvent: PropTypes.func.isRequired,
+  inTransition: PropTypes.bool.isRequired,
 };
 
 Project.defaultProps = {
