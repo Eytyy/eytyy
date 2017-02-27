@@ -1,5 +1,4 @@
 /* eslint no-console:off */
-
 import React, { Component, PropTypes } from 'react';
 
 class ProjectImages extends Component {

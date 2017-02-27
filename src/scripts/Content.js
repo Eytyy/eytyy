@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Projects from './Projects';
+import Projects from './Projects/Projects';
 
 const Content = (props) => {
   const ListOfProjects = props.projects.map(project => (

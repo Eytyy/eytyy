@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { updateActiveProjects, getProjectOnScrollPosition } from './HomeHelpers';
 import Header from './Header';
 import Content from './Content';
-import ProjectsNav from './ProjectsNav';
+import ProjectsNav from './Projects/ProjectsNav';
 
 class Home extends Component {
   constructor() {

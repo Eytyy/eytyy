@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import Eye from './icons/Eye';
+import Eye from '../icons/Eye';
 import ProjectImages from './ProjectImages';
 
 class Project extends Component {
