@@ -127,7 +127,7 @@ class Home extends Component {
     }
 
     function setFocus(item, title) {
-      return item.nameShort === title ?
+      return (item.nameShort === title || item.name === title) ?
         Object.assign(item, { onFocus: true }) :
         Object.assign(item, { onFocus: false });
     }
