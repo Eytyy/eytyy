@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { updateActiveProjects, getProjectOnScrollPosition } from './HomeHelpers';
 import Header from './Header';
 import Content from './Content';
-import ProjectsNav from './Projects/ProjectsNav';
+import Nav from './Nav';
 
 class Home extends Component {
   constructor() {
@@ -196,7 +196,7 @@ class Home extends Component {
   render() {
     return (
       <div className="inner-wrapper">
-        <ProjectsNav
+        <Nav
           projects={this.state.activeProjects}
           closeProjects={this.closeProjects}
           goToSection={this.goToSection}

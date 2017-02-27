@@ -1,8 +1,8 @@
 /* eslint no-console:off */
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import { SortProjectsById } from '../HomeHelpers';
-import CloseIcon from '../icons/Close';
+import { SortProjectsById } from './HomeHelpers';
+import CloseIcon from './icons/Close';
 
 class ProjectsNav extends Component {
   constructor() {

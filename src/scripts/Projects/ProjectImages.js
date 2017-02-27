@@ -11,6 +11,9 @@ class ProjectImages extends Component {
     };
     this.timer = null;
   }
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.playing !== this.state.playing;
+  }
   componentWillUnmount() {
     this.stopPlaying();
   }
