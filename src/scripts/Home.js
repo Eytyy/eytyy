@@ -14,6 +14,7 @@ class Home extends Component {
       location: 'https://www.google.jo/maps/place/eyen/@31.9539943,35.9228223,17z/data=!3m1!4b1!4m5!3m4!1s0x151b5f85a31cc537:0x90ec889a5658704!8m2!3d31.9539943!4d35.9228223"',
       activeProjects: [],
     };
+    this.videoIsPlaying = false;
     this.dom = {
       $header: null,
       $content: null,
@@ -31,7 +32,9 @@ class Home extends Component {
     this.goToSection = this.goToSection.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
+    this.onVideoPlaybackEvent = this.onVideoPlaybackEvent.bind(this);
   }
+
   componentDidMount() {
     // fetch projects and update state
     fetch('../data/projects.json')
@@ -74,13 +77,13 @@ class Home extends Component {
       }, 500);
     }
   }
-  goToSection(target) {
-    const headerHeight = document.querySelector('.main-header').offsetHeight;
-    const position = target === 'home' ?
-    0 :
-    this.state.activeProjects.find(project => project.id === target).offset - headerHeight;
-
-    window.scrollTo(0, position);
+  onVideoPlaybackEvent(playback) {
+    this.videoIsPlaying = playback;
+    if (this.videoIsPlaying) {
+      document.body.classList.add('js-video-active');
+    } else {
+      document.body.classList.remove('js-video-active');
+    }
   }
   registerEvents() {
     // listen to scroll events
@@ -182,6 +185,14 @@ class Home extends Component {
       title,
     });
   }
+  goToSection(target) {
+    const headerHeight = document.querySelector('.main-header').offsetHeight;
+    const position = target === 'home' ?
+    0 :
+    this.state.activeProjects.find(project => project.id === target).offset - headerHeight;
+
+    window.scrollTo(0, position);
+  }
   render() {
     return (
       <div className="inner-wrapper">
@@ -192,6 +203,7 @@ class Home extends Component {
         />
         <Header title={this.state.title} />
         <Content
+          videoEvent={this.onVideoPlaybackEvent}
           projects={this.state.projects}
           updateUI={this.updateUI}
           email={this.state.email}

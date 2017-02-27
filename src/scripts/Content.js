@@ -3,7 +3,12 @@ import Projects from './Projects';
 
 const Content = (props) => {
   const ListOfProjects = props.projects.map(project => (
-    <Projects key={project.id} last="no" project={project} updateUI={props.updateUI} />));
+    <Projects
+      videoEvent={props.videoEvent}
+      key={project.id}
+      project={project}
+      updateUI={props.updateUI}
+    />));
   return (
     <div className="content">
       <FirstParagraphText projects={ListOfProjects} />

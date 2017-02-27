@@ -40,7 +40,7 @@ class Project extends Component {
         <ProjectDetails isVisible={this.props.data.active}>
           <ProjectDescription body={this.props.data.desc} />
           <div className="project-bottom">
-            <ProjectImages images={this.props.data.images} />
+            <ProjectImages videoEvent={this.props.videoEvent} images={this.props.data.images} />
             <div className="project-bottom__section">
               <div className="project__year">
                 <span className="label">Year:</span> {this.props.data.year}
@@ -73,6 +73,7 @@ Project.propTypes = {
     active: false,
   }),
   updateUI: PropTypes.func,
+  videoEvent: PropTypes.func.isRequired,
 };
 
 Project.defaultProps = {

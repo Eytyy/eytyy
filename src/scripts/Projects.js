@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import Project from './Project';
 
-const Projects = props => <Project data={props.project} updateUI={props.updateUI} />;
+const Projects = props => <Project
+  videoEvent={props.videoEvent}
+  data={props.project}
+  updateUI={props.updateUI}
+/>;
 
 Projects.propTypes = {
   project: PropTypes.shape({
@@ -11,12 +15,12 @@ Projects.propTypes = {
     desc: PropTypes.string,
     website: PropTypes.string,
   }),
-  updateUI: PropTypes.func,
+  updateUI: PropTypes.func.isRequired,
+  videoEvent: PropTypes.func.isRequired,
 };
 
 Projects.defaultProps = {
   project: {},
-  updateUI: PropTypes.func,
 };
 
 export default Projects;

@@ -7,7 +7,6 @@ class ProjectImages extends Component {
     super();
     this.playImages = this.playImages.bind(this);
     this.stopPlaying = this.stopPlaying.bind(this);
-    this.onClickImages = this.onClickImages.bind(this);
     this.state = {
       playing: false,
     };
@@ -16,18 +15,12 @@ class ProjectImages extends Component {
   componentWillUnmount() {
     this.stopPlaying();
   }
-  onClickImages() {
-    if (this.state.playing === false) {
-      this.playImages();
-    } else {
-      this.stopPlaying();
-    }
-  }
   stopPlaying() {
     clearInterval(this.timer);
     this.setState({
-      playing: false,
+      playing: !this.state.playing,
     });
+    this.props.videoEvent(false);
   }
   playImages() {
     const images = this.props.images;
@@ -41,8 +34,9 @@ class ProjectImages extends Component {
       }
     }, 700);
     this.setState({
-      playing: true,
+      playing: !this.state.playing,
     });
+    this.props.videoEvent(true);
   }
   render() {
     if (this.props.images.length > 0) {
@@ -79,6 +73,7 @@ export default ProjectImages;
 
 ProjectImages.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
+  videoEvent: PropTypes.func.isRequired,
 };
 
 ProjectImages.defaultProps = {
