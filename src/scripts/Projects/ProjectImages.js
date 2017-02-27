@@ -43,7 +43,7 @@ class ProjectImages extends Component {
       } else {
         count += 1;
       }
-    }, 700);
+    }, 1000);
     this.setState({
       playing: !this.state.playing,
     });
