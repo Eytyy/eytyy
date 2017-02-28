@@ -9,6 +9,7 @@ class ProjectImages extends Component {
     this.state = {
       playing: false,
     };
+    this.initialSlide = null;
     this.timer = null;
   }
   componentWillReceiveProps(nextProps) {
@@ -43,6 +44,7 @@ class ProjectImages extends Component {
       } else {
         count += 1;
       }
+      this.initialSlide = count;
     }, 1000);
     this.setState({
       playing: !this.state.playing,
@@ -51,7 +53,9 @@ class ProjectImages extends Component {
   }
   render() {
     if (this.props.images.length > 0) {
-      const randomShit = Math.ceil(Math.random() * (this.props.images.length - 1));
+      const randomShit = this.initialSlide ?
+        this.initialSlide :
+        Math.ceil(Math.random() * (this.props.images.length - 1));
       const divStyle = {
         backgroundImage: `url(./images/projects/${this.props.images[randomShit]})`,
       };
