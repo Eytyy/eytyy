@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import Eye from '../icons/Eye';
 import ProjectImages from './ProjectImages';
 
 class Project extends Component {
@@ -59,7 +58,7 @@ class Project extends Component {
                   target="_blank"
                   href={this.props.data.website}
                 >
-                  <Eye />
+                Visit website &rarr;
                 </a>
               </div>
             </div>

@@ -48,13 +48,15 @@
 }
 
 .c-project__bottom {
+  position: relative;
+  min-height: 130px;
   margin-top: 10px;
   font-size: 0.75em;
 }
 
 .c-project__images {
   position: relative;
-  padding-top: 38vh;
+  padding-top: 70%;
   .c-project__images__giffy {
     position: absolute;
     left: 0;
@@ -83,13 +85,6 @@
   .glyph {
     display: none;
   }
-  mix-blend-mode: difference;
-  &--play:hover {
-    mix-blend-mode: unset;
-  }
-  &--pause {
-    mix-blend-mode: difference;
-  }
   &:hover {
     .glyph {
       display: block;
@@ -108,7 +103,7 @@
     transform: translate(-25%, -50%);  
     .glyph {
       border: 30px solid transparent;
-      border-left: 55px solid blue;
+      border-left: 55px solid yellow;
       height: 0;
       width: 0;
     }
@@ -121,24 +116,28 @@
     .glyph {
       width: 20px;
       height: 50px;
-      background-color: rgba(0, 0, 255, 0.9);
+      background-color: yellow;
     }
   }
 }
 
 .c-project__details {
   @extend %clearfix;
+  position: absolute;
+  bottom: -10px;
+  z-index: 4;
 }
 
 .c-project__details__item {
-  background: #000;
-  color: #FFF;
+  font-family: "SCPR";
+  background: yellow;
+  color: #000;
   margin-bottom: 10px;
   padding: 5px;
   float: left;
   clear: left;
   a {
-    color: #FFF;
+    color: #000;
     text-decoration: underline;
   }
 }
