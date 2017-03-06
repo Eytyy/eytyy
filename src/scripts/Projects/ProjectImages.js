@@ -27,16 +27,20 @@ class ProjectImages extends Component {
   stopPlaying() {
     clearInterval(this.timer);
     this.setState({
-      playing: !this.state.playing,
+      playing: false,
     });
     this.props.videoEvent(false);
   }
   playImages() {
-    const scrollPosition = this.image.parentNode.parentNode.parentNode.offsetTop +
-      document.querySelector('.main-header').offsetTop;
-    window.scrollTo(0, scrollPosition);
     const images = this.props.images;
+    const imagesContainerOffset = this.image.parentNode.parentNode.parentNode.offsetTop;
+    const mainHeaderOffset = document.querySelector('.main-header').offsetTop;
+    const scrollPosition = imagesContainerOffset + mainHeaderOffset;
+
     let count = 0;
+
+    window.scrollTo(0, scrollPosition);
+
     this.timer = setInterval(() => {
       this.image.style.backgroundImage = `url(./images/projects/${images[count]})`;
       if (count === images.length - 1) {
