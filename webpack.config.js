@@ -1,5 +1,6 @@
 const {resolve} = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = env => {
  	return {
@@ -36,13 +37,17 @@ module.exports = env => {
  				},
 				{
           test: /\.(gif|png|jpg|woff|woff2|eot|ttf|otf|svg)(\?.*$|$)/,
-          exclude: /node_modules/,
-          loader: 'url-loader?importLoaders=1&limit=100000',
+					loader: 'url-loader?importLoaders=1&limit=10000&name=[path][name].[ext]',
         }
  			],
  		},
 		plugins: [
-			new ExtractTextPlugin({filename: 'styles/[name].css', disable: false, allChunks: true})
+			new ExtractTextPlugin({filename: 'styles/[name].css', disable: false, allChunks: true}),
+			new BrowserSyncPlugin({ 
+				host: 'localhost',
+				port: '9000',
+				proxy: 'http://localhost:8080'
+			})
 		]
  	}
 };

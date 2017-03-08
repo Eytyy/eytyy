@@ -1,7 +1,7 @@
 @import 'projects-nav';
 
 .anchor {
-  font-family: 'SCPR';
+  font-family: $bodyReg-font;
 }
 .section {
   p, &__list {

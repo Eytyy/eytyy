@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'fonts/Bitter-Bold';
-  src: url('../fonts/Bitter-Bold.ttf') format('opentype');
+  font-family: $title-font;
+  src: url('../fonts/Bitter/Bitter-Bold.ttf') format('opentype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'SCP';
-  src: url('../fonts/SourceCodePro-ExtraLight.ttf') format('opentype');
+  font-family: $body-font;
+  src: url('../fonts/SourceCode/SourceCodePro-ExtraLight.ttf') format('opentype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'SCPR';
-  src: url('../fonts/SourceCodePro-Regular.ttf') format('opentype');
+  font-family: $bodyReg-font;
+  src: url('../fonts/SourceCode/SourceCodePro-Regular.ttf') format('opentype');
   font-style: normal;
   font-weight: normal;
 }
@@ -25,7 +25,7 @@
 
 body {
   @include bodytext;
-  font-family: 'SCP';
+  font-family: $body-font;
   font-weight: 300;
   margin: 0;
   padding: 0;
