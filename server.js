@@ -41,14 +41,6 @@ server.register([
     },
   });
 
-  server.route({
-    method: 'GET',
-    path: '/projects',
-    handler: (request, reply) => {
-      reply('hi');
-    },
-  });
-
   server.start(() => {
     console.log(`Running on: ${server.info.uri}`);
   });
