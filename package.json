@@ -11,11 +11,12 @@
     "copy": "npm-run-all copy:files",
     "minify-images": "imagemin './src/images/**/*' --out-dir './dist/images'",
     "test": "BABEL_ENV=test mocha './src/**/*.spec.js' -w --recursive --compilers js:babel-core/register",
-    "start": "node server.js",
+    "start": "nodemon server.js -w",
     "predev": "npm-run-all clean copy:* minify-images",
-    "dev": "webpack --env.dev --watch & npm start",
+    "dev": "webpack --env.dev --watch",
     "prebuild": "npm-run-all clean copy minify-images",
     "build": "webpack --env.prod -p"
+    
   },
   "keywords": [],
   "author": "Eyas Tayyem <e.tayyem@gmail.com> (http://eytyy.com/)",

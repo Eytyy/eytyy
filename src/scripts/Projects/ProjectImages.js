@@ -42,7 +42,7 @@ class ProjectImages extends Component {
     window.scrollTo(0, scrollPosition);
 
     this.timer = setInterval(() => {
-      this.image.style.backgroundImage = `url(./images/projects/${images[count]})`;
+      this.image.style.backgroundImage = `url(./images/${images[count]})`;
       if (count === images.length - 1) {
         count = 0;
       } else {
@@ -61,7 +61,7 @@ class ProjectImages extends Component {
         this.initialSlide :
         Math.ceil(Math.random() * (this.props.images.length - 1));
       const divStyle = {
-        backgroundImage: `url(./images/projects/${this.props.images[randomShit]})`,
+        backgroundImage: `url(./images/${this.props.images[randomShit]})`,
       };
       const button = this.state.playing ?
         (<button className="images-button images-button--pause" onClick={this.stopPlaying}>

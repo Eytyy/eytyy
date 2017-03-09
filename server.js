@@ -1,23 +1,34 @@
 const Hapi = require('hapi');
 const Inert = require('inert');
-const Vision = require('vision');
-const Blipp = require('blipp');
+const Good = require('good');
 
 const port = process.argv[2] || 8080;
 const server = new Hapi.Server();
 
-const plugins = [
+server.connection({
+  host: 'localhost',
+  port,
+});
+
+server.register([
   Inert,
-  Vision,
-  Blipp,
-];
-
-server.register(plugins, (err) => {
-  server.connection({
-    host: 'localhost',
-    port,
-  });
-
+  { register: Good,
+    options: {
+      reporters: {
+        console: [{
+          module: 'good-squeeze',
+          name: 'Squeeze',
+          args: [{
+            response: '*',
+            log: '*',
+          }],
+        }, {
+          module: 'good-console',
+        }, 'stdout'],
+      },
+    },
+  },
+], (err) => {
   server.route({
     method: 'GET',
     path: '/{path*}',
@@ -27,6 +38,14 @@ server.register(plugins, (err) => {
         listing: false,
         index: true,
       },
+    },
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/projects',
+    handler: (request, reply) => {
+      reply('hi');
     },
   });
 
