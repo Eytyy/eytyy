@@ -1,7 +1,7 @@
 /* eslint no-console:off */
 import React, { Component, PropTypes } from 'react';
 
-class ProjectImages extends Component {
+class ProjectDetailsGiffy extends Component {
   constructor() {
     super();
     this.playImages = this.playImages.bind(this);
@@ -86,13 +86,16 @@ class ProjectImages extends Component {
   }
 }
 
-export default ProjectImages;
-
-ProjectImages.propTypes = {
+ProjectDetailsGiffy.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   videoEvent: PropTypes.func.isRequired,
+  inTransition: PropTypes.bool.isRequired,
 };
 
-ProjectImages.defaultProps = {
+ProjectDetailsGiffy.defaultProps = {
   images: [],
 };
+
+export default ProjectDetailsGiffy;
+
+
