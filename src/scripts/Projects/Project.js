@@ -39,7 +39,6 @@ class Project extends Component {
         </Link>
         <ProjectDetails
           data={this.props.data}
-          videoEvent={this.props.videoEvent}
           inTransition={this.props.inTransition}
         />
       </span>
@@ -65,7 +64,6 @@ Project.propTypes = {
     onFocus: false,
   }),
   updateUI: PropTypes.func,
-  videoEvent: PropTypes.func.isRequired,
   inTransition: PropTypes.bool.isRequired,
 };
 

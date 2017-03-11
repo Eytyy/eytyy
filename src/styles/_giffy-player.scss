@@ -1,0 +1,126 @@
+.c-giffy-controls {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  &--off {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  &--on {
+    display: flex;
+    height: 200px;
+    width: 16px;
+    flex-direction: column;
+    left: -55px;
+    animation: 0.25s ease 0s slidein;
+  }
+}
+
+
+@keyframes slidein {
+  from {
+    left: -100%;
+  }
+  to {
+    left: -55px;
+  }
+}
+
+.c-giffy-button {
+  background: none;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 0;
+  outline: none;
+  height: 20px;
+  &--stop {
+    font-size: 15px;
+  }
+}
+.c-giffy-controls--on {
+  .c-giffy-button {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .icon__player--play {
+    .glyph {
+      border: 10px solid transparent;
+      border-left: 15px solid blue;
+    }
+  }
+}
+.c-giffy-controls--off {
+  .c-giffy-button {
+    &--play {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .icon__player--play {
+      top: 50%;
+      left: 50%;
+      transform: translate(-25%, -50%);  
+      .glyph {
+        border: 30px solid transparent;
+        border-left: 55px solid yellow;
+      }
+    }
+  }
+}
+
+.icon__player {
+  position: absolute;
+  .glyph {
+    display: block;
+  }
+  &--play {
+    .glyph {
+      height: 0;
+      width: 0;
+    }
+  }
+  &--stop {
+    .glyph {
+      width: 15px;
+      height: 15px;
+      background-color: blue;
+    }
+  }
+  &--pause {
+    display: flex;
+    justify-content: space-between;
+    width: 15px;
+    .glyph {
+      width: 6px;
+      height: 15px;
+      background-color: blue;
+    }
+  }
+  &--next,
+  &--back {
+  display: flex;
+  .glyph {
+      border: 7px solid transparent;
+    }
+  }
+  &--next {
+    .glyph {
+      border-left: 8px solid blue;
+      &:last-child {
+        margin-left: -8px;
+      }
+    }
+  }
+  &--back {
+    .glyph {
+      border-right: 8px solid blue;
+      margin-left: -7px;
+      &:last-child {
+        margin-left: -8px;
+      }
+    }
+  }
+}

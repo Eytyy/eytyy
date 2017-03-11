@@ -4,7 +4,6 @@ import Projects from './Projects/Projects';
 const Content = (props) => {
   const ListOfProjects = props.projects.map(project => (
     <Projects
-      videoEvent={props.videoEvent}
       key={project.id}
       project={project}
       updateUI={props.updateUI}

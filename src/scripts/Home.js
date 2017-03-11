@@ -15,7 +15,6 @@ class Home extends Component {
       activeProjects: [],
       projectInTransition: false,
     };
-    this.videoIsPlaying = false;
     this.dom = {
       $header: null,
       $content: null,
@@ -33,7 +32,6 @@ class Home extends Component {
     this.goToSection = this.goToSection.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
-    this.onVideoPlaybackEvent = this.onVideoPlaybackEvent.bind(this);
   }
 
   componentDidMount() {
@@ -76,14 +74,6 @@ class Home extends Component {
         this.updateProjectOnFocusProp(activeSection);
         this.scroll = false;
       }, 500);
-    }
-  }
-  onVideoPlaybackEvent(playback) {
-    this.videoIsPlaying = playback;
-    if (this.videoIsPlaying) {
-      document.body.classList.add('js-video-active');
-    } else {
-      document.body.classList.remove('js-video-active');
     }
   }
   registerEvents() {
@@ -220,7 +210,6 @@ class Home extends Component {
         />
         <Header title={this.state.title} />
         <Content
-          videoEvent={this.onVideoPlaybackEvent}
           projects={this.state.projects}
           updateUI={this.updateUI}
           projectInTransition={this.state.projectInTransition}

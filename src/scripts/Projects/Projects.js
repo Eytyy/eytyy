@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Project from './Project';
 
 const Projects = props => <Project
-  videoEvent={props.videoEvent}
   data={props.project}
   updateUI={props.updateUI}
   inTransition={props.inTransition}
@@ -17,7 +16,6 @@ Projects.propTypes = {
     website: PropTypes.string,
   }),
   updateUI: PropTypes.func.isRequired,
-  videoEvent: PropTypes.func.isRequired,
   inTransition: PropTypes.bool.isRequired,
 };
 

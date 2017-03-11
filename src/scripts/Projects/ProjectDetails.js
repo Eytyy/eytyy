@@ -15,12 +15,10 @@ const ProjectDetails = (props) => {
         {
           props.data.media.type === 'giffy' ?
             <ProjectDetailsGiffy
-              videoEvent={props.videoEvent}
               images={props.data.media.images}
               inTransition={props.inTransition}
             /> :
             <ProjectDetailsVideo
-              videoEvent={props.videoEvent}
               video={props.data.media.videoLink}
               inTransition={props.inTransition}
             />
@@ -65,7 +63,6 @@ ProjectDetails.propTypes = {
     active: false,
     onFocus: false,
   }),
-  videoEvent: PropTypes.func.isRequired,
   inTransition: PropTypes.bool.isRequired,
 };
 

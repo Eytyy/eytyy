@@ -1,6 +1,5 @@
 /* eslint no-console:off */
 import React, { Component, PropTypes } from 'react';
-import CloseIcon from '../icons/Close';
 
 class ProjectDetailsGiffy extends Component {
   constructor() {
@@ -11,9 +10,10 @@ class ProjectDetailsGiffy extends Component {
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.state = {
+      on: false,
       playing: false,
+      activeSlide: 0,
     };
-    this.activeSlide = null;
     this.initialSlide = null;
     this.timer = null;
     this.noOfSlides = 0;
@@ -27,7 +27,9 @@ class ProjectDetailsGiffy extends Component {
     }
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.playing !== this.state.playing;
+    return (
+      nextState.playing !== this.state.playing ||
+      nextState.on !== this.state.on);
   }
   componentWillUnmount() {
     this.stopPlaying();
@@ -36,16 +38,18 @@ class ProjectDetailsGiffy extends Component {
   setSlide(slide) {
     const images = this.props.images;
     this.image.style.backgroundImage = `url(./images/${images[slide]})`;
-    this.activeSlide = slide;
+    this.setState({
+      activeSlide: slide,
+    });
   }
   nextSlide() {
-    const slide = this.activeSlide >= this.noOfSlides - 1 ? 0 : this.activeSlide + 1;
+    const slide = this.state.activeSlide >= this.noOfSlides - 1 ? 0 : this.state.activeSlide + 1;
     if (this.state.playing) this.pausePlaying();
 
     this.setSlide(slide);
   }
   prevSlide() {
-    const slide = this.activeSlide === 0 ? this.noOfSlides - 1 : this.activeSlide - 1;
+    const slide = this.state.activeSlide === 0 ? this.noOfSlides - 1 : this.state.activeSlide - 1;
 
     if (this.state.playing) this.pausePlaying();
 
@@ -53,13 +57,24 @@ class ProjectDetailsGiffy extends Component {
   }
   pausePlaying() {
     clearInterval(this.timer);
-  }
-  stopPlaying() {
-    clearInterval(this.timer);
     this.setState({
       playing: false,
     });
-    this.props.videoEvent(false);
+  }
+  stopPlaying() {
+    console.log('stop');
+    if (this.state.playing) {
+      console.log('yes');
+      clearInterval(this.timer);
+      this.setState({
+        on: false,
+        playing: false,
+      });
+    } else {
+      this.setState({
+        on: false,
+      });
+    }
   }
   playImages() {
     const images = this.props.images;
@@ -75,14 +90,20 @@ class ProjectDetailsGiffy extends Component {
       count = count === images.length - 1 ? 0 : count + 1;
     }, 1000);
 
-    this.setState({
-      playing: !this.state.playing,
-    });
-
-    this.props.videoEvent(true);
+    if (this.state.on) {
+      this.setState({
+        playing: !this.state.playing,
+      });
+    } else {
+      this.setState({
+        on: !this.state.on,
+        playing: !this.state.playing,
+      });
+    }
   }
   render() {
-    const position = this.state.playing ?
+    console.log(this.state);
+    const position = this.state.on ?
       document.querySelector('.projects-nav').clientHeight :
       0;
     const style = {
@@ -96,38 +117,48 @@ class ProjectDetailsGiffy extends Component {
       const divStyle = {
         backgroundImage: `url(./images/${this.props.images[randomShit]})`,
       };
-      const buttons = this.state.playing ?
-        (<div className="giffy-controls giffy-controls--playing" style={style}>
-          <button className="images-button images-button--stop" onClick={this.stopPlaying}>
-            <i className="icon icon__player icon__player--stop">
-              <CloseIcon />
-            </i>
-          </button>
-          <button className="images-button images-button--back" onClick={this.prevSlide}>
+      const buttons = this.state.on ?
+        (<div className="c-giffy-controls c-giffy-controls--on" style={style}>
+          <button className="c-giffy-button c-giffy-button--back" onClick={this.prevSlide}>
             <i className="icon icon__player icon__player--back">
+              <span className="glyph" />
               <span className="glyph" />
             </i>
           </button>
-          <button className="images-button images-button--pause" onClick={this.pausePlaying}>
-            <i className="icon icon__player icon___player--main icon__player--pause">
-              <span className="glyph" /><span className="glyph" />
+          <button className="c-giffy-button c-giffy-button--stop" onClick={this.stopPlaying}>
+            <i className="icon icon__player icon__player--stop">
+              <span className="glyph" />
             </i>
           </button>
-          <button className="images-button images-button--next" onClick={this.nextSlide}>
+
+          {this.state.playing ?
+            <button className="c-giffy-button c-giffy-button--pause" onClick={this.pausePlaying}>
+              <i className="icon icon__player icon___player--main icon__player--pause">
+                <span className="glyph" /><span className="glyph" />
+              </i>
+            </button> :
+            <button className="c-giffy-button c-giffy-button--play c-giffy-button--play--small" onClick={this.playImages}>
+              <i className="icon icon__player icon___player--main icon__player--play">
+                <span className="glyph" />
+              </i>
+            </button>}
+
+          <button className="c-giffy-button c-giffy-button--next" onClick={this.nextSlide}>
             <i className="icon icon__player icon__player--next">
+              <span className="glyph" />
               <span className="glyph" />
             </i>
           </button>
         </div>) :
-        (<div className="giffy-controls giffy-controls--paused">
-          <button className="images-button images-button--play" onClick={this.playImages}>
+        (<div className="c-giffy-controls c-giffy-controls--off">
+          <button className="c-giffy-button c-giffy-button--play c-giffy-button--play--big" onClick={this.playImages}>
             <i className="icon icon__player icon___player--main icon__player--play">
               <span className="glyph" />
             </i>
           </button>
         </div>);
 
-      return (<div className={this.state.playing ? 'c-project__images c-project__images--playing' : 'c-project__images'}>
+      return (<div className={this.state.on ? 'c-project__images c-project__images--on' : 'c-project__images'}>
         <div
           className="c-project__images__giffy"
           ref={(img) => { this.image = img; }}
@@ -142,7 +173,6 @@ class ProjectDetailsGiffy extends Component {
 
 ProjectDetailsGiffy.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
-  videoEvent: PropTypes.func.isRequired,
   inTransition: PropTypes.bool.isRequired,
 };
 
