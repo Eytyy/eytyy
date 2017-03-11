@@ -15,13 +15,14 @@
   flex-direction: column;
   align-items: center;
   position: fixed;
+  z-index: 4;
   transform: translate(calc(-100% - 40px), 1.2em);
 }
 .project-nav__item {
-  font-size: 12px;
+  font-size: 15px;
   position: relative;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   margin-bottom: 15px;
   transition: all 0.1s linear;
   cursor: pointer;
@@ -35,7 +36,6 @@
     font-size: 11px;
   }
   &.js-active {
-    width: 12px;
     height: 2px;
     border-radius: 0;
   }

@@ -7,7 +7,7 @@ export default () => (
         id="close-icon" stroke="none" strokeWidth="1"
         fill="none" fillRule="evenodd" fontSize="20" fontFamily="Ionicons" fontWeight="400"
       >
-        <text id="ion-android-close---Ionicons" fill="#000000">
+        <text className="close-icon__text" fill="#000000">
           <tspan x="0.1" y="14"></tspan>
         </text>
       </g>
