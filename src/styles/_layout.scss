@@ -50,6 +50,15 @@ main {
   margin-bottom: 1.5em;
 }
 
+.projects-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  z-index: 4;
+  transform: translate(calc(-100% - 40px), 1.2em);
+}
+
 .footer {
   display: flex;
   justify-content: space-between;

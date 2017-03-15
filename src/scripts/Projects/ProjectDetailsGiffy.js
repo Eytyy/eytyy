@@ -88,7 +88,7 @@ class ProjectDetailsGiffy extends Component {
     this.timer = setInterval(() => {
       this.setSlide(count);
       count = count === images.length - 1 ? 0 : count + 1;
-    }, 1000);
+    }, 500);
 
     if (this.state.on) {
       this.setState({
@@ -111,11 +111,8 @@ class ProjectDetailsGiffy extends Component {
     };
 
     if (this.props.images.length > 0) {
-      const randomShit = this.initialSlide ?
-        this.initialSlide :
-        Math.ceil(Math.random() * (this.props.images.length - 1));
       const divStyle = {
-        backgroundImage: `url(./images/${this.props.images[randomShit]})`,
+        backgroundImage: `url(./images/${this.props.images[0]})`,
       };
       const buttons = this.state.on ?
         (<div className="c-giffy-controls c-giffy-controls--on" style={style}>

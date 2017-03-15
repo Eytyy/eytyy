@@ -10,14 +10,7 @@
 .close-projects {
   display: block;
 }
-.projects-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  z-index: 4;
-  transform: translate(calc(-100% - 40px), 1.2em);
-}
+
 .project-nav__item {
   font-size: 15px;
   position: relative;
