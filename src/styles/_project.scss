@@ -8,7 +8,7 @@
   display: inline-block;
   &:after {
     content: ',';
-    margin-right: 15px;
+    margin-right: 0.592em;
   }
   &:last-child:after {
     content: '...';

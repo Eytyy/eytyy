@@ -5,9 +5,9 @@
     "nameShort": "Turbo",
     "url": "/work/turbo",
     "desc": "<p>Turbo is an independent design studio/space based in Amman, Jordan run by Saeed Abu-Jaber &amp;Mothanna Hussein.</p><p>Turbo provided the designs for the website and asked me to implement them on top of a simple backend. The  website was built on top of <span class=\"stack\">KeystoneJS</span> and the designs were ammended to make them adapt to different screen sizes.</p>",
-    "website": "https://www.turrrbo.com",
+    "website": "www.turrrbo.com",
     "collaborators": [
-      {"name": "Turbo", "link": "https://www.turrrbo.com"}
+      {"name": "Turbo", "link": "www.turrrbo.com"}
     ],
     "year": "2016",
     "media": {
@@ -23,7 +23,7 @@
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "website": "welfare-prod.us-west-2.elasticbeanstalk.com",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
     "year": "2016",
     "media": {
@@ -37,10 +37,10 @@
     "nameShort": "Jawwy",
     "url": "/work/jawwy",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.jawwy.sa",
+    "website": "www.jawwy.sa",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
-      {"name": "Frog", "link": "https://www.frogdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"},
+      {"name": "Frog", "link": "www.frogdesign.com"}
     ],
     "year": "2016",
     "media": {
@@ -56,7 +56,7 @@
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "website": "https//www.kafd.com",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
     "year": "2016",
     "media": {
@@ -71,7 +71,7 @@
     "url": "/work/sharq",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
     "year": "2015",
     "media": {
@@ -85,10 +85,10 @@
     "nameShort": "RHC",
     "url": "/work/rhc",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.rhc.jo",
+    "website": "www.rhc.jo",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"},
-      {"name": "Spring", "link": "https://www.hellospring.net"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"},
+      {"name": "Spring", "link": "www.hellospring.net"}
     ],
     "year": "2014",
     "media": {
@@ -102,9 +102,9 @@
     "nameShort": "QSW",
     "url": "/work/qatar-social",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.qatarsocial.com",
+    "website": "www.qatarsocial.com",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
     "year": "2014",
     "media": {
@@ -118,9 +118,9 @@
     "nameShort": "Tiraz",
     "url": "/work/tiraz",
     "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.syntaxdesign.com",
+    "website": "www.syntaxdesign.com",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
     "year": "2014",    
     "media": {
@@ -134,9 +134,9 @@
     "nameShort": "Umniah",
     "url": "/work/umniah",
     "desc": "<p>Umniah HR, Umniah Main Website, Umniah Mobile website ... Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "https://www.umniah.com",
+    "website": "www.umniah.com",
     "collaborators": [
-      {"name": "Syntax", "link": "https://www.syntaxdesign.com"}
+      {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
     "year": "2013",
     "media": {

@@ -102,8 +102,7 @@ class ProjectDetailsGiffy extends Component {
     }
   }
   render() {
-    console.log(this.state);
-    const position = this.state.on ?
+    const position = this.state.on && document.body.clientWidth > 720 ?
       document.querySelector('.projects-nav').clientHeight :
       0;
     const style = {

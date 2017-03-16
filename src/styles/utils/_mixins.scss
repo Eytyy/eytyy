@@ -1,5 +1,5 @@
 @mixin bodytext {
-  font-size: calc(1.5vh + 1.2vw);
+  font-size: calc(1.5vh + 1.2vw); 
   @include respond-to(medium) {
     font-size: calc(1.25vh + 1.15vw);
   }

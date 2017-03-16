@@ -32,6 +32,8 @@ class Home extends Component {
     this.goToSection = this.goToSection.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onResize = this.onResize.bind(this);
+    this.navigationClass = this.navigationClass.bind(this);
+    this.adjustNavigationPadding = this.adjustNavigationPadding.bind(this);
   }
 
   componentDidMount() {
@@ -47,10 +49,15 @@ class Home extends Component {
         this.registerEvents();
       });
   }
+  componentWillUpdate(nextProps, nextState) {
+    this.navigationClass(nextState.activeProjects.length);
+    this.adjustNavigationPadding();
+  }
   // adjust content padding depnding on header height on window resize
   onResize() {
     const headerHeight = this.dom.$header.offsetHeight;
     this.dom.$content.style.paddingTop = `${headerHeight}px`;
+    this.adjustNavigationPadding();
   }
   // Update page title depending on window scroll position
   onScroll() {
@@ -74,6 +81,21 @@ class Home extends Component {
         this.updateProjectOnFocusProp(activeSection);
         this.scroll = false;
       }, 500);
+    }
+  }
+  adjustNavigationPadding() {
+    if (this.state.activeProjects.length > 0) {
+      if (document.body.clientWidth < 720) {
+        const headerOffsetTop = `${this.dom.$header.offsetTop}px`;
+        this.dom.$nav.style.paddingTop = `calc(${headerOffsetTop} + 1.2em)`;
+      }
+    }
+  }
+  navigationClass(activeProjectsLength) {
+    if (activeProjectsLength) {
+      document.body.classList.add('js-nav-is-visible');
+    } else {
+      document.body.classList.remove('js-nav-is-visible');
     }
   }
   registerEvents() {

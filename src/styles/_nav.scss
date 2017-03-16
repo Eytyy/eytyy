@@ -1,12 +1,26 @@
 %showLabel {
-  content: attr(data-name);
-  text-indent: 0;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translate(calc(-100% - 10px), -50%);
+  @include respond-to(medium) {
+    content: attr(data-name);
+    text-indent: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(calc(-100% - 10px), -50%);
+  }  
 }
+
+.js-nav-is-visible {
+  .projects-nav {
+    background: yellow;
+  }
+  @include respond-to(medium) {
+    .projects-nav {
+      background: none;
+    }    
+  }  
+}
+
 .close-projects {
   display: block;
 }
@@ -16,7 +30,7 @@
   position: relative;
   width: 15px;
   height: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   transition: all 0.1s linear;
   cursor: pointer;
   &--link {
@@ -24,13 +38,16 @@
     border-radius: 100%;
     text-indent: -999px;
   }
+  &.js-active {
+    height: 2px;
+    border-radius: 0;
+  }
   &:hover:after {
     @extend %showLabel;
     font-size: 11px;
   }
-  &.js-active {
-    height: 2px;
-    border-radius: 0;
+  @include respond-to(medium) {
+    margin-bottom: 15px;
   }
   @include respond-to(large) {
     font-size: 15px;
@@ -51,5 +68,4 @@ projects-nav-btn {
 
 .gohome {
   border-radius: 0;
-  margin-bottom: 10px;
 }

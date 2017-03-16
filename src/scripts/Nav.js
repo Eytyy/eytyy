@@ -19,6 +19,9 @@ class ProjectsNav extends Component {
   }
   closeAllProjects() {
     this.props.closeProjects();
+    if (document.body.width < 720) {
+      window.scrollTo(0, 0);
+    }
   }
   render() {
     const projects = SortProjectsById(this.props.projects.slice());

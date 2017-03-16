@@ -3,18 +3,31 @@
   z-index: 3;
   top: 0;
   left: 0;
+  padding: 5px;
+  justify-content: center;
   &--off {
     width: 100%;
     height: 100%;
     cursor: pointer;
   }
   &--on {
+    background: blue;
     display: flex;
-    height: 200px;
-    width: 16px;
+    height: 100%;
+    width: 25px;
     flex-direction: column;
-    left: -55px;
+    left: -25px;
     animation: 0.25s ease 0s slidein;
+  }
+  @include respond-to(medium) {
+    padding: 0;
+    justify-content: flex-start;
+    &--on {
+      background: none;
+      width: 16px;
+      height: 200px;
+      left: -55px;
+    }
   }
 }
 
@@ -48,9 +61,16 @@
   .icon__player--play {
     .glyph {
       border: 10px solid transparent;
-      border-left: 15px solid blue;
+      border-left: 15px solid yellow;
     }
   }
+  @include respond-to(medium) {
+    .icon__player--play {
+      .glyph {
+        border-left: 15px solid blue;
+      }
+    }
+  }  
 }
 .c-giffy-controls--off {
   .c-giffy-button {
@@ -69,6 +89,13 @@
       }
     }
   }
+  @include respond-to(medium) {
+    .icon__player--play {
+      .glyph {
+      border-left: 55px solid blue;
+      }
+    }
+  }  
 }
 
 .icon__player {
@@ -86,7 +113,7 @@
     .glyph {
       width: 15px;
       height: 15px;
-      background-color: blue;
+      background-color: yellow;
     }
   }
   &--pause {
@@ -96,7 +123,7 @@
     .glyph {
       width: 6px;
       height: 15px;
-      background-color: blue;
+      background-color: yellow;
     }
   }
   &--next,
@@ -108,7 +135,7 @@
   }
   &--next {
     .glyph {
-      border-left: 8px solid blue;
+      border-left: 8px solid yellow;
       &:last-child {
         margin-left: -8px;
       }
@@ -116,11 +143,33 @@
   }
   &--back {
     .glyph {
-      border-right: 8px solid blue;
+      border-right: 8px solid yellow;
       margin-left: -7px;
       &:last-child {
         margin-left: -8px;
       }
     }
   }
+  @include respond-to(medium) {
+     &--stop {
+      .glyph {
+        background-color: blue;
+      }
+    }
+    &--pause {
+      .glyph {
+        background-color: blue;
+      }
+    }
+    &--next {
+      .glyph {
+        border-left: 8px solid blue;
+      }
+    }
+    &--back {
+      .glyph {
+        border-right: 8px solid blue;
+      }
+    }
+  }    
 }

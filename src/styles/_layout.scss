@@ -7,9 +7,12 @@
   max-width: 760px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 40px 40px 20vh;
+  padding: 40px 25px 20vh 25px;
   @include respond-to(compact) {
     width: 90vw;
+  }
+  @include respond-to(medium) {
+    padding: 40px 40px 20vh;
   }
   @include respond-to(large) {
     width: 80vw;
@@ -17,6 +20,12 @@
   @include respond-to(xlarge) {
     max-width: 1020px;
   }
+}
+
+.js-nav-is-visible {
+  .main-wrapper {
+    padding: 40px 25px 20vh 60px;
+  }  
 }
 
 #app {
@@ -56,7 +65,17 @@ main {
   align-items: center;
   position: fixed;
   z-index: 4;
-  transform: translate(calc(-100% - 40px), 1.2em);
+  left: 0;
+  top: 0;
+  padding: 0 10px;
+  height: 100%;
+  @include respond-to(medium) {
+    left: auto;
+    top: auto;
+    padding: 0;
+    height: auto;
+    transform: translate(calc(-100% - 40px), 1.2em);
+  }
 }
 
 .footer {
