@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import CloseIcon from '../icons/Close';
 
 class ProjectDetailsVideo extends Component {
   constructor() {
@@ -8,6 +9,14 @@ class ProjectDetailsVideo extends Component {
     this.state = {
       playing: false,
     };
+  }
+  componentDidMount() {
+    this.video.addEventListener('ended', () => {
+      this.stop();
+    });
+  }
+  componentWillUnmount() {
+    this.video.removeListener('ended');
   }
   play() {
     this.setState({
@@ -30,9 +39,7 @@ class ProjectDetailsVideo extends Component {
           className="c-media-controls__button c-media-controls__button--stop"
           onClick={this.stop}
         >
-          <i className="icon icon--media icon--media--stop">
-            <span className="glyph" />
-          </i>
+          <CloseIcon />
         </button>
       </div>) :
       (<div className="c-media-controls c-media-controls--off">
