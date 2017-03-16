@@ -1,4 +1,4 @@
-@import 'giffy-player';
+@import 'media-controls';
 
 .project__title {
   margin-top: 0;
@@ -113,11 +113,11 @@
   fill: #FFF;
 }
 
-.video { 
+.c-video { 
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 53.333333333333%;
   position: relative;
-  iframe {
+  video {
     position: absolute;
     top: 0;
     left: 0;

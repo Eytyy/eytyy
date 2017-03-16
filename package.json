@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "clean": "rimraf dist",
-    "copy:files": "cpy src/**/*.html dist && cpy src/*.ico dist",
+    "copy:files": "cpy src/**/*.html dist && cpy src/*.ico dist && cpy src/videos/**/*.mp4 dist/videos",
     "copy:dev:data": "cpy src/data/**/*.json dist/data",
     "copy:dev": "npm-run-all copy:*:*",
     "copy": "npm-run-all copy:files",

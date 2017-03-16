@@ -114,41 +114,41 @@ class ProjectDetailsGiffy extends Component {
         backgroundImage: `url(./images/${this.props.images[0]})`,
       };
       const buttons = this.state.on ?
-        (<div className="c-giffy-controls c-giffy-controls--on" style={style}>
-          <button className="c-giffy-button c-giffy-button--back" onClick={this.prevSlide}>
-            <i className="icon icon__player icon__player--back">
+        (<div className="c-media-controls c-media-controls--on" style={style}>
+          <button className="c-media-controls__button c-media-controls__button--back" onClick={this.prevSlide}>
+            <i className="icon icon--media icon--media--back">
               <span className="glyph" />
               <span className="glyph" />
             </i>
           </button>
-          <button className="c-giffy-button c-giffy-button--stop" onClick={this.stopPlaying}>
-            <i className="icon icon__player icon__player--stop">
+          <button className="c-media-controls__button c-media-controls__button--stop" onClick={this.stopPlaying}>
+            <i className="icon icon--media icon--media--stop">
               <span className="glyph" />
             </i>
           </button>
 
           {this.state.playing ?
-            <button className="c-giffy-button c-giffy-button--pause" onClick={this.pausePlaying}>
-              <i className="icon icon__player icon___player--main icon__player--pause">
+            <button className="c-media-controls__button c-media-controls__button--pause" onClick={this.pausePlaying}>
+              <i className="icon icon--media icon--media--pause">
                 <span className="glyph" /><span className="glyph" />
               </i>
             </button> :
-            <button className="c-giffy-button c-giffy-button--play c-giffy-button--play--small" onClick={this.playImages}>
-              <i className="icon icon__player icon___player--main icon__player--play">
+            <button className="c-media-controls__button c-media-controls__button--play" onClick={this.playImages}>
+              <i className="icon icon--media icon--media--play">
                 <span className="glyph" />
               </i>
             </button>}
 
-          <button className="c-giffy-button c-giffy-button--next" onClick={this.nextSlide}>
-            <i className="icon icon__player icon__player--next">
+          <button className="c-media-controls__button c-media-controls__button--next" onClick={this.nextSlide}>
+            <i className="icon icon--media icon--media--next">
               <span className="glyph" />
               <span className="glyph" />
             </i>
           </button>
         </div>) :
-        (<div className="c-giffy-controls c-giffy-controls--off">
-          <button className="c-giffy-button c-giffy-button--play c-giffy-button--play--big" onClick={this.playImages}>
-            <i className="icon icon__player icon___player--main icon__player--play">
+        (<div className="c-media-controls c-media-controls--off">
+          <button className="c-media-controls__button c-media-controls__button--play" onClick={this.playImages}>
+            <i className="icon icon--media icon--media--play">
               <span className="glyph" />
             </i>
           </button>
