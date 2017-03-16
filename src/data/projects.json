@@ -28,7 +28,8 @@
     "year": "2016",
     "media": {
       "type": "video",
-      "videoLink": "welfare.mp4"
+      "videoLink": "welfare.mp4",
+      "placeholder": "welfare-video-placeholder.jpg"
     }
   },
   {

@@ -11,12 +11,10 @@ class ProjectDetailsVideo extends Component {
     };
   }
   componentDidMount() {
-    this.video.addEventListener('ended', () => {
-      this.stop();
-    });
+    this.video.addEventListener('ended', this.stop);
   }
   componentWillUnmount() {
-    this.video.removeListener('ended');
+    this.video.removeEventListener('ended', this.stop);
   }
   play() {
     this.setState({
@@ -32,7 +30,8 @@ class ProjectDetailsVideo extends Component {
     this.video.currentTime = 0;
   }
   render() {
-    const link = this.props.video;
+    const link = this.props.video.videoLink;
+    const poster = this.props.video.placeholder;
     const controls = this.state.playing ?
       (<div className="c-media-controls c-media-controls--on">
         <button
@@ -54,7 +53,7 @@ class ProjectDetailsVideo extends Component {
       </div>);
     return (
       <div className="c-video">
-        <video ref={(vid) => { this.video = vid; }} src={`videos/${link}`} />
+        <video ref={(vid) => { this.video = vid; }} src={`videos/${link}`} poster={`images/${poster}`} />
         {controls}
       </div>
     );
@@ -62,11 +61,14 @@ class ProjectDetailsVideo extends Component {
 }
 
 ProjectDetailsVideo.propTypes = {
-  video: PropTypes.string,
+  video: PropTypes.shape({
+    videoLink: PropTypes.string,
+    placeholder: PropTypes.string,
+  }),
 };
 
 ProjectDetailsVideo.defaultProps = {
-  video: 'https://youtu.be/7VXo__wh3Mc',
+  video: {},
 };
 
 export default ProjectDetailsVideo;

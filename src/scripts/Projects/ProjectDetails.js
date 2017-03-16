@@ -19,7 +19,7 @@ const ProjectDetails = (props) => {
               inTransition={props.inTransition}
             /> :
             <ProjectDetailsVideo
-              video={props.data.media.videoLink}
+              video={props.data.media}
               inTransition={props.inTransition}
             />
         }
@@ -58,6 +58,7 @@ ProjectDetails.propTypes = {
       type: PropTypes.string,
       images: PropTypes.array,
       videoLink: PropTypes.string,
+      placeholder: PropTypes.string,
     }),
     year: PropTypes.string,
     active: false,
