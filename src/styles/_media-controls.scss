@@ -49,6 +49,9 @@
 }
 
 .c-media-controls--off {
+  .c-project__images--loading & {
+    z-index: -1;
+  }
   .c-media-controls__button {
     &--play {
       position: absolute;

@@ -126,44 +126,39 @@
   }
 }
 
-.imageLoaderHolder {
+.loader {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-content: flex-start;
-  .imageHolder {
-    flex: 0 0 20%;
-    padding-top: 15%;
-    position: relative;
-    width: 20%;
+  justify-content: center;
+  align-items: center;
+  background: yellow;
+  z-index: -1;
+  .c-project__images--loading & {
+    z-index: 2;
+  }
+  .image-holder {
+    width: 10px;
+    height: 10px;
+    background: blue;
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgb(0, 0, 255);
-      mix-blend-mode: hue;
+      height: 0;
+      width: 0;
     }
   }
 }
 
-.player-loader-image {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  &.is-loading {
-    opacity: 0;
+@keyframes changebg {
+  from {
+    background: yellow;
+  }
+  to {
+    background: blue;
   }
 }

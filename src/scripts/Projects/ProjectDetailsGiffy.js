@@ -79,7 +79,6 @@ class ProjectDetailsGiffy extends Component {
   }
 
   stopPlaying() {
-    console.log('stop');
     if (this.state.playing) {
       console.log('yes');
       clearInterval(this.timer);
@@ -95,20 +94,20 @@ class ProjectDetailsGiffy extends Component {
   }
 
   updateLoadedImagesCount() {
-    this.fake.classList.remove('is-loading');
     this.loadedImagesCount += 1;
   }
 
   loadImages() {
     return new Promise((resolve) => {
       const interval = setInterval(() => {
+        console.log('in');
         if (this.props.images.length === this.loadedImagesCount) {
           resolve('loaded');
           clearInterval(interval);
         } else {
           console.log('still loading');
         }
-      }, 500);
+      }, 100);
     });
   }
 
@@ -135,7 +134,6 @@ class ProjectDetailsGiffy extends Component {
       });
 
       this.loadImages().then((status) => {
-        console.log(status);
         this.setState({
           loading: false,
           allImagesLoaded: true,
@@ -174,35 +172,25 @@ class ProjectDetailsGiffy extends Component {
       backgroundImage: `url(./images/${this.props.images[0]})`,
     };
 
-    const allImages = this.props.images.map((image) => {
-      const url = `images/${image}`;
+    let noOfImges = 0;
+    const loader = this.state.loading ?
+      this.props.images.map(image => {
+        noOfImges += 1;
+        const style = {
+          animation: `0.25s ease ${noOfImges / 10}s changebg infinite`,
+        };
+        return (
+          <div key={noOfImges} style={style} className="image-holder">
+            <img
+              ref={(img) => { this.fake = img; }}
+              src={`images/${image}`}
+              alt="hi"
+              onLoad={this.updateLoadedImagesCount}
+            />
+          </div>);
+      }) : null;
 
-      return (
-        <div key={image} className="imageHolder">
-          <img
-            className="player-loader-image is-loading"
-            ref={(img) => { this.fake = img; }}
-            src={url}
-            alt="hi"
-            onLoad={this.updateLoadedImagesCount}
-          />
-        </div>
-      );
-    });
-
-    const images = () => {
-      if (this.state.loading) {
-        return <div className="imageLoaderHolder">{allImages}</div>;
-      }
-      return (
-        <div
-          className="c-project__images__giffy"
-          ref={(img) => { this.image = img; }}
-          style={divStyle}
-        />);
-    };
-
-    const buttons = this.state.on ?
+    const buttons = this.state.on && !this.state.loading ?
       (<div className="c-media-controls c-media-controls--on" style={style}>
         <button
           className="c-media-controls__button c-media-controls__button--back"
@@ -261,11 +249,16 @@ class ProjectDetailsGiffy extends Component {
         </button>
       </div>);
     const stateClass = this.state.on ? 'c-project__images c-project__images--on' : 'c-project__images';
-    const loadedClass = this.state.allImagesLoaded ? 'c-project__images--loaded' : 'c-project__images--loading';
+    const loadedClass = this.state.loading ? 'c-project__images--loading' : '';
 
     return (
       <div className={`${stateClass} ${loadedClass}`}>
-        {images()}
+        <div className="loader">{ loader }</div>
+        <div
+          className="c-project__images__giffy"
+          ref={(img) => { this.image = img; }}
+          style={divStyle}
+        />
         {buttons}
       </div>
     );
