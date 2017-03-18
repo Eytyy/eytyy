@@ -15,14 +15,15 @@ class ProjectDetailsGiffy extends Component {
     this.state = {
       on: false,
       playing: false,
-      activeSlide: 0,
       allImagesLoaded: false,
       loading: false,
+      loadedImagesCount: 0,
     };
-    this.loadedImagesCount = 0;
+    this.activeSlide = 0;
     this.initialSlide = null;
     this.timer = null;
     this.noOfSlides = 0;
+    this.safeToPlay = true;
   }
 
   componentDidMount() {
@@ -31,6 +32,7 @@ class ProjectDetailsGiffy extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.inTransition) {
+      this.safeToPlay = false;
       this.stopPlaying();
     }
   }
@@ -51,20 +53,18 @@ class ProjectDetailsGiffy extends Component {
   setSlide(slide) {
     const images = this.props.images;
     this.image.style.backgroundImage = `url(./images/${images[slide]})`;
-    this.setState({
-      activeSlide: slide,
-    });
+    this.activeSlide = slide;
   }
 
   nextSlide() {
-    const slide = this.state.activeSlide >= this.noOfSlides - 1 ? 0 : this.state.activeSlide + 1;
+    const slide = this.activeSlide >= this.noOfSlides - 1 ? 0 : this.activeSlide + 1;
     if (this.state.playing) this.pausePlaying();
 
     this.setSlide(slide);
   }
 
   prevSlide() {
-    const slide = this.state.activeSlide === 0 ? this.noOfSlides - 1 : this.state.activeSlide - 1;
+    const slide = this.activeSlide === 0 ? this.noOfSlides - 1 : this.activeSlide - 1;
 
     if (this.state.playing) this.pausePlaying();
 
@@ -94,20 +94,21 @@ class ProjectDetailsGiffy extends Component {
   }
 
   updateLoadedImagesCount() {
-    this.loadedImagesCount += 1;
+    this.setState({
+      loadedImagesCount: this.state.loadedImagesCount + 1,
+    });
   }
 
   loadImages() {
     return new Promise((resolve) => {
       const interval = setInterval(() => {
-        console.log('in');
-        if (this.props.images.length === this.loadedImagesCount) {
-          resolve('loaded');
+        if (this.props.images.length === this.state.loadedImagesCount) {
+          resolve(true);
           clearInterval(interval);
         } else {
           console.log('still loading');
         }
-      }, 100);
+      }, 200);
     });
   }
 
@@ -120,6 +121,11 @@ class ProjectDetailsGiffy extends Component {
     window.scrollTo(0, scrollPosition);
 
     const start = () => {
+      if (!this.safeToPlay) {
+        console.log(`gonna prevent ${this.props.name} slider from playing to avoid things going batshit crazy`);
+        this.safeToPlay = true;
+        return;
+      }
       let count = 0;
       this.timer = setInterval(() => {
         this.setSlide(count);
@@ -174,13 +180,13 @@ class ProjectDetailsGiffy extends Component {
 
     let noOfImges = 0;
     const loader = this.state.loading ?
-      this.props.images.map(image => {
+      this.props.images.map((image) => {
         noOfImges += 1;
-        const style = {
-          animation: `0.25s ease ${noOfImges / 10}s changebg infinite`,
+        const animstyle = {
+          animation: `0.25s ease ${noOfImges / 10}s infinite reverse changebg`,
         };
         return (
-          <div key={noOfImges} style={style} className="image-holder">
+          <div key={noOfImges} style={animstyle} className="image-holder">
             <img
               ref={(img) => { this.fake = img; }}
               src={`images/${image}`}
@@ -250,10 +256,14 @@ class ProjectDetailsGiffy extends Component {
       </div>);
     const stateClass = this.state.on ? 'c-project__images c-project__images--on' : 'c-project__images';
     const loadedClass = this.state.loading ? 'c-project__images--loading' : '';
-
     return (
       <div className={`${stateClass} ${loadedClass}`}>
-        <div className="loader">{ loader }</div>
+        <div className="loader">
+          <div className="loader__progress">{`${Math.floor((this.state.loadedImagesCount / this.props.images.length) * 10) * 10}%`}</div>
+          <div className="loader__images">
+            {loader}
+          </div>
+        </div>
         <div
           className="c-project__images__giffy"
           ref={(img) => { this.image = img; }}
@@ -268,9 +278,11 @@ class ProjectDetailsGiffy extends Component {
 ProjectDetailsGiffy.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   inTransition: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
 };
 
 ProjectDetailsGiffy.defaultProps = {
+  loading: false,
   images: [],
 };
 

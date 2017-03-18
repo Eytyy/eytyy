@@ -17,6 +17,7 @@ const ProjectDetails = (props) => {
             <ProjectDetailsGiffy
               images={props.data.media.images}
               inTransition={props.inTransition}
+              name={props.data.name}
             /> :
             <ProjectDetailsVideo
               video={props.data.media}

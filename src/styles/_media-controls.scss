@@ -51,6 +51,7 @@
 .c-media-controls--off {
   .c-project__images--loading & {
     z-index: -1;
+    opacity: 0;
   }
   .c-media-controls__button {
     &--play {

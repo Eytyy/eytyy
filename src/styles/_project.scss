@@ -130,23 +130,20 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   height: 100%;
   width: 100%;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background: yellow;
-  z-index: -1;
+  flex-direction: column;
+  opacity: 0;
   .c-project__images--loading & {
     z-index: 2;
+    opacity: 1;
   }
   .image-holder {
-    width: 10px;
-    height: 10px;
-    background: blue;
+    width: 15px;
+    height: 15px;
+    background: yellow;
     img {
       height: 0;
       width: 0;
@@ -154,11 +151,23 @@
   }
 }
 
+.loader__progress {
+  font-size: 110px;
+  font-family: "SCPR";
+  color: yellow;
+  margin-top: -20px;
+}
+
+.loader__images {
+  display: flex;
+  margin-left: 10px;
+}
+
 @keyframes changebg {
   from {
     background: yellow;
   }
   to {
-    background: blue;
+    background: transparent;
   }
 }
