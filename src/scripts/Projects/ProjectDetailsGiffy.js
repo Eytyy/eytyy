@@ -19,6 +19,9 @@ class ProjectDetailsGiffy extends Component {
       loading: false,
       loadedImagesCount: 0,
     };
+
+    this.path = 'https://s3.amazonaws.com/eytyy.com/public/images/projects';
+
     this.activeSlide = 0;
     this.initialSlide = null;
     this.timer = null;
@@ -28,6 +31,9 @@ class ProjectDetailsGiffy extends Component {
 
   componentDidMount() {
     this.noOfSlides = this.props.images.length;
+    this.path = window.innerWidth > 568 ?
+      'https://s3.amazonaws.com/eytyy.com/public/images/projects' :
+      'https://s3.amazonaws.com/eytyy.com/public/images/projects-mobile';
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,7 +58,7 @@ class ProjectDetailsGiffy extends Component {
 
   setSlide(slide) {
     const images = this.props.images;
-    this.image.style.backgroundImage = `url(./images/${images[slide]})`;
+    this.image.style.backgroundImage = `url(${this.path}/${images[slide]})`;
     this.activeSlide = slide;
   }
 
@@ -80,7 +86,6 @@ class ProjectDetailsGiffy extends Component {
 
   stopPlaying() {
     if (this.state.playing) {
-      console.log('yes');
       clearInterval(this.timer);
       this.setState({
         on: false,
@@ -105,8 +110,6 @@ class ProjectDetailsGiffy extends Component {
         if (this.props.images.length === this.state.loadedImagesCount) {
           resolve(true);
           clearInterval(interval);
-        } else {
-          console.log('still loading');
         }
       }, 200);
     });
@@ -175,7 +178,7 @@ class ProjectDetailsGiffy extends Component {
     };
 
     const divStyle = {
-      backgroundImage: `url(./images/${this.props.images[0]})`,
+      backgroundImage: `url(${this.path}/${this.props.images[0]})`,
     };
 
     let noOfImges = 0;
@@ -189,7 +192,7 @@ class ProjectDetailsGiffy extends Component {
           <div key={noOfImges} style={animstyle} className="image-holder">
             <img
               ref={(img) => { this.fake = img; }}
-              src={`images/${image}`}
+              src={`${this.path}/${image}`}
               alt="hi"
               onLoad={this.updateLoadedImagesCount}
             />

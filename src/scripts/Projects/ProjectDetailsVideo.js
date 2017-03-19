@@ -53,7 +53,7 @@ class ProjectDetailsVideo extends Component {
       </div>);
     return (
       <div className="c-video">
-        <video ref={(vid) => { this.video = vid; }} src={`videos/${link}`} poster={`images/${poster}`} />
+        <video ref={(vid) => { this.video = vid; }} src={`https://s3.amazonaws.com/eytyy.com/public/videos/${link}`} poster={`images/${poster}`} />
         {controls}
       </div>
     );
