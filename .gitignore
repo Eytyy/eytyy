@@ -4,3 +4,7 @@ node_modules
 dist
 src/images
 src/videos
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
