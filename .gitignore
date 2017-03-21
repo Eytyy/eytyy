@@ -1,9 +1,10 @@
 node_modules
 .DS_Store
 .env
-dist
 src/images
 src/videos
+dist/images
+dist/videos
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
