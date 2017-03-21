@@ -12,7 +12,7 @@
     "minify-images:desktop": "imagemin './src/images/projects/**/*' --out-dir './dist/images/projects'",
     "minify-images:mobile": "imagemin './src/images/projects-mobile/**/*' --out-dir './dist/images/projects-mobile'",
     "test": "BABEL_ENV=test mocha './src/**/*.spec.js' -w --recursive --compilers js:babel-core/register",
-    "start": "nodemon server.js -w",
+    "start": "node server.js -w",
     "predev": "npm-run-all clean copy:* minify-images:*",
     "dev": "webpack --env.dev --watch",
     "prebuild": "npm-run-all clean copy minify-images:* copy:dev:data",
