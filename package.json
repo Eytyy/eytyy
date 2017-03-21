@@ -12,11 +12,15 @@
     "minify-images:desktop": "imagemin './src/images/projects/**/*' --out-dir './dist/images/projects'",
     "minify-images:mobile": "imagemin './src/images/projects-mobile/**/*' --out-dir './dist/images/projects-mobile'",
     "test": "BABEL_ENV=test mocha './src/**/*.spec.js' -w --recursive --compilers js:babel-core/register",
+    "prestart": "npm run build:prod",
     "start": "node server.js",
     "predev": "npm-run-all clean copy:* minify-images:*",
     "dev": "webpack --env.dev --watch",
     "prebuild": "npm-run-all clean copy minify-images:* copy:dev:data",
-    "build": "webpack --env.prod -p"
+    "build": "webpack --env.prod -p",
+    "prebuild:prod": "npm-run-all clean copy copy:dev:data",
+    "build:prod": "webpack --env.prod -p"
+    
   },
   "keywords": [],
   "author": "Eyas Tayyem <e.tayyem@gmail.com> (http://eytyy.com/)",
