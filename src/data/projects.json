@@ -16,23 +16,6 @@
     }
   },
   {
-    "id": "2",
-    "name": "Welfare",
-    "nameShort": "Welfare",
-    "url": "/work/welfare",
-    "desc": "<p>Laboris minim nostrud velit ex dolore esse. Mollit magna nostrud tempor aliquip mollit. Est duis nisi qui ut. Eiusmod officia occaecat dolore ut commodo sint eu sunt eu. Quis amet adipisicing nostrud id qui non reprehenderit esse non. Pariatur magna do nulla adipisicing sit.</p>",
-    "website": "welfare-prod.us-west-2.elasticbeanstalk.com",
-    "collaborators": [
-      {"name": "Syntax", "link": "www.syntaxdesign.com"}
-    ],
-    "year": "2016",
-    "media": {
-      "type": "video",
-      "videoLink": "welfare.mp4",
-      "placeholder": "welfare-video-placeholder.jpg"
-    }
-  },
-  {
     "id": "3",
     "name": "Jawwy",
     "nameShort": "Jawwy",
