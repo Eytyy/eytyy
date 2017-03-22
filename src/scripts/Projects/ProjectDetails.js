@@ -35,7 +35,7 @@ const ProjectDetails = (props) => {
               alt={`visit ${props.data.name}`}
               rel="noopener noreferrer"
               target="_blank"
-              href={props.data.website}
+              href={`http://${props.data.website}`}
             >
             Visit website &rarr;
             </a>

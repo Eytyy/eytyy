@@ -52,8 +52,8 @@
 .c-project__bottom {
   position: relative;
   min-height: 140px;
-  margin-top: 40px;
   font-size: 0.75em;
+  margin-top: 1.5em;
 }
 
 .c-project__images {
@@ -99,7 +99,7 @@
   }
 }
 
-.c-project__collaborator__item {
+.c-project__collaborators__item {
   margin-right: 5px;
   &:after {
     content: ',';

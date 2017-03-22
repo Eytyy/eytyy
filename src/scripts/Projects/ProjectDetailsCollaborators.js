@@ -6,7 +6,9 @@ const ProjectDetailsCollaborators = (props) => {
   const list = props.collaborators ? props.collaborators.map(item => (
     <a
       className="c-project__collaborators__item"
-      key={uniqueKey(item.name)} href={item.link}
+      key={uniqueKey(item.name)} href={`http://${item.link}`}
+      target="_blank"
+      rel="noopener noreferrer"
     >{item.name}</a>
   )) : null;
   return (
