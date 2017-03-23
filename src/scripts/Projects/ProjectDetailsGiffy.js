@@ -117,10 +117,12 @@ class ProjectDetailsGiffy extends Component {
 
   playImages() {
     const images = this.props.images;
-    const imagesContainerOffset = this.image.parentNode.parentNode.parentNode.offsetTop;
-    const mainHeaderOffset = document.querySelector('.main-header').offsetTop;
-    const scrollPosition = imagesContainerOffset + mainHeaderOffset;
-
+    const imagesContainerOffset = this.image.parentNode.parentNode.offsetTop;
+    const mainHeaderOffset = document.querySelector('.main-header').clientHeight;
+    const scrollPosition = imagesContainerOffset - mainHeaderOffset;
+    console.log(imagesContainerOffset);
+    console.log(mainHeaderOffset);
+    
     window.scrollTo(0, scrollPosition);
 
     const start = () => {
