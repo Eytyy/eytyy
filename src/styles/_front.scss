@@ -4,7 +4,7 @@
   font-family: $bodyReg-font;
 }
 .section {
-  p, &__list {
+  > p, &__list {
     display: inline;
   }
   &__title {

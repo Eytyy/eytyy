@@ -39,14 +39,17 @@
 
 .c-project__content {
   display: inline;
-  p {
+  p:first-child {
     display: inline;
+  }
+  p {
+    margin: 1.5em 0 0;
   }
 }
 
 .c-project__description {
   display: inline;
-  margin-left: 5px;
+  margin-left: 0.5em;
 }
 
 .c-project__bottom {
