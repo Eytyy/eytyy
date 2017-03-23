@@ -4,7 +4,7 @@
     "name": "Turbo",
     "nameShort": "Turbo",
     "url": "/work/turbo",
-    "desc": "<p>An independent design studio/space based in Amman, Jordan run by Saeed Abu-Jaber & Mothanna Hussein. This was a small fun project, where they first provided me with the designs and asked for a simple responsive static website to be done fast since they were launching their new business. After the launch we transformed the website to a dynamic one built on top of Keystone.js, while keeping the same front-end we used for the static one.</p>",
+    "desc": "<p>An independent design studio/space based in Amman, Jordan run by Saeed Abu-Jaber & Mothanna Hussein. This was a small fun project, where it was first built as a simple responsive static HTML website to be launched at the same time for the opening of their new studio, then it was followed by a dynamic version which was built on top of Keystone.js, while keeping the same front-end we used in the first phase.</p>",
     "website": "www.turrrbo.com",
     "collaborators": [
       {"name": "Turbo", "link": "www.turrrbo.com"}
@@ -20,7 +20,7 @@
     "name": "Jawwy",
     "nameShort": "Jawwy",
     "url": "/work/jawwy",
-    "desc": "<p>A new mobile service for Saudi youth from STC telecom which was designed and built by Frog design. Through Syntax and during the first 3 sprints, I worked on the front-end development of the Arabic version of the website, along side two other colleagues in Syntax who worked as QA and as a part of a team that consisted of 32 designers and technologists from different countries.</p><p>Working on this project was a unique experience, considering the scale of work needed to be done under a short amount of time, while adhering to strict standards, which was  all done remotely with the majority of the team located in Milan.</p>",
+    "desc": "<p>A new mobile service for Saudi youth from STC telecom which was designed and built by Frog design. Through Syntax and during the first 3 sprints, I worked on the front-end development of the Arabic version of the website and as a part of a team that consisted of 32 designers and technologists from different countries.</p><p>Working on this project was a unique experience, considering the scale of work needed to be done under a short amount of time, while adhering to strict standards, all done remotely with the majority of the team based in Milan.</p>",
     "website": "www.jawwy.sa",
     "collaborators": [
       {"name": "Frog", "link": "www.frogdesign.com"},
@@ -37,7 +37,7 @@
     "name": "KAFD",
     "nameShort": "KAFD",
     "url": "work/kafd",
-    "desc": "<p>King Abdullah II Fund for Development is a non-governmental organization to enhance productivity through implementing development projects that help alleviate poverty and unemployment in partnership with the private and the public sectors.</p><p>While working at Syntax, I worked on the front-end development of a bilingual, responsive website for KAFD. My involvement covered the implementation of the interfaces up until the early final stages of the project, it then continued to be in development and went through a few changes which was carried out by Spring at that stage, who also was responsible for working on the back-end development.</p>",
+    "desc": "<p>A non-governmental organization to enhance productivity through implementing development projects that help alleviate poverty and unemployment in partnership with the private and the public sectors.</p><p>I worked on this project during my time at Syntax, where I was responsible for the front-end development of a bilingual, responsive website for KAFD. My involvement covered the implementation of the interfaces up until the early final stages of the project, then it was continued to be in development and went through a few changes which was carried out by Spring at that stage.</p>",
     "website": "https//www.kafd.com",
     "collaborators": [
       {"name": "Syntax", "link": "www.syntaxdesign.com"},
@@ -54,7 +54,7 @@
     "name": "Al-Sharq Forum",
     "nameShort": "Al-Sharq",
     "url": "/work/sharq",
-    "desc": "<p>A forum for sociopolitical content, events and youth engagement. My role included the research, design, and front-end development for two different interfaces of a bilingual, fully-responsive website: The main website and the administration area.</p><p>The website allowed members to sign up for calendar events, read and publish articles, participate in forums and communicate through an internal messaging system.</p><p>The design for both interfaces went through three phases: Research, Sketching — lo-fidelity prototypes, HTML prototyping, and designing in browser. The result was a fully interactive design in the form of HTML files, which served as the main templates for a backend built on top of a Ruby on Rails framework.</p>",
+    "desc": "<p>A forum for sociopolitical content, events and youth engagement. My role included the research, design, and front-end development of two different interfaces of a bilingual, fully-responsive website: The main website and the administration area.</p><p>The website allowed members to sign up for calendar events, read and publish articles, participate in forums and communicate through an internal messaging system.</p><p>The design for both interfaces was broken down into small sprints with, each sprint went through four main phases: Research, Sketching — lo-fidelity prototypes, HTML prototyping, and designing in browser. The result was a fully interactive design that was delivered to the client in the form of HTML files, which later served as the main templates for a backend built on top of a Ruby on Rails framework.</p>",
     "collaborators": [
       {"name": "Syntax", "link": "www.syntaxdesign.com"}
     ],
@@ -69,7 +69,7 @@
     "name": "RHC",
     "nameShort": "RHC",
     "url": "/work/rhc",
-    "desc": "<p>The Royal Hashemite Court is considered the political and administrative link between His Majesty King Abdullah II and constitutional authorities. My role covered the front-end development of a bilingual responsive website. This was a unique project, considering it’s importance and the number of iterations it had to go through. The HTML templates were customized to match the templates generated by Drupal CMS, to make it easier for the back-end developers to integrate the interface with Drupal without having to alter or modify the code much.</p>",
+    "desc": "<p>Considered the political and administrative link between His Majesty King Abdullah II and constitutional authorities. My role covered the front-end development of a bilingual responsive website. This was a unique project, considering it’s importance and the number of iterations it had to go through. The HTML templates were customized to match the templates generated by Drupal CMS, to make it easier for the back-end developers to integrate the interface with Drupal without having to alter or modify the code much.</p>",
     "website": "www.rhc.jo",
     "collaborators": [
       {"name": "Syntax", "link": "www.syntaxdesign.com"},
@@ -86,7 +86,7 @@
     "name": "Qatar Social Work",
     "nameShort": "QSW",
     "url": "/work/qatar-social",
-    "desc": "<p>A non-profit organization for developing and building the capacity of civil society organizations in Qatar. A small simple responsive static HTML website. I Just like the way this website looks, so nothing technically special here.</p>",
+    "desc": "<p>A non-profit organization for developing and building the capacity of civil society organizations in Qatar. A small simple responsive static HTML website. I Just like the way it looks, so nothing technically special here.</p>",
     "website": "www.qatarsocial.com",
     "collaborators": [
       {"name": "Syntax", "link": "www.syntaxdesign.com"}
@@ -118,7 +118,7 @@
     "name": "Umniah",
     "nameShort": "Umniah",
     "url": "/work/umniah",
-    "desc": "<p>One of the main three mobile cellular telecommunication companies in Jordan. I worked as a consultant through Syntax on the front-end development of a bilingual online portal which consisted of three different sub-portals each having their own unique templates and functions: The main website: Umniah personal and business, the human resource portal and Umniah mobile.</p><p>The development and design for the interfaces were done in a modular, iterative, component based approach, to simplify the interface and create a consistent experience across the different pages and portals. This was a roller-coaster ride considering the gigantic scale of the project all done under an ambitious time frame and carried out by a small team.</p>",
+    "desc": "<p>One of the main three mobile cellular telecommunication companies in Jordan. I worked as a consultant through Syntax on the front-end development of a bilingual online portal which consisted of three different sub-portals each having their own unique templates and functions: The main website: Umniah personal and business, the human resource portal and Umniah mobile.</p><p>The development and design for the interfaces were done in a modular, iterative, component based approach to simplify the interface and create a consistent experience across the different pages and portals. Considering the gigantic scale of the project all done under an ambitious time frame and carried out by a small team, the work had to be broken into small rapid cycles between design, development and QA.</p>",
     "website": "www.umniah.com",
     "collaborators": [
       {"name": "Syntax", "link": "www.syntaxdesign.com"}
