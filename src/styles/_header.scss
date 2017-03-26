@@ -5,10 +5,10 @@
   display: block;
   position: relative;
   font-size: calc(6.5vh + 6vw);
-  margin-bottom: 20px;
+  margin-bottom: 0.175em;
   color: rgba(0, 0, 0, 0.95);
   @include respond-to(medium) {
-    margin-bottom: 40px;
+    margin-bottom: 0.35em;
     font-size:calc(7.5vh + 7vw);
   }
   @include respond-to(small-landscape) {
