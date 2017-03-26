@@ -147,21 +147,30 @@
     opacity: 1;
   }
   .image-holder {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: yellow;
     img {
       height: 0;
       width: 0;
     }
   }
+  @include respond-to(medium) {
+    .image-holder {
+      width: 15px;
+      height: 15px;
+    }
+  }
 }
 
 .loader__progress {
-  font-size: 110px;
+  font-size: 90px;
   font-family: "SCPR";
   color: yellow;
   margin-top: -20px;
+  @include respond-to(medium) {
+    font-size: 110px;
+  }
 }
 
 .loader__images {

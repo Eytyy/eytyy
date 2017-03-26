@@ -9,8 +9,16 @@ class ProjectDetailsVideo extends Component {
     this.state = {
       playing: false,
     };
+    this.path = {
+      images: 'https://s3.amazonaws.com/eytyy.com/public/images/projects',
+      videos: 'https://s3.amazonaws.com/eytyy.com/public/videos',
+    };
   }
   componentDidMount() {
+    this.path.images = window.innerWidth > 568 ?
+      'https://s3.amazonaws.com/eytyy.com/public/images/projects' :
+      'https://s3.amazonaws.com/eytyy.com/public/images/projects-mobile';
+
     this.video.addEventListener('ended', this.stop);
   }
   componentWillUnmount() {
@@ -53,7 +61,11 @@ class ProjectDetailsVideo extends Component {
       </div>);
     return (
       <div className="c-video">
-        <video ref={(vid) => { this.video = vid; }} src={`https://s3.amazonaws.com/eytyy.com/public/videos/${link}`} poster={`images/${poster}`} />
+        <video
+          ref={(vid) => { this.video = vid; }}
+          src={`${this.path.videos}/${link}`}
+          poster={`${this.path.images}/${poster}`}
+        />
         {controls}
       </div>
     );
