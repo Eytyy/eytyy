@@ -1,6 +1,6 @@
 import React from 'react';
-import GithubIcon from './icons/Github';
-import LinkedinIcon from './icons/Linkedin';
+import GithubIcon from '../icons/Github';
+import LinkedinIcon from '../icons/Linkedin';
 
 const Footer = () => (
   <footer className="footer">

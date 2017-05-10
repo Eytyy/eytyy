@@ -13,7 +13,9 @@
     "media": {
       "type": "giffy",
       "images": ["turbo0.jpg" ,"turbo1.jpg", "turbo2.jpg", "turbo3.jpg", "turbo4.jpg", "turbo5.jpg", "turbo6.jpg", "turbo7.jpg", "turbo8.jpg", "turbo9.jpg", "turbomob1.jpg", "turbomob2.jpg", "turbomob3.jpg"]
-    }
+    },
+    "role": ["Front-end development", "Backend development"],
+    "stack": ["Keystone.js", "MongoDB", "Sass", "JavaScript"]
   },
   {
     "id": "2",
@@ -29,7 +31,9 @@
       "type": "video",
       "videoLink": "welfare.mp4",
       "placeholder": "welfare-video-placeholder.jpg"
-    }
+    },
+    "role": ["Front-end development"],
+    "stack": ["Google Maps JavaScript API", "Node.js", "Express.js", "AWS SDK", "Handlebars.js", "Sass", "JavaScript"]
   },
   {
     "id": "3",
@@ -46,7 +50,9 @@
     "media": {
       "type": "giffy",
       "images": ["jawwy1.jpg", "jawwy2.jpg", "jawwy3.jpg", "jawwy4.jpg", "jawwy5.jpg", "jawwy6.jpg", "jawwy7.jpg"]
-    }
+    },
+    "role": ["Front-end development"],
+    "stack": ["Sass", "Bootstrap", "JavaScript"]
   },
   {
     "id": "4",
@@ -63,7 +69,9 @@
     "media": {
       "type": "giffy",
       "images": ["kafd1.jpg", "kafd2.jpg", "kafd3.jpg", "kafd4.jpg", "kafd5.jpg"]
-    }
+    },
+    "role": ["Front-end development"],
+    "stack": ["Nunjucks", "Sass", "JavaScript"]
   },
   {
     "id": "5",
@@ -78,7 +86,9 @@
     "media": {
       "type": "giffy",
       "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg"]
-    }
+    },
+    "role": ["Front-end development"],
+    "stack": ["HTML", "Sass", "JavaScript"]
   },
   {
     "id": "6",
@@ -95,7 +105,9 @@
     "media": {
       "type": "giffy",
       "images": ["rhc1.jpg", "rhc2.jpg", "rhc3.jpg", "rhc4.jpg", "rhc5.jpg", "rhc6.jpg"]
-    }
+    },
+    "role": ["Front-end development"],
+    "stack": ["HTML", "Sass", "JavaScript"]
   },
   {
     "id": "7",

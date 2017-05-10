@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { updateActiveProjects, getProjectOnScrollPosition } from './HomeHelpers';
-import Header from './Header';
+import { updateActiveProjects, getProjectOnScrollPosition } from '../HomeHelpers';
+import Header from '../components/Header';
 import Content from './Content';
 import Nav from './Nav';
 
@@ -91,7 +91,7 @@ class Home extends Component {
       }
     }
   }
-  navigationClass(activeProjectsLength) {
+  navigationClass(activeProjectsLength) { // eslint-disable-line
     if (activeProjectsLength) {
       document.body.classList.add('js-nav-is-visible');
     } else {

@@ -4,7 +4,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = env => {
  	return {
- 		entry: ['whatwg-fetch', './scripts/index.js'],
+ 		entry: ['whatwg-fetch', './js/index.js'],
  		output: {
  			path: resolve(__dirname, 'dist'),
  			filename: 'bundle.js',
