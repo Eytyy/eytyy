@@ -14,7 +14,8 @@ const ProjectDetailsCollaborators = (props) => {
   return (
     <div className="c-project__details__item c-project__collaborators">
       <span>Collaborators: </span>{list}
-    </div>);
+    </div>
+  );
 };
 
 ProjectDetailsCollaborators.propTypes = {

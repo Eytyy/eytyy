@@ -9,6 +9,7 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
+      <Route path="/contact" component={Home} />
     </Route>
   </Router>, document.getElementById('app'),
 );

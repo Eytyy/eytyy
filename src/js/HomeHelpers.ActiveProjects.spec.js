@@ -1,4 +1,4 @@
-import expect from 'expect';
+import expect from 'expect'; // eslint-disable-line
 import { updateActiveProjects } from './HomeHelpers';
 
 describe('Update active projects', () => {

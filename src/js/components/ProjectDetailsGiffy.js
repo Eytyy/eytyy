@@ -37,7 +37,8 @@ class ProjectDetailsGiffy extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.inTransition) {
+    const { inTransition } = nextProps;
+    if (inTransition) {
       this.safeToPlay = false;
       this.stopPlaying();
     }
@@ -57,7 +58,7 @@ class ProjectDetailsGiffy extends Component {
   }
 
   setSlide(slide) {
-    const images = this.props.images;
+    const { images } = this.props;
     this.image.style.backgroundImage = `url(${this.path}/${images[slide]})`;
     this.activeSlide = slide;
   }
@@ -120,14 +121,13 @@ class ProjectDetailsGiffy extends Component {
     const imagesContainerOffset = this.image.parentNode.parentNode.offsetTop;
     const mainHeaderOffset = document.querySelector('.main-header').clientHeight;
     const scrollPosition = imagesContainerOffset - mainHeaderOffset;
-    console.log(imagesContainerOffset);
-    console.log(mainHeaderOffset);
-    
+
     window.scrollTo(0, scrollPosition);
 
     const start = () => {
+      const { name } = this.props;
       if (!this.safeToPlay) {
-        console.log(`gonna prevent ${this.props.name} slider from playing to avoid things going batshit crazy`);
+        console.log(`gonna prevent ${name} slider from playing to avoid things going batshit crazy`);
         this.safeToPlay = true;
         return;
       }
@@ -144,7 +144,7 @@ class ProjectDetailsGiffy extends Component {
         loading: true,
       });
 
-      this.loadImages().then((status) => {
+      this.loadImages().then(() => {
         this.setState({
           loading: false,
           allImagesLoaded: true,
@@ -184,7 +184,8 @@ class ProjectDetailsGiffy extends Component {
     };
 
     let noOfImges = 0;
-    const loader = this.state.loading ?
+    const { loading } = this.state;
+    const loader = loading ?
       this.props.images.map((image) => {
         noOfImges += 1;
         const animstyle = {
@@ -201,7 +202,7 @@ class ProjectDetailsGiffy extends Component {
           </div>);
       }) : null;
 
-    const buttons = this.state.on && !this.state.loading ?
+    const buttons = this.state.on && !loading ?
       (<div className="c-media-controls c-media-controls--on" style={style}>
         <button
           className="c-media-controls__button c-media-controls__button--back"
@@ -281,9 +282,9 @@ class ProjectDetailsGiffy extends Component {
 }
 
 ProjectDetailsGiffy.propTypes = {
+  name: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(PropTypes.string),
   inTransition: PropTypes.bool.isRequired,
-  loading: PropTypes.bool,
 };
 
 ProjectDetailsGiffy.defaultProps = {

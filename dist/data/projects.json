@@ -19,7 +19,7 @@
   },
   {
     "id": "2",
-    "name": "Welfare Interactive Map",
+    "name": "Welfare Map",
     "nameShort": "Welfare",
     "url": "/work/welfare",
     "desc": "<p>The Welfare Association is an independent non-profit organization in Palestine, dedicated to sustainable development and humanitarian assistance to Palestinians in the West Bank. The task in hand was to develop an interactive map based on a data gathered through a number of researches and studies on the Old City of Jerusalem.</p><p>The interactive map consisted of three different layers, each with a unique set of data and a different layout. The map was built using Google Maps Javascript API and node.js.</p>",

@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { updateActiveProjects, getProjectOnScrollPosition } from '../HomeHelpers';
 import Header from '../components/Header';
-import Content from './Content';
+import Work from '../components/Work';
+import Contact from '../components/Contact';
 import Nav from './Nav';
 
 class Home extends Component {
@@ -223,24 +225,37 @@ class Home extends Component {
     window.scrollTo(0, position);
   }
   render() {
+    const { projects, activeProjects, projectInTransition, title } = this.state;
+    const { location } = this.props;
+    const doYouWantToTalk = location.pathname === '/contact' || false;
     return (
       <div className="inner-wrapper">
         <Nav
-          projects={this.state.activeProjects}
+          projects={activeProjects}
           closeProjects={this.closeProjects}
           goToSection={this.goToSection}
         />
-        <Header title={this.state.title} />
-        <Content
-          projects={this.state.projects}
-          updateUI={this.updateUI}
-          projectInTransition={this.state.projectInTransition}
-          email={this.state.email}
-          location={this.state.location}
-        />
+        <Header title={title} />
+        <main className="content">
+          <Work projects={projects} updateUI={this.updateUI} inTransition={projectInTransition} />
+          <div className="section section--contact">
+            {
+              doYouWantToTalk ?
+                <Contact /> :
+                <p>
+                  Want to start a project?{' '}
+                  <Link className="contact-link" to="/contact">click here</Link>
+                </p>
+           }
+          </div>
+        </main>
       </div>
     );
   }
 }
 
 export default Home;
+
+Home.propTypes = {
+  location: PropTypes.shape().isRequired,
+};

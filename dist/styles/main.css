@@ -560,7 +560,7 @@ projects-nav-btn {
   display: block;
   position: relative;
   font-size: calc(6.5vh + 6vw);
-  margin-bottom: 0.175em;
+  margin-bottom: 0.25em;
   color: rgba(0, 0, 0, .95); }
   @media (min-width: 720px) {
     .project-title,
@@ -598,6 +598,83 @@ projects-nav-btn {
 .footer {
   position: relative;
   z-index: 3; }
+
+.contactForm {
+  margin-bottom: 30px; }
+
+input,
+textarea,
+button {
+  font-family: "SCP";
+  font-size: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: none;
+  border-bottom: 1px solid; }
+
+.step-3 {
+  width: 70%;
+  margin-top: 20px; }
+
+textarea {
+  resize: none;
+  padding: 10px;
+  background: #f2f2f2;
+  font-size: 16px;
+  border: 0;
+  width: 100%; }
+
+button {
+  cursor: pointer;
+  margin-right: 5px; }
+
+.step {
+  margin-right: 40px;
+  display: inline-block; }
+
+button,
+.form-link {
+  font-family: "SCPR";
+  color: blue;
+  border-bottom: 1px solid; }
+
+.services {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.service-item {
+  display: inline-block;
+  cursor: pointer; }
+  .service-item--active {
+    background: blue;
+    color: #FFF; }
+
+.service-item:not(:last-child) {
+  margin-right: 25px; }
+
+.error {
+  font-family: "SCPR"; }
+
+.form-input {
+  padding: 20px 0; }
+
+.form-group p {
+  margin-bottom: 5px; }
+
+.eytyy {
+  font-size: 2em;
+  position: relative;
+  top: 0.2em; }
+
+.botty {
+  margin-bottom: 10px;
+  font-family: "SCPR"; }
 
 .external-link:after,
 .external-link:before {
