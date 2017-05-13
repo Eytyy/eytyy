@@ -59,7 +59,7 @@ server.register([
     path: '/api/contact',
     handler(request, reply) {
       const envelope = {
-        from: `"👻" <${emailDestination}>`, // sender address
+        from: emailDestination, // sender address
         to: emailDestination,
         subject: `🤖: Submission from ${request.payload.name}`, // Subject line
         text: emailTemplate(request.payload),
