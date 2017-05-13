@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 import Service from './Service';
+import validate from '../helpers/formValidate';
 
 class Contact extends Component {
   constructor() {
     super();
+    this.errorTracker = {
+      has: false,
+      msg: '',
+    };
     this.state = {
       services: [{
         key: 'dev',
@@ -17,6 +22,8 @@ class Contact extends Component {
         title: 'Other',
       }],
       where: 0,
+      error: false,
+      errorMsg: '',
       user: {
         name: undefined,
         email: undefined,
@@ -28,8 +35,9 @@ class Contact extends Component {
     this.updateStep = this.updateStep.bind(this);
     this.onNextClick = this.onNextClick.bind(this);
     this.handleKeyStrokes = this.handleKeyStrokes.bind(this);
-    this.validate = this.validate.bind(this);
     this.onClickService = this.onClickService.bind(this);
+    this.showError = this.showError.bind(this);
+    this.handleFormInput = this.handleFormInput.bind(this);
   }
   componentDidMount() {
     document.addEventListener('keypress', this.handleKeyStrokes);
@@ -47,8 +55,61 @@ class Contact extends Component {
     });
   }
   onNextClick(e) {
-    this.updateStep('next');
+    this.handleFormInput('next');
     e.preventDefault();
+  }
+  handleKeyStrokes(event) {
+    const { keyCode } = event;
+    switch (keyCode) {
+      case 13: // enter
+        this.handleFormInput('next');
+        break;
+      case 8: // backspace
+        this.handleFormInput('prev');
+        break;
+      default:
+    }
+  }
+  handleFormInput(dir) {
+    const { where, user } = this.state;
+    const inputObj = {};
+    switch (where) {
+      case 0:
+        inputObj.field = this.nameField;
+        inputObj.name = 'name';
+        inputObj.value = inputObj.field.value.trim();
+        break;
+      case 1:
+        inputObj.field = document.querySelector('.service-item--active');
+        inputObj.name = 'service';
+        inputObj.value = user.service || '';
+        break;
+      case 2:
+        inputObj.field = this.emailField;
+        inputObj.name = 'email';
+        inputObj.value = inputObj.field.value.trim();
+        break;
+      case 3:
+        inputObj.field = this.messageField;
+        inputObj.name = 'message';
+        inputObj.value = inputObj.field.value.trim();
+        break;
+      case 4:
+        inputObj.field = this.bottoField;
+        inputObj.name = 'botto';
+        inputObj.value = inputObj.field.value.trim();
+        break;
+      default:
+        break;
+    }
+    const errors = validate(inputObj).filter(item => !item.valid);
+    if (errors.length > 0) {
+      const { msg } = errors[0];
+      this.showError(msg);
+      return false;
+    }
+    this.updateStep(dir, inputObj);
+    return true;
   }
   submitContact() {
     const { user } = this.state;
@@ -66,80 +127,18 @@ class Contact extends Component {
         message: user.message,
       }),
     }).then((response) => {
-      browserHistory.push('/');
       console.log(response);
+      browserHistory.push('/');
     });
   }
-  handleKeyStrokes(event) {
-    const { keyCode } = event;
-    switch (keyCode) {
-      case 13: // enter
-        this.updateStep('next');
-        break;
-      case 8: // backspace
-        this.updateStep('prev');
-        break;
-      default:
-    }
+  showError(msg) {
+    this.setState({
+      error: true,
+      errorMsg: msg,
+    });
   }
-  validate() {
-    const { where, user } = this.state;
-    const obj = {};
-    let data;
-    switch (where) {
-      case 0:
-        data = this.nameField.value.trim();
-        obj.type = data === '' ? 'error' : 'ok';
-        obj.name = 'name';
-        obj.field = this.nameField;
-        obj.value = data;
-        return obj;
-      case 1:
-        data = user.service;
-        obj.type = typeof data === 'undefined' ? 'error' : 'ok';
-        obj.name = 'service';
-        obj.value = data || '';
-        return obj;
-      case 2:
-        data = this.emailField.value.trim();
-        obj.type = data === '' ? 'error' : 'ok';
-        obj.name = 'email';
-        obj.field = this.emailField;
-        obj.value = data;
-        return obj;
-      case 3:
-        data = this.messageField.value.trim();
-        obj.type = 'ok';
-        obj.name = 'message';
-        obj.field = this.messageField;
-        obj.value = data;
-        return obj;
-      case 4: // eslint-disable-line
-        data = this.bottoField.value.trim();
-        const notok = data === '' || data !== 'Tokyo';
-        obj.type = notok ? 'error' : 'ok';
-        obj.name = 'botto';
-        obj.field = this.bottoField;
-        obj.value = data;
-        return obj;
-      default:
-        return true;
-    }
-  }
-  updateStep(dir) {
+  updateStep(dir, { name, value }) {
     const { where } = this.state;
-    const validation = this.validate();
-    if (validation.type === 'error') {
-      if (validation.field) {
-        validation.field.classList.add('error');
-        validation.field.dataset.msg = validation.errorMsg;
-      }
-      return false;
-    }
-    if (validation.field) {
-      validation.field.classList.remove('error');
-      validation.field.dataset.msg = '';
-    }
 
     if ((where === 5 && dir === 'next') || (where === 0 && dir === 'prev')) {
       return false;
@@ -147,16 +146,17 @@ class Contact extends Component {
 
     const user = {
       ...this.state.user,
-      [validation.name]: validation.value,
+      [name]: value,
     };
+
     this.setState({
       ...this.state,
       where: dir === 'next' ? where + 1 : where - 1,
+      error: false,
+      errorMsg: '',
       user,
     });
-    if (where === 4) {
-      this.submitContact();
-    }
+
     return true;
   }
   renderStep(step) { // eslint-disable-line
@@ -232,8 +232,11 @@ class Contact extends Component {
     }
   }
   render() {
-    const { where, user } = this.state;
+    const { where, user, error, errorMsg } = this.state;
     const whereAmi = () => {
+      if (error) {
+        return <span>{errorMsg}</span>;
+      }
       switch (where) {
         case 0:
           return <span>{'"Hi! What should I call you?"'}</span>;
@@ -276,7 +279,7 @@ class Contact extends Component {
       <div>
         <form className="contactForm" action="" onSubmit={() => false} >
           <p className="botty">
-            <span className="eytyy">🤖</span> { whereAmi() }
+            <span className="eytyy">{ where === 5 ? '🤘' : '🤖'}</span> { whereAmi() }
           </p>
           <div className={`step step-${where}`}>
             { this.renderStep(this.state.where) }

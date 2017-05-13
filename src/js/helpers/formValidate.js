@@ -1,43 +1,55 @@
-export default (where, user) => {
-  const obj = {};
-  let data;
-  switch (where) {
-    case 0:
-      data = this.nameField.value.trim();
-      obj.type = data === '' ? 'error' : 'ok';
-      obj.name = 'name';
-      obj.field = this.nameField;
-      obj.value = data;
-      return obj;
-    case 1:
-      data = user.service;
-      obj.type = typeof data === 'undefined' ? 'error' : 'ok';
-      obj.name = 'service';
-      obj.value = data || '';
-      return obj;
-    case 2:
-      data = this.emailField.value.trim();
-      obj.type = data === '' ? 'error' : 'ok';
-      obj.name = 'email';
-      obj.field = this.emailField;
-      obj.value = data;
-      return obj;
-    case 3:
-      data = this.messageField.value.trim();
-      obj.type = 'ok';
-      obj.name = 'message';
-      obj.field = this.messageField;
-      obj.value = data;
-      return obj;
-    case 4: // eslint-disable-line
-      data = this.bottoField.value.trim();
-      const notok = data === '' || data !== 'Tokyo';
-      obj.type = notok ? 'error' : 'ok';
-      obj.name = 'botto';
-      obj.field = this.bottoField;
-      obj.value = data;
-      return obj;
-    default:
-      return true;
+const validationFunctions = {
+  notEmpty(value) {
+    return value !== '';
+  },
+  equals(value, expected) {
+    return value === expected;
+  },
+  validEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //eslint-disable-line
+    return re.test(email);
+  },
+  selected(value) {
+    return !!value;
+  },
+};
+
+const config = {
+  name: [{
+    rule: 'notEmpty',
+    errorMessage: 'I can\'t talk to strangers.',
+  }],
+  service: [{
+    rule: 'selected',
+    errorMessage: 'There\'s got to be something that you want',
+  }],
+  message: [],
+  email: [{
+    rule: 'notEmpty',
+    errorMessage: 'No the right place for existential riddles',
+  }, {
+    rule: 'validEmail',
+    errorMessage: 'Double check your email',
+  }],
+  botto: [{
+    rule: 'notEmpty',
+    errorMessage: 'Are you a bot?',
+  }, {
+    rule: 'equals',
+    expected: 'Tokyo',
+    errorMessage: 'Really?',
+  }],
+};
+
+export default ({ field, name, value }) => { // eslint-disable-line
+  const fieldConfig = config[name];
+  if (!fieldConfig) {
+    return { valid: true, msg: '' };
   }
+  return fieldConfig.map((item) => {
+    const isValid = item.rule === 'equals' ?
+      validationFunctions[item.rule](value, item.expected) :
+      validationFunctions[item.rule](value);
+    return isValid ? { valid: true, msg: '' } : { valid: false, msg: item.errorMessage };
+  });
 };
