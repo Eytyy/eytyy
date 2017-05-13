@@ -82,6 +82,14 @@ server.register([
     },
   });
 
+  server.ext('onPostHandler', (request, reply) => {
+    const response = request.response;
+    if (response.isBoom && response.output.statusCode === 404) {
+      return reply.file('./dist/index.html');
+    }
+    return reply.continue();
+  });
+
   server.start(() => {
     console.log(`Running on: ${server.info.uri}`);
   });

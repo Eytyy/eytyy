@@ -7,7 +7,7 @@ const BottyDefaults = ({ where, user, error, errorMsg }) => {
   }
   switch (where) {
     case 0:
-      return <span>{'"Hi! What should I call you?"'}</span>;
+      return <span>{'"Hi! What\'s your name?"'}</span>;
     case 1:
       return <span>{`"Nice to meet you ${user.name.split(' ')[0]}. Choose a service:"`}</span>;
     case 2:
