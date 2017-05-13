@@ -17,7 +17,7 @@ const validationFunctions = {
 const config = {
   name: [{
     rule: 'notEmpty',
-    errorMessage: ['A mother always knows.', 'Consult with your passport'],
+    errorMessage: ['A mother always knows.', 'Consult with your passport', 'What\'s your name?'],
   }],
   service: [{
     rule: 'selected',
