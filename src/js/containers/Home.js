@@ -243,7 +243,7 @@ class Home extends Component {
               doYouWantToTalk ?
                 <Contact /> :
                 <p>
-                  Want to start a project?{' '}
+                  Want to start a new project?{' '}
                   <Link className="contact-link" to="/contact">click here</Link>
                 </p>
            }

@@ -605,7 +605,7 @@ projects-nav-btn {
 input,
 textarea,
 button {
-  font-family: "SCP";
+  font-family: "SCPR";
   font-size: inherit;
   border: 0;
   padding: 0;
@@ -625,16 +625,15 @@ textarea {
   resize: none;
   padding: 10px;
   background: #f2f2f2;
-  font-size: 16px;
   border: 0;
   width: 100%; }
 
 button {
   cursor: pointer;
-  margin-right: 5px; }
+  margin-right: 15px; }
 
 .step {
-  margin-right: 40px;
+  margin-right: 20px;
   display: inline-block; }
 
 button,
@@ -650,7 +649,8 @@ button,
 
 .service-item {
   display: inline-block;
-  cursor: pointer; }
+  cursor: pointer;
+  font-family: "SCPR"; }
   .service-item--active {
     background: blue;
     color: #FFF; }
@@ -673,8 +673,10 @@ button,
   top: 0.2em; }
 
 .botty {
-  margin-bottom: 10px;
-  font-family: "SCPR"; }
+  margin-bottom: 10px; }
+
+.form-btns {
+  display: inline-block; }
 
 .external-link:after,
 .external-link:before {

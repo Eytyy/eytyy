@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import Service from './Service';
 
 class Contact extends Component {
@@ -22,6 +22,7 @@ class Contact extends Component {
         email: undefined,
         service: undefined,
         message: undefined,
+        botto: undefined,
       },
     };
     this.updateStep = this.updateStep.bind(this);
@@ -48,6 +49,26 @@ class Contact extends Component {
   onNextClick(e) {
     this.updateStep('next');
     e.preventDefault();
+  }
+  submitContact() {
+    const { user } = this.state;
+    fetch('/api/contact', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      // make sure to serialize your JSON body
+      body: JSON.stringify({
+        name: user.name,
+        service: user.service,
+        email: user.email,
+        message: user.message,
+      }),
+    }).then((response) => {
+      browserHistory.push('/');
+      console.log(response);
+    });
   }
   handleKeyStrokes(event) {
     const { keyCode } = event;
@@ -86,6 +107,21 @@ class Contact extends Component {
         obj.field = this.emailField;
         obj.value = data;
         return obj;
+      case 3:
+        data = this.messageField.value.trim();
+        obj.type = 'ok';
+        obj.name = 'message';
+        obj.field = this.messageField;
+        obj.value = data;
+        return obj;
+      case 4: // eslint-disable-line
+        data = this.bottoField.value.trim();
+        const notok = data === '' || data !== 'Tokyo';
+        obj.type = notok ? 'error' : 'ok';
+        obj.name = 'botto';
+        obj.field = this.bottoField;
+        obj.value = data;
+        return obj;
       default:
         return true;
     }
@@ -93,10 +129,11 @@ class Contact extends Component {
   updateStep(dir) {
     const { where } = this.state;
     const validation = this.validate();
-
     if (validation.type === 'error') {
-      validation.field.classList.add('error');
-      validation.field.dataset.msg = validation.errorMsg;
+      if (validation.field) {
+        validation.field.classList.add('error');
+        validation.field.dataset.msg = validation.errorMsg;
+      }
       return false;
     }
     if (validation.field) {
@@ -104,9 +141,10 @@ class Contact extends Component {
       validation.field.dataset.msg = '';
     }
 
-    if ((where === 3 && dir === 'next') || (where === 0 && dir === 'prev')) {
+    if ((where === 5 && dir === 'next') || (where === 0 && dir === 'prev')) {
       return false;
     }
+
     const user = {
       ...this.state.user,
       [validation.name]: validation.value,
@@ -116,6 +154,9 @@ class Contact extends Component {
       where: dir === 'next' ? where + 1 : where - 1,
       user,
     });
+    if (where === 4) {
+      this.submitContact();
+    }
     return true;
   }
   renderStep(step) { // eslint-disable-line
@@ -130,7 +171,6 @@ class Contact extends Component {
                 return this.nameField;
               }}
               type="text"
-              placeholder="Your name?"
             />
           </div>);
       case 1:
@@ -178,8 +218,17 @@ class Contact extends Component {
               rows="4"
             />
           </div>);
+      case 4:
+        return (
+          <input
+            ref={(node) => {
+              this.bottoField = node;
+              return this.bottoField;
+            }}
+            type="text"
+          />);
       default:
-        return <div />;
+        return null;
     }
   }
   render() {
@@ -189,35 +238,50 @@ class Contact extends Component {
         case 0:
           return <span>{'"Hi! What should I call you?"'}</span>;
         case 1:
-          return <span>{`Nice to meet you ${user.name.split(' ')[0]}. Choose a service:`}</span>;
+          return <span>{`"Nice to meet you ${user.name.split(' ')[0]}. Choose a service:"`}</span>;
         case 2:
           return <span>{'"What is your email?"'}</span>;
         case 3: //eslint-disable-line
-          const service = user.service === 'development' ? 'develop' : 'design';
+          const service = user.service === 'development' ? 'build' : 'design';
           return (
-            `Okay ${user.name.split(' ')[0]}! You want me to ${service} something for you.
-            If there are more details that you'd like to add, please use the message field below. Once you're done, click send and
-            I'll get back to you on your email ${user.email} within a couple of days.`
+            `"Okay ${user.name.split(' ')[0]}! You want me to ${service} something for you. 
+            Is there anything else you'd like to add?"`
+          );
+        case 4: //eslint-disable-line
+          return (
+            <span>{'"What\'s the capital of Japan?"'}</span>
+          );
+        case 5: //eslint-disable-line
+          return (
+            <span>{'"Thank you! Will get back to you soon."'}</span>
           );
         default:
           return null;
       }
     };
+    const buttons = () => {
+      if (where === 5) {
+        return null;
+      }
+      const navBtn = where === 4 ?
+        <button className="send-msg" onClick={this.onNextClick}>👌</button> :
+        <button className="next-step" onClick={this.onNextClick}>→</button>;
+      return (
+        <div className="form-btns">
+          { navBtn }
+          <Link className="form-link" to="/">&times;</Link>
+        </div>);
+    };
     return (
       <div>
-        <form className="contactForm" action="">
+        <form className="contactForm" action="" onSubmit={() => false} >
           <p className="botty">
             <span className="eytyy">🤖</span> { whereAmi() }
           </p>
           <div className={`step step-${where}`}>
             { this.renderStep(this.state.where) }
           </div>
-          {
-            where === 3 ?
-              <button className="send-msg" onClick={this.onClickSend}>send</button> :
-              <button className="next-step" onClick={this.onNextClick}>→</button>
-          }{' '}
-          <Link className="form-link" to="/">&times;</Link>
+          { buttons() }{' '}
         </form>
       </div>
     );
