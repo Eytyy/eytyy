@@ -632,7 +632,7 @@ button {
   margin-right: 30px; }
 
 .step {
-  margin-right: 20px;
+  margin-right: 40px;
   display: inline-block;
   vertical-align: bottom; }
 
@@ -678,6 +678,10 @@ button,
   margin-right: 15px; }
 
 .botty {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: baseline;
+      align-items: baseline;
   margin-bottom: 10px; }
 
 .form-btns {
