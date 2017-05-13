@@ -76,6 +76,9 @@ main {
     height: auto;
     transform: translate(calc(-100% - 40px), 1.2em);
   }
+  @include respond-to(large) {
+    transform: translate(calc(-100% - 80px), 1.2em);
+  }  
 }
 
 .footer {
