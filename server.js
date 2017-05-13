@@ -1,22 +1,16 @@
 const Hapi = require('hapi');
 const Inert = require('inert');
 const Good = require('good');
-// const Joi = require('joi');
 const nodemailer = require('nodemailer');
-
+const ses = require('nodemailer-ses-transport');
 const port = process.env.PORT || 3000;
 const server = new Hapi.Server();
 
-const emailConfig = {
-  service: 'gmail',
-  auth: {
-    user: process.env.mailId,
-    pass: process.env.mailSecret,
-  },
-};
-
 const emailDestination = 'e.tayyem@gmail.com';
-const transport = nodemailer.createTransport(emailConfig);
+const transport = nodemailer.createTransport(ses({
+  accessKeyId: process.env.aws_access_key_id,
+  secretAccessKey: process.env.aws_secret_access_key,
+}));
 
 function emailTemplate(user) {
   const msg = user.message ? `He wrote "${user.message}".` : '';
@@ -65,7 +59,7 @@ server.register([
     path: '/api/contact',
     handler(request, reply) {
       const envelope = {
-        from: `"${request.payload.name} 👻" <${emailDestination}>`, // sender address
+        from: `"👻" <${emailDestination}>`, // sender address
         to: emailDestination,
         subject: `🤖: Submission from ${request.payload.name}`, // Subject line
         text: emailTemplate(request.payload),
