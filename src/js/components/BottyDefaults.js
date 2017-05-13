@@ -13,10 +13,8 @@ const BottyDefaults = ({ where, user, error, errorMsg }) => {
     case 2:
       return <span>{'"What is your email?"'}</span>;
     case 3: //eslint-disable-line
-      const service = user.service === 'development' ? 'build' : 'design';
       return (
-        <span>{`"Okay ${user.name.split(' ')[0]}! You want me to ${service} something for you. 
-        Is there anything else you'd like to add?"`}</span>
+        <span>{"Is there anything else you'd like to add?"}</span>
       );
     case 4:
       return (
