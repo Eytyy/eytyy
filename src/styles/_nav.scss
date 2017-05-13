@@ -19,6 +19,9 @@
       background: none;
     }    
   }  
+  @include respond-to(large) {
+    width: 30px;
+  }  
 }
 
 .close-projects {
