@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 import Service from './Service';
+import BottyDefaults from './BottyDefaults';
 import validate from '../helpers/formValidate';
 
 class Contact extends Component {
@@ -103,6 +104,7 @@ class Contact extends Component {
         break;
     }
     const errors = validate(inputObj).filter(item => !item.valid);
+
     if (errors.length > 0) {
       const { msg } = errors[0];
       this.showError(msg);
@@ -119,15 +121,13 @@ class Contact extends Component {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      // make sure to serialize your JSON body
       body: JSON.stringify({
         name: user.name,
         service: user.service,
         email: user.email,
         message: user.message,
       }),
-    }).then((response) => {
-      console.log(response);
+    }).then(() => {
       browserHistory.push('/');
     });
   }
@@ -156,7 +156,9 @@ class Contact extends Component {
       errorMsg: '',
       user,
     });
-
+    if (where === 4) {
+      this.submitContact();
+    }
     return true;
   }
   renderStep(step) { // eslint-disable-line
@@ -233,35 +235,6 @@ class Contact extends Component {
   }
   render() {
     const { where, user, error, errorMsg } = this.state;
-    const whereAmi = () => {
-      if (error) {
-        return <span>{errorMsg}</span>;
-      }
-      switch (where) {
-        case 0:
-          return <span>{'"Hi! What should I call you?"'}</span>;
-        case 1:
-          return <span>{`"Nice to meet you ${user.name.split(' ')[0]}. Choose a service:"`}</span>;
-        case 2:
-          return <span>{'"What is your email?"'}</span>;
-        case 3: //eslint-disable-line
-          const service = user.service === 'development' ? 'build' : 'design';
-          return (
-            `"Okay ${user.name.split(' ')[0]}! You want me to ${service} something for you. 
-            Is there anything else you'd like to add?"`
-          );
-        case 4: //eslint-disable-line
-          return (
-            <span>{'"What\'s the capital of Japan?"'}</span>
-          );
-        case 5: //eslint-disable-line
-          return (
-            <span>{'"Thank you! Will get back to you soon."'}</span>
-          );
-        default:
-          return null;
-      }
-    };
     const buttons = () => {
       if (where === 5) {
         return null;
@@ -279,7 +252,8 @@ class Contact extends Component {
       <div>
         <form className="contactForm" action="" onSubmit={() => false} >
           <p className="botty">
-            <span className="eytyy">{ where === 5 ? '🤘' : '🤖'}</span> { whereAmi() }
+            <span className="eytyy">{ where === 5 ? '🤘' : '🤖'}</span>
+            <BottyDefaults user={user} where={where} error={error} errorMsg={errorMsg} />
           </p>
           <div className={`step step-${where}`}>
             { this.renderStep(this.state.where) }

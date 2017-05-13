@@ -3,7 +3,7 @@ const validationFunctions = {
     return value !== '';
   },
   equals(value, expected) {
-    return value === expected;
+    return value.toUpperCase() === expected.toUpperCase();
   },
   validEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //eslint-disable-line
@@ -17,27 +17,27 @@ const validationFunctions = {
 const config = {
   name: [{
     rule: 'notEmpty',
-    errorMessage: 'I can\'t talk to strangers.',
+    errorMessage: ['A mother always knows.', 'Consult with your passport'],
   }],
   service: [{
     rule: 'selected',
-    errorMessage: 'There\'s got to be something that you want',
+    errorMessage: ['Three doesn\'t qualify as a tyranny of choice.', '<a href="https://www.youtube.com/watch?v=vCGtkDzELAI" target="_blank">Maybe this can help?</a>'],
   }],
   message: [],
   email: [{
     rule: 'notEmpty',
-    errorMessage: 'No the right place for existential riddles',
+    errorMessage: ['Not the right place for existential riddles.'],
   }, {
     rule: 'validEmail',
-    errorMessage: 'Double check your email',
+    errorMessage: ['<a href="https://www.google.jo/search?q=what+is+an+email&oq=what+is+an+email&aqs=chrome..69i57j0l5.4591j0j4&sourceid=chrome&ie=UTF-8" target="_blank">email</a>', 'Nope.', 'Try harder!'],
   }],
   botto: [{
     rule: 'notEmpty',
-    errorMessage: 'Are you a bot?',
+    errorMessage: ['Are you a bot?'],
   }, {
     rule: 'equals',
     expected: 'Tokyo',
-    errorMessage: 'Really?',
+    errorMessage: ['<a href="https://www.tripadvisor.com/Travel_Guide-g298184-Tokyo_Tokyo_Prefecture_Kanto.html" target="_blank">つづく</a>?', 'Are you okay?'],
   }],
 };
 
@@ -50,6 +50,12 @@ export default ({ field, name, value }) => { // eslint-disable-line
     const isValid = item.rule === 'equals' ?
       validationFunctions[item.rule](value, item.expected) :
       validationFunctions[item.rule](value);
-    return isValid ? { valid: true, msg: '' } : { valid: false, msg: item.errorMessage };
+    const rnum = Math.floor(Math.random() * ((item.errorMessage.length - 1) + 1));
+    const randomMessage = item.errorMessage[rnum];
+    console.log(randomMessage);
+    console.log(rnum);
+    return isValid ?
+      { valid: true, msg: '' } :
+      { valid: false, msg: randomMessage };
   });
 };
