@@ -3,7 +3,7 @@ import Project from './Project';
 
 const Work = ({ projects, updateUI, inTransition }) => (
   <div className="section section--work">
-    <p className="work-text">Let’s cut through the buzzword jargon bullshit. Here is my work: </p>
+    <p className="work-text">Let’s cut to the chase. Here is my work: </p>
     <ul className="section__list projects-list">
       {
         projects.map(project =>
