@@ -128,7 +128,9 @@ class Contact extends Component {
         message: user.message,
       }),
     }).then(() => {
-      browserHistory.push('/');
+      setTimeout(() => {
+        browserHistory.push('/');
+      }, 3000);
     });
   }
   showError(msg) {
@@ -252,8 +254,8 @@ class Contact extends Component {
       <div>
         <form className="contactForm" action="" onSubmit={() => false} >
           <p className="botty">
-            <span className="eytyy">{ where === 5 ? '🤘' : '🤖'}</span>
             <BottyDefaults user={user} where={where} error={error} errorMsg={errorMsg} />
+            <span className="eytyy">{ where === 5 ? '🤘' : ''}</span>
           </p>
           <div className={`step step-${where}`}>
             { this.renderStep(this.state.where) }

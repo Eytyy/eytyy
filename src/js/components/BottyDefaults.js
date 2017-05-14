@@ -1,28 +1,28 @@
 import React, { PropTypes } from 'react';
 
-const BottyDefaults = ({ where, user, error, errorMsg }) => {
+const BottyDefaults = ({ where, error, errorMsg }) => {
   const FormattedHtml = () => ({ __html: errorMsg });
   if (error) {
     return <span dangerouslySetInnerHTML={FormattedHtml()} />;
   }
   switch (where) {
     case 0:
-      return <span>{'"Hi! What\'s your name?"'}</span>;
+      return <span>{'What\'s your name?'}</span>;
     case 1:
-      return <span>{`"Nice to meet you ${user.name.split(' ')[0]}. Choose a service:"`}</span>;
+      return <span>{'Choose a service:'}</span>;
     case 2:
-      return <span>{'"What is your email?"'}</span>;
+      return <span>{'What is your email?'}</span>;
     case 3: //eslint-disable-line
       return (
-        <span>{"Is there anything else you'd like to add?"}</span>
+        <span>{'Is there anything else you\'d like to add?'}</span>
       );
     case 4:
       return (
-        <span>{'"What\'s the capital of Japan?"'}</span>
+        <span>{'What\'s the capital of Japan?'}</span>
       );
     case 5:
       return (
-        <span>{'"Thank you! Will get back to you soon."'}</span>
+        <span>{'Thank you! Will get back to you soon.'}</span>
       );
     default:
       return null;
