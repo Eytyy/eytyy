@@ -20,7 +20,9 @@
     }    
   }  
   @include respond-to(large) {
-    width: 30px;
+    .projects-nav {
+      width: 30px;
+    }    
   }  
 }
 
