@@ -57,6 +57,14 @@ server.register([
   });
 
   server.route({
+    method: 'GET',
+    path: '/sitemap',
+    handler: {
+      file: './dist/sitemap.txt',
+    },
+  });
+
+  server.route({
     method: 'POST',
     path: '/api/contact',
     handler(request, reply) {
